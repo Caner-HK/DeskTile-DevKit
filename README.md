@@ -24,6 +24,7 @@ DeskTile DevKit supports JavaScript and Native C++ application development, with
 ## Features
 
 - Create, build and validate `.dtapp` application packages.
+- Check the development environment, inspect packages and install on devices through interactive VS Code panels.
 - Use SDK type declarations, manifest validation and component completion in VS Code.
 - Run JavaScript and host-built Native applications locally to preview interactions, themes, languages and status-bar states.
 - Convert images and create application icons, notification icons and assets for different tile sizes.

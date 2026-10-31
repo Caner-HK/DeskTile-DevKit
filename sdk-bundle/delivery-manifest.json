@@ -2110,8 +2110,8 @@
     },
     {
       "path": "sdk/include/desktile/navigation.hpp",
-      "bytes": 8444,
-      "sha256": "129af27b2c2c5f1301591b140095f8798b138aa7c924e91d3750ba39be56801c"
+      "bytes": 8507,
+      "sha256": "c5c9d6d6070c646fa1a6ef53a3caa78f3d0a33d37ac1a8b69c07a1da983022eb"
     },
     {
       "path": "sdk/include/desktile/notifications.hpp",

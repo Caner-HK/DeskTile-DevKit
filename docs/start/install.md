@@ -24,7 +24,7 @@ DeskTile DevKit 使用 SDK 1.0。先准备开发电脑，再选择应用类型�
 
 在 VS Code 的扩展菜单中选择“从 VSIX 安装”，选择随开发套件提供的 `desktile-devkit-1.0.0-win32-x64.vsix`。安装后打开命令面板，输入 `DeskTile DevKit`。
 
-打开一个应用文件夹后，资源管理器中会出现 DeskTile DevKit 面板。首次构建前执行“Check Development Environment”，结果显示在输出面板。
+打开一个应用文件夹后，资源管理器中会出现 DeskTile DevKit 面板。首次构建前执行“Check Development Environment”，在工具面板查看检查结果，并通过按钮配置编译器、Python 和依赖。面板也提供安装包检查及设备安装，详见[开发工具](../tools/)。
 
 ## 开发依赖
 
@@ -32,7 +32,7 @@ JavaScript 应用构建需要 Python 3.10 或以上。命令行还需要 Node.js
 
 串口监视和启动指令需要 Python `pyserial`，签名构建需要 `cryptography`。可以使用 `python -m pip install pyserial cryptography` 安装。本地交互预览使用套件附带的 Windows x64 宿主，运行 JavaScript 应用及原生组件；静态截图使用同一套原生绘制组件。
 
-Native C++ 应用还需要 ESP32-S3 Xtensa 编译工具链，通过 `desktile.compilerPath` 指定 `xtensa-esp32s3-elf-g++`。Native 安装包包含目标处理器机器码，目标型号应与设备匹配。
+Native C++ 应用还需要 ESP32-S3 Xtensa 编译工具链。环境检查会自动查找常用安装目录；可点击「查找工具链」选择安装目录，或点击「选择编译器」指定 `xtensa-esp32s3-elf-g++` 并保存到 `desktile.compilerPath`。工具会验证目标架构与配套 strip 程序；「工具链安装指南」提供官方安装入口。Native 安装包包含目标处理器机器码，目标型号应与设备匹配。
 
 ## SDK 位置
 

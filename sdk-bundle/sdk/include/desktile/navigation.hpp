@@ -2,7 +2,6 @@
 #include "geometry.hpp"
 #include <algorithm>
 #include <cstdint>
-#include <cmath>
 
 namespace desktile::sdk {
 enum class NavigationMode : uint8_t { Hidden, Icons, Labels };
@@ -143,8 +142,8 @@ public:
         if(moving_){
             const float t=now>=started_?std::min(1.0f,float(now-started_)/duration_):0.0f;
             const float amount=navigationProgress(t);
-            width_=fromWidth_+int(std::lround((targetWidth_-fromWidth_)*amount));
-            inset_=fromInset_+int(std::lround((targetInset_-fromInset_)*amount));
+            width_=fromWidth_+roundedOffset((targetWidth_-fromWidth_)*amount);
+            inset_=fromInset_+roundedOffset((targetInset_-fromInset_)*amount);
             if(t>=1.0f){width_=targetWidth_;inset_=targetInset_;moving_=false;}
         }
         const int nextInset=target.content.x-target.panel.x;
@@ -166,6 +165,7 @@ public:
         return layout;
     }
 private:
+    static int roundedOffset(float value){return int(value+(value<0.0f?-0.5f:0.5f));}
     int width_=0,inset_=0,targetWidth_=0,targetInset_=0,fromWidth_=0,fromInset_=0;
     uint64_t started_=0;
     uint32_t duration_=0;

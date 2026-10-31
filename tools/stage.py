@@ -74,7 +74,7 @@ def main():
     import cairosvg
     cairosvg.svg2png(bytestring=mark.replace('<svg ','<svg fill="#ff9900" ',1).encode(),output_width=128,output_height=128,write_to=str(ROOT/'assets/logo.png'))
     copy(ROOT/'assets/logo.png',public/'favicon.png')
-    manifest={'product':'DeskTile SDK','sdk':'1.0','devkit':'1.0.0','files':[]}
+    manifest={'product':'DeskTile SDK','sdk':'1.0','devkit':json.loads((ROOT/'package.json').read_text(encoding='utf-8'))['version'],'files':[]}
     for p in sorted(DEST.rglob('*')):
         if p.is_file() and p.name!='delivery-manifest.json':
             manifest['files'].append({'path':p.relative_to(DEST).as_posix(),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})

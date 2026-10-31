@@ -3,6 +3,11 @@
   "displayName": "DeskTile DevKit",
   "description": "%description%",
   "version": "1.0.0",
+  "desktileSdk": {
+    "toolRevision": 1,
+    "default": "1.0",
+    "supported": ["1.0"]
+  },
   "publisher": "caner",
   "repository": {"type":"git","url":"https://github.com/Caner-HK/DeskTile-DevKit.git"},
   "homepage": "https://caner-hk.github.io/DeskTile-DevKit/",
@@ -50,7 +55,7 @@
     "virtualWorkspaces": false
   },
   "scripts": {
-    "test": "node --test --test-concurrency=1 test/core.test.js test/device.test.js test/preview-config.test.js test/navigation.test.mjs test/interactive.test.js test/preview-fonts.test.js test/project-location.test.js test/assets.test.js test/localization.test.js test/preview-network.test.js test/preview-notifications.test.js test/preview-files.test.js test/file-transfer.test.js"
+    "test": "node --test --test-concurrency=1 test/core.test.js test/device.test.js test/preview-config.test.js test/navigation.test.mjs test/interactive.test.js test/preview-fonts.test.js test/project-location.test.js test/assets.test.js test/localization.test.js test/preview-network.test.js test/preview-notifications.test.js test/preview-files.test.js test/file-transfer.test.js test/toolchain.test.js test/workflows.test.js"
   },
   "contributes": {
     "commands": [

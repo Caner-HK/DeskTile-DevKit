@@ -11,6 +11,30 @@ The VS Code extension and `desktile` CLI share the SDK, templates and package bu
 
 Explorer offers project creation, environment checks, build, preview, package inspection, USB installation, device metrics, SD copying, launch, serial monitoring, documentation and SDK selection. Commands are also available in the command palette. Builds can be canceled; details go to the DeskTile DevKit output channel.
 
+### Tools panel
+
+**Check environment**, **Inspect package** and **Install on device** open one VS Code editor tab with three internal tabs. Each command selects its own tab. Package inspection and installation share the selected package.
+
+- **Environment** reports the selected SDK, Python, Node.js, Native compiler, serial dependency, image conversion and interactive preview. Choose Python or a compiler, search a toolchain directory, install Python dependencies or select an SDK. Expand Details for execution output.
+- **Package inspection** shows the localized application name, package ID, version and code, runtime, SDK target, permissions, size and files. Results appear after the file table and SHA-256 integrity checks pass. The device performs signature trust verification.
+- **Device installation** lets you choose a package, refresh/select a serial port and start installation. Progress includes transfer percentage, device verification, Native confirmation and the final result. Cancel or close stops the computer-side job; an installation already started on the device may continue.
+
+Enable USB debugging input and output and release other programs using the serial port. An already-installed version is reported separately. The CLI retains the corresponding `doctor`, `check` and `install` commands.
+
+### Native device compiler
+
+Device packages require `xtensa-esp32s3-elf-g++` and its matching `xtensa-esp32s3-elf-strip` in the same directory. Tools check explicit configuration, PATH, `IDF_TOOLS_PATH`, the user's `.espressif/tools` and common Espressif installation directories. Validation checks that the compiler runs and targets Xtensa.
+
+If the toolchain is missing, open Environment and choose **Find toolchain** to search its installation directory, or **Choose compiler** to select the executable. A validated selection is saved to the VS Code user setting `desktile.compilerPath`. **Install toolchain** opens Espressif's official Windows setup guide. Install the ESP32-S3 tools, then check again. CLI `--compiler` or `DESKTILE_COMPILER` settings take precedence over automatic discovery.
+
+A toolchain error during Native builds opens Environment with **Retry build**. Native desktop preview uses MSVC; device packages use Xtensa. Configure each environment for its own target.
+
+### Tool and SDK versions
+
+DevKit tool versions and SDK versions are recorded separately. This edition is **SDK 1.0, Tools 1**, with the VS Code/npm package version **1.0.0**. SDK **1.0** is bundled and supported. The panel header, `desktile --version`, environment results and release manifests show the SDK and tool revision separately.
+
+Tool revisions increase within each SDK series: SDK 1.0 Tools 1, SDK 1.0 Tools 2, and so on. A new SDK series starts with Tools 1. This synchronization keeps Tools 1; subsequent updates increment the tool revision and corresponding package version. Each tool release declares its supported SDKs. Applications select their SDK through `sdk.target` and manage their own `version` and `version_code`. Updating tools preserves the saved SDK path; developers can explicitly select another SDK supported by that release.
+
 ### Interface language
 
 The extension follows VS Code by default. **Interface language** selects automatic, Simplified Chinese or English for extension panels and prompts; reload afterward. Command-palette titles follow the editor language. The preview application's system language is a separate preview setting.

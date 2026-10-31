@@ -2,7 +2,9 @@
 'use strict';
 const core=require('../lib/core');
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http');
-const HELP=`DeskTile DevKit 1.0 (SDK 1.0)
+const metadata=require('../package.json');
+const VERSION=`DeskTile DevKit ${metadata.version} (SDK ${metadata.desktileSdk.default}, Tools ${metadata.desktileSdk.toolRevision})`;
+const HELP=`${VERSION}
   desktile doctor [--sdk directory] [--python executable]
   desktile new directory --id com.example.app --name "My app" --author "Author" [--kind javascript|native]
   desktile build [directory] [--output file.dtapp] [--compiler executable] [--signing-key file]
@@ -28,7 +30,7 @@ async function main(argv){
  for(let i=0;i<argv.length;i++){const a=argv[i];if(!a.startsWith('--')){pos.push(a);continue;}const k=a.slice(2);if(['json','replace','apply'].includes(k))o[k]=true;else if(values.has(k)&&argv[i+1]&&!argv[i+1].startsWith('--'))o[k.replace(/-([a-z])/g,(_,x)=>x.toUpperCase())]=argv[++i];else throw new core.DevKitError('ARGUMENT',`Unknown or incomplete option: ${a}`);}
  o.log=s=>process.stderr.write(s);const controller=new AbortController();o.signal=controller.signal;process.once('SIGINT',()=>controller.abort());
  let result;
- if(command==='--version'){process.stdout.write('DeskTile DevKit 1.0.0 (SDK 1.0)\n');return;}
+ if(command==='--version'){process.stdout.write(VERSION+'\n');return;}
  if(!command||['help','--help'].includes(command)){process.stdout.write(HELP);return;}
  if(pos.length>(['push','pull'].includes(command)?2:1))throw new core.DevKitError('ARGUMENT','Unexpected positional argument.');
  if(['push','pull'].includes(command))result=await require('../lib/file-transfer').transfer(command,pos[0],pos[1],o);

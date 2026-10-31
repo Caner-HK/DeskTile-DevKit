@@ -10,9 +10,10 @@ test('language resolution, interpolation and fallback',()=>{
 test('both panels render translated controls and valid scripts',()=>{
  for(const language of ['en','zh-cn']){
   i18n.configure(language);
-  for(const name of ['asset-panel','device-panel']){
+  for(const name of ['asset-panel','device-panel','workflow-panel']){
    const html=require('../lib/'+name).html('test');
-   assert.ok(html.includes(language==='en'?(name==='asset-panel'?'Save to project':'Free memory'):(name==='asset-panel'?'保存到项目':'可用内存')));
+   const expected={'asset-panel':['Save to project','保存到项目'],'device-panel':['Free memory','可用内存'],'workflow-panel':['Package inspection','检查安装包']};
+   assert.ok(html.includes(expected[name][language==='en'?0:1]));
    new vm.Script(html.match(/<script nonce="test">([\s\S]*?)<\/script>/)[1]);
    assert.ok(!html.includes(String.fromCharCode(183)));
   }

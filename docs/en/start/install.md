@@ -22,7 +22,7 @@ Choose the VSIX for development in VS Code, or the complete ZIP for standalone t
 
 ## VS Code extension
 
-Choose **Install from VSIX** in VS Code and select `desktile-devkit-1.0.0-win32-x64.vsix`. Open an application folder to display DeskTile DevKit in Explorer. Run **Check Development Environment** before building; results appear in the output panel.
+Choose **Install from VSIX** in VS Code and select `desktile-devkit-1.0.0-win32-x64.vsix`. Open an application folder to display DeskTile DevKit in Explorer. Run **Check Development Environment** before building. The tools panel displays results and provides Python, compiler and dependency setup actions. It also includes package inspection and device installation; see [Development tools](../tools/).
 
 The extension follows the VS Code display language. **Interface language** selects automatic, Simplified Chinese or English for panels and prompts. Reload the window after changing it. Command-palette titles follow VS Code itself.
 
@@ -30,7 +30,7 @@ The extension follows the VS Code display language. **Interface language** selec
 
 JavaScript builds need Python 3.10 or newer. The CLI also needs Node.js 20 or newer. Set `desktile.pythonPath` to select Python. Install `pyserial` for serial access and `cryptography` for signing with `python -m pip install pyserial cryptography`.
 
-The local preview includes a Windows x64 host with QuickJS and the native component renderer. Native C++ device builds require the ESP32-S3 Xtensa toolchain; set `desktile.compilerPath` to `xtensa-esp32s3-elf-g++`. Native local preview requires the Visual Studio C++ desktop workload described in [tools](../tools/).
+The local preview includes a Windows x64 host with QuickJS and the native component renderer. Native C++ device builds require the ESP32-S3 Xtensa toolchain. Environment checks common installation directories automatically. Use **Find toolchain** or **Choose compiler** to save a validated `xtensa-esp32s3-elf-g++` to `desktile.compilerPath`. Validation checks the target and matching strip executable. **Install toolchain** opens the official setup guide. Native local preview requires the Visual Studio C++ desktop workload described in [tools](../tools/).
 
 ## SDK location
 
