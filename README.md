@@ -66,7 +66,7 @@ desktile install .\my-app\dist\com.example.myapp.dtapp --port COM4
 
 ## 文档与示例
 
-- [应用开发指南](https://caner-hk.github.io/DeskTile-DevKit/guide/)
+- [应用开发指南](https://caner-hk.github.io/DeskTile-DevKit/guide/project.html)
 - [设计与组件](https://caner-hk.github.io/DeskTile-DevKit/components/)
 - [API 参考](https://caner-hk.github.io/DeskTile-DevKit/api/)
 - [命令行参考](https://caner-hk.github.io/DeskTile-DevKit/tools/cli.html)
