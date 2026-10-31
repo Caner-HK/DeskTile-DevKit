@@ -4,7 +4,7 @@
 
 ## 文档
 
-使用 Node.js 22 和 `npm ci --prefix docs` 安装锁定的依赖。`npm run build --prefix docs` 输出 `site/`。
+使用 Node.js 22 和 npm 11.16.0，通过 `npm ci --prefix docs` 安装锁定的依赖。Pages 工作流也固定使用这个 npm 版本。`npm run build --prefix docs` 输出 `site/`。
 
 `DESKTILE_DOCS_BASE` 控制部署前缀；本地离线文档默认 `/`，项目 Pages 使用 `/DeskTile-DevKit/`。保持中文、英文导航和原有组件实例对应。构建后运行：
 
