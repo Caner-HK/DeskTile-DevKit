@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.svg" width="200" height="200" alt="DeskTile Logo">
+  <img src="assets/logo-readme.png" width="200" height="200" alt="DeskTile Logo">
 </p>
 
 <h1 align="center">DeskTile DevKit</h1>
