@@ -1,27 +1,20 @@
-# Changes
+# Changelog
 
-## 1.0.0
+## [1.0.0] - 2026-10-31
 
-本地预览按固定帧节奏调度，App Menu 移动复用像素缓存；加入 HTTP/HTTPS 异步请求、设备通知队列及点击回调、设备文件服务的目录和原子读写操作。JavaScript 与 Native 共享这些宿主服务。预览器设置支持三种语言、字体、缩放和状态栏模拟，并保存到本地配置目录。
+Initial public release of DeskTile DevKit for SDK 1.0.
 
-计时器示例保存最近启动的三个不同计时时长，默认 1、5、15 分钟；包含旧私有数据迁移和三语言快捷按钮。应用版本保持 1.0.0、version_code 1。
+### Added
 
-VS Code 插件提供中文与英文界面；SDK 文档提供完整中英文阅读顺序。设备工具支持 USB 安装、通过文件 App FTP 服务传输文件的 push/pull、串口会话和实机性能面板。
+- VS Code extension with Chinese and English interfaces, project creation, environment checks, application builds, manifest validation and SDK completion.
+- Command-line tools for JavaScript and Native C++ projects, `.dtapp` packaging, package validation and SD deployment.
+- Windows x64 interactive preview for JavaScript and host-built Native applications, including application menus, input, scrolling and local storage.
+- Preview settings for system language, theme, font, display scale and simulated status-bar values, with persistent local configuration.
+- Preview adapters for HTTP/HTTPS requests, notification queues and activation callbacks, user files, calendars and tasks.
+- Image conversion and icon editing tools with system-colored and original-color assets, notification icons and per-size tile previews.
+- USB application installation, application launch, serial monitoring and device performance visualization.
+- File upload and download commands through the device File app's FTP server.
+- Chinese and English SDK documentation, component examples, API references and downloadable Notes, Timer and ToDo application sources.
+- Apache-2.0 licensing for original DevKit content, with third-party license and attribution files.
 
-新增 PNG/SVG 图标与磁贴资源制作向导和 `desktile icon` 命令，支持系统着色、保留颜色、四种磁贴原生尺寸、通知图标、深浅预览与清单更新。补充固件串口调试命令表、发送方法、参数和适用条件。
-
-SDK 1.0 的 VS Code 项目入口、共享命令行核心、环境检查、项目创建、JavaScript 与 Native 构建、安装包完整性检查及 SD 部署。提供类型文件、Manifest Schema 和组件标签补全。
-
-包含 Windows x64 本地交互预览，运行实际 QuickJS 和原生组件，支持点击、滚动、计时、文本输入、应用菜单与本地存储。工具栏提供主题、布局边界、主机性能和绘制帧率控制。静态截图命令输出 800×480 深浅主题 PNG。
-
-创建项目采用父目录选择和项目文件夹名称输入。提供串口监视与轮转日志、已安装应用的启动诊断入口；VuePress 离线文档、搜索、设计指南、组件示例及当前 SDK 接口参考。
-
-自有套件采用 Apache-2.0，附带第三方许可清单。开发工具排除 GDS Transport 和 App 专用字体；设备继续保留 Transport Sans。预览工具栏采用电脑系统字体和扁平控件。
-
-图标工具改为 VS Code 编辑面板，支持应用、通知和四种尺寸磁贴的独立素材、系统着色或原色、留白调整及实时预览。保存后资源随应用打包为 `.dtapp`。
-
-补齐现有蓝牙桥接的全局类型、UUID 发现与读写订阅相关声明、连接访问权和配对事件类型。SDK ABI 保持 1.0。
-
-文档按开发流程、组件分类、系统服务和接口参考组织，所有页面提供目录与上级入口。组件说明包含真实渲染图、属性和使用示例；补充权限、文件、存储、网络、输入及共享数据指南。
-
-类型声明中的 UTF-8 编码结果与实际运行时保持一致。组件补全使用标记解析器支持的滚动与画布标签。
+[1.0.0]: https://github.com/Caner-HK/DeskTile-DevKit/releases/tag/v1.0.0
