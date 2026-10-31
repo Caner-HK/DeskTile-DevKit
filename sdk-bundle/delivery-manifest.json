@@ -470,8 +470,8 @@
     },
     {
       "path": "NOTICE",
-      "bytes": 575,
-      "sha256": "e0c6711eac0303eeadd66cc580fee2148f9619a10dd69ddb87ab18432289fe89"
+      "bytes": 535,
+      "sha256": "e0e71eb1d73053d6f7a9087e0b241ba453a5f525beaadca577557171e42f6137"
     },
     {
       "path": "resources/icons/catalog.json",
