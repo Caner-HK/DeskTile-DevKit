@@ -1,7 +1,7 @@
 # Dependencies and generated output
 node_modules/
-/build/
-/dist/
+build/
+dist/
 /site/
 **/.vuepress/.cache/
 **/.vuepress/.temp/
@@ -9,6 +9,7 @@ node_modules/
 __pycache__/
 *.py[cod]
 *.log
+*.log.*
 *.tmp
 *.obj
 *.o
@@ -27,6 +28,18 @@ __pycache__/
 *.tgz
 *.dtapp
 *.dtpkg
+*.dmp
+*.stackdump
+*.tlog
+*.pch
+*.idb
+*.ipdb
+*.iobj
+out/
+.vs/
+ipch/
+Debug/
+Release/
 .cache/
 .pytest_cache/
 coverage/
