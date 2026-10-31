@@ -36,8 +36,8 @@ export default defineUserConfig({
   logo:'/logo.svg',logoDark:'/logo-dark.svg',
   sidebarDepth:0,
   locales:{
-   '/':{selectLanguageName:'简体中文',selectLanguageText:'语言',prev:'上一页',next:'下一页',sidebar:sidebarFor(),navbar:[{text:'开始',link:'/start/install.html'},{text:'开发指南',link:'/guide/project.html'},{text:'设计与组件',link:'/design/'},{text:'API',link:'/api/'},{text:'开发工具',link:'/tools/'},{text:'发布',link:'/publish/'}]},
-   '/en/':{selectLanguageName:'English',selectLanguageText:'Language',prev:'Previous',next:'Next',sidebar:sidebarFor(englishNavigation),navbar:[{text:'Start',link:'/en/start/install.html'},{text:'Guides',link:'/en/guide/project.html'},{text:'Design and components',link:'/en/design/'},{text:'API',link:'/en/api/'},{text:'Tools',link:'/en/tools/'},{text:'Publish',link:'/en/publish/'}]}
+   '/':{selectLanguageName:'简体中文',selectLanguageText:'语言',prev:'上一页',next:'下一页',sidebar:sidebarFor(),navbar:[{text:'开始',link:'/start/install.html'},{text:'开发指南',link:'/guide/project.html'},{text:'设计与组件',link:'/design/'},{text:'API',link:'/api/'},{text:'开发工具',link:'/tools/'},{text:'发布',link:'/publish/'},{text:'下载',link:'https://github.com/Caner-HK/DeskTile-DevKit/releases/latest'},{text:'GitHub',link:'https://github.com/Caner-HK/DeskTile-DevKit'}]},
+   '/en/':{selectLanguageName:'English',selectLanguageText:'Language',prev:'Previous',next:'Next',sidebar:sidebarFor(englishNavigation),navbar:[{text:'Start',link:'/en/start/install.html'},{text:'Guides',link:'/en/guide/project.html'},{text:'Design and components',link:'/en/design/'},{text:'API',link:'/en/api/'},{text:'Tools',link:'/en/tools/'},{text:'Publish',link:'/en/publish/'},{text:'Downloads',link:'https://github.com/Caner-HK/DeskTile-DevKit/releases/latest'},{text:'GitHub',link:'https://github.com/Caner-HK/DeskTile-DevKit'}]}
   }
  }),
  markdown:{headers:{level:[2,3]},toc:{level:[2]}}

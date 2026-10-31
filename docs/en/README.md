@@ -3,6 +3,8 @@
 DeskTile DevKit is the development suite for DeskTile applications, using SDK **1.0**. The VS Code extension and command-line tools share the same SDK, templates and packaging implementation.
 
 <!-- page-outline -->
+[Download DeskTile DevKit from GitHub Releases](https://github.com/Caner-HK/DeskTile-DevKit/releases/latest) or [browse the source](https://github.com/Caner-HK/DeskTile-DevKit). The [installation guide](start/install.md#download-desktile-devkit) explains which package to choose.
+
 [[toc]]
 
 ## Get started

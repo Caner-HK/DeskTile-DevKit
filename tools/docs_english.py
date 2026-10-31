@@ -117,38 +117,7 @@ Start with [permissions](services/permissions.md), then choose [system services]
 
 The [tool guide](tools/) covers local preview and device installation. [Publishing](publish/) covers manifests, signing, validation and updates.
 ''',
-'start/install.md':'''# Install the tools
-
-DeskTile DevKit targets SDK 1.0. Prepare your development computer before choosing an application runtime.
-
-## VS Code extension
-
-Choose **Install from VSIX** in VS Code and select `desktile-devkit-1.0.0-win32-x64.vsix`. Open an application folder to display DeskTile DevKit in Explorer. Run **Check Development Environment** before building; results appear in the output panel.
-
-The extension follows the VS Code display language. **Interface language** selects automatic, Simplified Chinese or English for panels and prompts. Reload the window after changing it. Command-palette titles follow VS Code itself.
-
-## Dependencies
-
-JavaScript builds need Python 3.10 or newer. The CLI also needs Node.js 20 or newer. Set `desktile.pythonPath` to select Python. Install `pyserial` for serial access and `cryptography` for signing with `python -m pip install pyserial cryptography`.
-
-The local preview includes a Windows x64 host with QuickJS and the native component renderer. Native C++ device builds require the ESP32-S3 Xtensa toolchain; set `desktile.compilerPath` to `xtensa-esp32s3-elf-g++`. Native local preview requires the Visual Studio C++ desktop workload described in [tools](../tools/).
-
-## SDK location
-
-The complete distribution includes `sdk-bundle`. **Select SDK** can select another SDK 1.0 folder containing `delivery-manifest.json`, `sdk`, `tools` and `examples`.
-
-## Command line
-
-Run these commands in the extracted DevKit root:
-
-{{code:0}}
-
-You can also run `node bin/desktile.js doctor`. Install a standalone CLI archive with `npm install --global desktile-devkit-1.0.0.tgz`. Updates install a new VSIX or npm package while project sources and device data remain in their own locations.
-
-## Offline documentation
-
-Run `desktile docs` to read the bundled site. The portable distribution includes VuePress sources and a lock file in `documentation`; run `npm ci` and `npm run build` there to rebuild it with a current Node.js LTS release.
-''',
+'start/install.md':"# Install the tools\n\n\n## Download DeskTile DevKit\n\nThe latest version is available from [GitHub Releases](https://github.com/Caner-HK/DeskTile-DevKit/releases/latest). The current release is **1.0.0**. Local interactive preview targets **Windows x64**.\n\n| Download | Purpose |\n| --- | --- |\n| [VS Code extension (VSIX)](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/desktile-devkit-1.0.0-win32-x64.vsix) | Development in VS Code, including the SDK and preview runtime |\n| [Command-line tools (TGZ)](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/desktile-devkit-1.0.0.tgz) | Install the standalone CLI with npm |\n| [Complete Windows toolkit (ZIP)](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/DeskTile-DevKit-1.0.0-windows-x64.zip) | Tools, SDK, preview, examples and offline documentation |\n| [Checksum manifest](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/artifacts.json) | Release file sizes and SHA-256 checksums |\n\nChoose the VSIX for development in VS Code, or the complete ZIP for standalone tools and offline documentation. GitHub's Source code downloads contain repository sources; preview runtime files are included in the release assets above. Browse the [source repository](https://github.com/Caner-HK/DeskTile-DevKit) or [report an issue](https://github.com/Caner-HK/DeskTile-DevKit/issues).\n\n## VS Code extension\n\nChoose **Install from VSIX** in VS Code and select `desktile-devkit-1.0.0-win32-x64.vsix`. Open an application folder to display DeskTile DevKit in Explorer. Run **Check Development Environment** before building; results appear in the output panel.\n\nThe extension follows the VS Code display language. **Interface language** selects automatic, Simplified Chinese or English for panels and prompts. Reload the window after changing it. Command-palette titles follow VS Code itself.\n\n## Dependencies\n\nJavaScript builds need Python 3.10 or newer. The CLI also needs Node.js 20 or newer. Set `desktile.pythonPath` to select Python. Install `pyserial` for serial access and `cryptography` for signing with `python -m pip install pyserial cryptography`.\n\nThe local preview includes a Windows x64 host with QuickJS and the native component renderer. Native C++ device builds require the ESP32-S3 Xtensa toolchain; set `desktile.compilerPath` to `xtensa-esp32s3-elf-g++`. Native local preview requires the Visual Studio C++ desktop workload described in [tools](../tools/).\n\n## SDK location\n\nThe complete distribution includes `sdk-bundle`. **Select SDK** can select another SDK 1.0 folder containing `delivery-manifest.json`, `sdk`, `tools` and `examples`.\n\n## Command line\n\nRun these commands in the extracted DevKit root:\n\n```sh\nnpm install --global .\ndesktile doctor\n```\n\nYou can also run `node bin/desktile.js doctor`. Install a standalone CLI archive with `npm install --global desktile-devkit-1.0.0.tgz`. Updates install a new VSIX or npm package while project sources and device data remain in their own locations.\n\n## Offline documentation\n\nRun `desktile docs` to read the bundled site. The portable distribution includes VuePress sources and a lock file in `documentation`; run `npm ci` and `npm run build` there to rebuild it with a current Node.js LTS release.\n",
 'start/first-app.md':'''# Your first application
 
 Create a reading application with a reading page, a settings page and a saved text-size preference.

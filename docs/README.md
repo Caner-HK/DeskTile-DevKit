@@ -3,6 +3,8 @@
 DeskTile DevKit 是开发 DeskTile 应用的工具套件。你可以使用 VS Code 插件编写应用，也可以在终端执行构建和打包。两种入口使用同一个核心，当前 SDK 为 **1.0**。
 
 <!-- page-outline -->
+从 [GitHub Releases 下载开发套件](https://github.com/Caner-HK/DeskTile-DevKit/releases/latest)，或[查看源码](https://github.com/Caner-HK/DeskTile-DevKit)。[安装指南](start/install.md#下载-desktile-devkit)介绍各个发行文件的用途。
+
 [[toc]]
 
 ## 第一次开发

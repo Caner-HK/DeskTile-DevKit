@@ -7,6 +7,19 @@ DeskTile DevKit targets SDK 1.0. Prepare your development computer before choosi
 <!-- page-outline -->
 [[toc]]
 
+## Download DeskTile DevKit
+
+The latest version is available from [GitHub Releases](https://github.com/Caner-HK/DeskTile-DevKit/releases/latest). The current release is **1.0.0**. Local interactive preview targets **Windows x64**.
+
+| Download | Purpose |
+| --- | --- |
+| [VS Code extension (VSIX)](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/desktile-devkit-1.0.0-win32-x64.vsix) | Development in VS Code, including the SDK and preview runtime |
+| [Command-line tools (TGZ)](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/desktile-devkit-1.0.0.tgz) | Install the standalone CLI with npm |
+| [Complete Windows toolkit (ZIP)](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/DeskTile-DevKit-1.0.0-windows-x64.zip) | Tools, SDK, preview, examples and offline documentation |
+| [Checksum manifest](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/artifacts.json) | Release file sizes and SHA-256 checksums |
+
+Choose the VSIX for development in VS Code, or the complete ZIP for standalone tools and offline documentation. GitHub's Source code downloads contain repository sources; preview runtime files are included in the release assets above. Browse the [source repository](https://github.com/Caner-HK/DeskTile-DevKit) or [report an issue](https://github.com/Caner-HK/DeskTile-DevKit/issues).
+
 ## VS Code extension
 
 Choose **Install from VSIX** in VS Code and select `desktile-devkit-1.0.0-win32-x64.vsix`. Open an application folder to display DeskTile DevKit in Explorer. Run **Check Development Environment** before building; results appear in the output panel.

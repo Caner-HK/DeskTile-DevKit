@@ -7,6 +7,19 @@ DeskTile DevKit 使用 SDK 1.0。先准备开发电脑，再选择应用类型�
 <!-- page-outline -->
 [[toc]]
 
+## 下载 DeskTile DevKit
+
+最新版本发布在 [GitHub Releases](https://github.com/Caner-HK/DeskTile-DevKit/releases/latest)。当前版本为 **1.0.0**，本地交互预览面向 **Windows x64**。
+
+| 下载 | 用途 |
+| --- | --- |
+| [VS Code 扩展（VSIX）](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/desktile-devkit-1.0.0-win32-x64.vsix) | 在 VS Code 内开发，包含 SDK 和预览运行资源 |
+| [命令行工具（TGZ）](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/desktile-devkit-1.0.0.tgz) | 通过 npm 安装独立 CLI |
+| [完整 Windows 套件（ZIP）](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/DeskTile-DevKit-1.0.0-windows-x64.zip) | 包含工具、SDK、预览器、示例与离线文档 |
+| [文件校验清单](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/artifacts.json) | 查看发行文件的 SHA-256 和大小 |
+
+首次使用 VS Code 开发时选择 VSIX；需要独立工具和离线文档时选择完整 ZIP。GitHub 的 Source code 下载提供仓库源码，预览器运行文件随上述发行附件提供。[源码仓库](https://github.com/Caner-HK/DeskTile-DevKit)和[问题反馈](https://github.com/Caner-HK/DeskTile-DevKit/issues)对所有开发者开放。
+
 ## 安装插件
 
 在 VS Code 的扩展菜单中选择“从 VSIX 安装”，选择随开发套件提供的 `desktile-devkit-1.0.0-win32-x64.vsix`。安装后打开命令面板，输入 `DeskTile DevKit`。
