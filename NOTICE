@@ -1,0 +1,11 @@
+DeskTile DevKit 1.0
+Copyright 2026 Caner
+
+The original DeskTile SDK, VS Code extension, command-line tools, templates,
+examples and documentation are licensed under the Apache License, Version 2.0.
+Third-party software, icons and fonts retain their own copyright and licenses.
+See THIRD-PARTY-NOTICES.md and licenses/ for source attribution and terms.
+
+Transport Sans is the product display name for the GDS Transport glyphs used
+in this local build. The display name does not replace source attribution.
+Public redistribution clearance for those glyphs remains outstanding.

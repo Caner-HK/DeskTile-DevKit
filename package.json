@@ -1,0 +1,179 @@
+{
+  "name": "desktile-devkit",
+  "displayName": "DeskTile DevKit",
+  "description": "%description%",
+  "version": "1.0.0",
+  "publisher": "caner",
+  "private": true,
+  "license": "Apache-2.0",
+  "icon": "assets/logo.png",
+  "engines": {
+    "vscode": "^1.95.0",
+    "node": ">=20"
+  },
+  "main": "./lib/extension.js",
+  "bin": {
+    "desktile": "./bin/desktile.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "sdk-bundle",
+    "renderer",
+    "site",
+    "assets",
+    "licenses",
+    "LICENSE",
+    "NOTICE",
+    "THIRD-PARTY-NOTICES.md",
+    "README.md",
+    "CHANGELOG.md",
+    "package.nls.json",
+    "package.nls.zh-cn.json"
+  ],
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:manifest.json",
+    "onLanguage:html"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false
+    },
+    "virtualWorkspaces": false
+  },
+  "scripts": {
+    "test": "node --test --test-concurrency=1 test/core.test.js test/device.test.js test/preview-config.test.js test/navigation.test.mjs test/interactive.test.js test/preview-fonts.test.js test/project-location.test.js test/assets.test.js test/localization.test.js test/preview-network.test.js test/preview-notifications.test.js test/preview-files.test.js test/file-transfer.test.js"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "desktile.create",
+        "title": "%command.create%"
+      },
+      {
+        "command": "desktile.doctor",
+        "title": "%command.doctor%"
+      },
+      {
+        "command": "desktile.build",
+        "title": "%command.build%"
+      },
+      {
+        "command": "desktile.preview",
+        "title": "%command.preview%"
+      },
+      {
+        "command": "desktile.screenshot",
+        "title": "%command.screenshot%"
+      },
+      {
+        "command": "desktile.assets",
+        "title": "%command.assets%"
+      },
+      {
+        "command": "desktile.run",
+        "title": "%command.run%"
+      },
+      {
+        "command": "desktile.install",
+        "title": "%command.install%"
+      },
+      {
+        "command": "desktile.profile",
+        "title": "%command.profile%"
+      },
+      {
+        "command": "desktile.monitor",
+        "title": "%command.monitor%"
+      },
+      {
+        "command": "desktile.check",
+        "title": "%command.check%"
+      },
+      {
+        "command": "desktile.deploy",
+        "title": "%command.deploy%"
+      },
+      {
+        "command": "desktile.docs",
+        "title": "%command.docs%"
+      },
+      {
+        "command": "desktile.sdk",
+        "title": "%command.sdk%"
+      },
+      {
+        "command": "desktile.language",
+        "title": "%command.language%"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "desktile.project",
+          "name": "DeskTile DevKit",
+          "when": "workspaceFolderCount > 0"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "DeskTile DevKit",
+      "properties": {
+        "desktile.sdkPath": {
+          "type": "string",
+          "default": "",
+          "description": "%desktile.sdkPath%"
+        },
+        "desktile.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "%desktile.pythonPath%"
+        },
+        "desktile.compilerPath": {
+          "type": "string",
+          "default": "",
+          "description": "%desktile.compilerPath%"
+        },
+        "desktile.language": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "zh-cn",
+            "en"
+          ],
+          "enumDescriptions": [
+            "%language.auto%",
+            "简体中文",
+            "English"
+          ],
+          "default": "auto",
+          "description": "%language.description%"
+        }
+      }
+    },
+    "jsonValidation": [
+      {
+        "fileMatch": "manifest.json",
+        "url": "./sdk-bundle/sdk/contract/manifest.schema.json"
+      }
+    ],
+    "taskDefinitions": [
+      {
+        "type": "desktile",
+        "required": [
+          "project"
+        ],
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "%task.project%"
+          }
+        }
+      }
+    ]
+  }
+}

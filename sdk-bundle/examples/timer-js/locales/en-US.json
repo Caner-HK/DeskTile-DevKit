@@ -1,0 +1,12 @@
+{
+  "title":"Timer","duration":"Timer duration","about":"About Timer","saveFailureTitle":"Couldn’t save",
+  "ready":"Ready","running":"Running","paused":"Paused","expired":"Time's up","saveFailed":"Timer is working. Couldn’t save its state.",
+  "one":"1 minute","five":"5 minutes","fifteen":"15 minutes","custom":"Set duration",
+  "presetMinute":"1 minute","presetMinutes":"{count} minutes","presetSecond":"1 second","presetSeconds":"{count} seconds",
+  "start":"Start","pause":"Pause","resume":"Resume","restart":"Restart","reset":"Reset","end":"End timer",
+  "cancel":"Cancel","confirm":"Save","close":"Close","back":"Back","home":"Go to desktop",
+  "hour":"hr","minute":"min","second":"sec","hourUp":"Increase hours","hourDown":"Decrease hours","minuteUp":"Increase minutes","minuteDown":"Decrease minutes","secondUp":"Increase seconds","secondDown":"Decrease seconds",
+  "setDuration":"Set timer duration","holdOptions":"Touch and hold for timer options","stopHint":"Tap to stop","overdue":", overdue {time}",
+  "usage":"Start a full-screen countdown as the background fills up. Touch and hold to pause, resume, or end the timer. When time is up, the screen flashes. Tap to dismiss.",
+  "persistence":"Changing the system clock keeps the countdown running. The timer continues after you leave the app. After a device restart, the last saved time remaining is restored. Tap Resume to continue."
+}

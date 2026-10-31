@@ -1,0 +1,12 @@
+{
+  "title":"计时器","duration":"倒计时时长","about":"关于计时器","saveFailureTitle":"保存失败",
+  "ready":"准备就绪","running":"计时中","paused":"已暂停","expired":"时间到","saveFailed":"计时正常，状态保存失败",
+  "one":"1 分钟","five":"5 分钟","fifteen":"15 分钟","custom":"设置时长",
+  "presetMinute":"1 分钟","presetMinutes":"{count} 分钟","presetSecond":"1 秒","presetSeconds":"{count} 秒",
+  "start":"开始","pause":"暂停","resume":"继续","restart":"重新开始","reset":"重置","end":"结束计时",
+  "cancel":"取消","confirm":"确定","close":"关闭","back":"返回","home":"回到桌面",
+  "hour":"时","minute":"分","second":"秒","hourUp":"增加小时","hourDown":"减少小时","minuteUp":"增加分钟","minuteDown":"减少分钟","secondUp":"增加秒数","secondDown":"减少秒数",
+  "setDuration":"设置倒计时时长","holdOptions":"长按打开计时选项","stopHint":"点击停止","overdue":"，已逾时 {time}",
+  "usage":"开始后将全屏显示倒计时，背景逐渐填满。长按屏幕可暂停、继续或结束计时。时间到时屏幕闪烁，轻触即可关闭提醒。",
+  "persistence":"调整系统日期或时间时，倒计时保持连续。退出应用后会继续计时；设备重启后恢复最近保存的剩余时长，点击继续即可计时。"
+}

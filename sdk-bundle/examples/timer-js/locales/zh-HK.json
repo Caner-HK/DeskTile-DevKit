@@ -1,0 +1,12 @@
+{
+  "title":"計時器","duration":"倒數時間","about":"關於計時器","saveFailureTitle":"儲存失敗",
+  "ready":"準備就緒","running":"計時中","paused":"已暫停","expired":"時間到","saveFailed":"計時正常，儲存狀態失敗",
+  "one":"1 分鐘","five":"5 分鐘","fifteen":"15 分鐘","custom":"設定時間",
+  "presetMinute":"1 分鐘","presetMinutes":"{count} 分鐘","presetSecond":"1 秒","presetSeconds":"{count} 秒",
+  "start":"開始","pause":"暫停","resume":"繼續","restart":"重新開始","reset":"重設","end":"結束計時",
+  "cancel":"取消","confirm":"確定","close":"關閉","back":"返回","home":"返回桌面",
+  "hour":"時","minute":"分","second":"秒","hourUp":"增加小時","hourDown":"減少小時","minuteUp":"增加分鐘","minuteDown":"減少分鐘","secondUp":"增加秒數","secondDown":"減少秒數",
+  "setDuration":"設定倒數時間","holdOptions":"長按開啟計時選項","stopHint":"輕觸停止","overdue":"，已逾時 {time}",
+  "usage":"開始後會全螢幕顯示倒數，背景逐漸填滿。長按螢幕可暫停、繼續或結束計時。時間到時螢幕閃爍，輕觸即可關閉提示。",
+  "persistence":"調整系統日期或時間時，倒數會保持連續。離開應用程式後會繼續計時；裝置重新啟動後會恢復最近儲存的剩餘時間，輕觸繼續即可計時。"
+}

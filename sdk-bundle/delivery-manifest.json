@@ -1,0 +1,2302 @@
+{
+  "product": "DeskTile SDK",
+  "sdk": "1.0",
+  "devkit": "1.0.0",
+  "files": [
+    {
+      "path": "examples/native-todo/assets/application.dti",
+      "bytes": 9228,
+      "sha256": "53b0aae7b0a694bf65a9f69de4c0e7df2823a01e0b4b0d9d73a814487bfa42c9"
+    },
+    {
+      "path": "examples/native-todo/assets/splash.dti",
+      "bytes": 9228,
+      "sha256": "53b0aae7b0a694bf65a9f69de4c0e7df2823a01e0b4b0d9d73a814487bfa42c9"
+    },
+    {
+      "path": "examples/native-todo/assets/tile-1x1.dti",
+      "bytes": 1612,
+      "sha256": "549596787b0c6a3533f6e3f5523428cd07504494aecbdf5ad7235cda9eebfe48"
+    },
+    {
+      "path": "examples/native-todo/assets/tile-2x2.dti",
+      "bytes": 4108,
+      "sha256": "6b4a408730cd6f34cdf14ef7923682eb39d551641ed691e44eed9ca414ab491b"
+    },
+    {
+      "path": "examples/native-todo/assets/tile-4x2.dti",
+      "bytes": 6412,
+      "sha256": "40e46c8c43116e1eb8710dc2988f2c8a39f7683269b4794caf9c83fcf1f83bef"
+    },
+    {
+      "path": "examples/native-todo/assets/tile-4x4.dti",
+      "bytes": 16396,
+      "sha256": "7264a2c867703c72b693a9743007394d5918f62f8e201108f8b8df5e73945e4b"
+    },
+    {
+      "path": "examples/native-todo/assets/tile.dti",
+      "bytes": 9228,
+      "sha256": "53b0aae7b0a694bf65a9f69de4c0e7df2823a01e0b4b0d9d73a814487bfa42c9"
+    },
+    {
+      "path": "examples/native-todo/desktile.json",
+      "bytes": 35,
+      "sha256": "61d153725f4325b097ef3381f768e9554e4b4b27d9eed05e20f938e79f79a808"
+    },
+    {
+      "path": "examples/native-todo/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "examples/native-todo/licenses/icons-Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "examples/native-todo/licenses/icons-MIT.txt",
+      "bytes": 1099,
+      "sha256": "c89dabc60b2e4e1a04b33bd7010b5a56bb4725ffe8c00d793a5ae009fbbfebd8"
+    },
+    {
+      "path": "examples/native-todo/licenses/MATERIAL-SYMBOLS.md",
+      "bytes": 330,
+      "sha256": "682a1979179921878936e20252c65c839e156951fd8089a8f9940dabecece806"
+    },
+    {
+      "path": "examples/native-todo/manifest.json",
+      "bytes": 535,
+      "sha256": "00471fddf0849bedf8c930800dcc52dbc045a9f1cd6496aef6c6a44ce5a7e9a2"
+    },
+    {
+      "path": "examples/native-todo/NOTICE",
+      "bytes": 167,
+      "sha256": "fdf651d25acb667a5ea78cc8364cb75fa40e60a46b20ec333e4053d5e43a61d5"
+    },
+    {
+      "path": "examples/native-todo/README.md",
+      "bytes": 476,
+      "sha256": "468a093950ade95b979f88791c9fd2516c90cbeab0ad50c840ebd12095ac71fe"
+    },
+    {
+      "path": "examples/native-todo/src/main.cpp",
+      "bytes": 1610,
+      "sha256": "fbd667c42d16e26b6b15fffd3c2d17d556c6d4e6b9f87676e9bbd48ae7d91690"
+    },
+    {
+      "path": "examples/native-todo/src/TodoController.cpp",
+      "bytes": 22421,
+      "sha256": "b6b334d674163a29e985632cb989cc4def6180ceaa7d72cfe80865dfc8bd06ee"
+    },
+    {
+      "path": "examples/native-todo/src/TodoController.h",
+      "bytes": 4991,
+      "sha256": "b0a24a02f1e15cbd2df6c8c5e13c460f06209d2560d25e1872a61ba513bb9882"
+    },
+    {
+      "path": "examples/native-todo/src/TodoModel.h",
+      "bytes": 3372,
+      "sha256": "6f69a42cd4682cbf762a0fb4c9af0a67ebbc5b2c12fea9aaac4d0c749e3a3bcf"
+    },
+    {
+      "path": "examples/native-todo/src/TodoSchedule.cpp",
+      "bytes": 3749,
+      "sha256": "6f7a5c7f7b1b49274888c449a1be17164c223cb03a9c2f5b1c23021e4c4ecb44"
+    },
+    {
+      "path": "examples/native-todo/src/TodoTexts.h",
+      "bytes": 4809,
+      "sha256": "9c576efbee9bc1fbe4c18aabfb034eac4d2a5b57097b8ca98dc0368eaeab7ac1"
+    },
+    {
+      "path": "examples/native-todo/src/TodoView.cpp",
+      "bytes": 26773,
+      "sha256": "d53db2280055040129908064e95b8e24025cf54ef1306c5a98ab81c35ef8c8bb"
+    },
+    {
+      "path": "examples/notes-js/assets/application.dti",
+      "bytes": 9228,
+      "sha256": "1b742bd9b3cb81e1460b29384375144bc7bb196fa910d7309ca99c266105af4b"
+    },
+    {
+      "path": "examples/notes-js/assets/splash.dti",
+      "bytes": 9228,
+      "sha256": "1b742bd9b3cb81e1460b29384375144bc7bb196fa910d7309ca99c266105af4b"
+    },
+    {
+      "path": "examples/notes-js/assets/tile-1x1.dti",
+      "bytes": 1612,
+      "sha256": "421336da3e5efaba83da8206dec8b788a2e95e955227977dbbb5d5e372f30060"
+    },
+    {
+      "path": "examples/notes-js/assets/tile-2x2.dti",
+      "bytes": 4108,
+      "sha256": "36b6f336d7b375eec99b116e71e72d1282f641843a061cd47ec161ba41f22ba8"
+    },
+    {
+      "path": "examples/notes-js/assets/tile-4x2.dti",
+      "bytes": 6412,
+      "sha256": "0846a21473a76f767178edbbc8533146cdaf170a6d0be30e3a969e66b6ff9469"
+    },
+    {
+      "path": "examples/notes-js/assets/tile-4x4.dti",
+      "bytes": 16396,
+      "sha256": "046ee82f03fcd1915097a810bc1f948ad69c84e09d6c61398813b2f14faf4f8c"
+    },
+    {
+      "path": "examples/notes-js/assets/tile.dti",
+      "bytes": 9228,
+      "sha256": "1b742bd9b3cb81e1460b29384375144bc7bb196fa910d7309ca99c266105af4b"
+    },
+    {
+      "path": "examples/notes-js/desktile.json",
+      "bytes": 36,
+      "sha256": "4849a9f84c12249f92094665ba9b8abbf77cf4112d8896f24d16ee0b2367f041"
+    },
+    {
+      "path": "examples/notes-js/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "examples/notes-js/licenses/icons-Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "examples/notes-js/licenses/icons-MIT.txt",
+      "bytes": 1099,
+      "sha256": "c89dabc60b2e4e1a04b33bd7010b5a56bb4725ffe8c00d793a5ae009fbbfebd8"
+    },
+    {
+      "path": "examples/notes-js/licenses/MATERIAL-SYMBOLS.md",
+      "bytes": 330,
+      "sha256": "682a1979179921878936e20252c65c839e156951fd8089a8f9940dabecece806"
+    },
+    {
+      "path": "examples/notes-js/locales/catalog.json",
+      "bytes": 130,
+      "sha256": "14168233f2de198680b4a2503952ea041f70ca1a59e8d413af0f9603734f9b97"
+    },
+    {
+      "path": "examples/notes-js/locales/en-US.json",
+      "bytes": 2405,
+      "sha256": "7902dc3c6441727702e9ad40adb79f36b8b84c40bc77888829a8f651e84e8570"
+    },
+    {
+      "path": "examples/notes-js/locales/zh-CN.json",
+      "bytes": 2408,
+      "sha256": "9b8f354536f4d43eccf88229d2b6220c4bad2fe367b5e0adc910e85409e6f70a"
+    },
+    {
+      "path": "examples/notes-js/locales/zh-HK.json",
+      "bytes": 2411,
+      "sha256": "b766b4870742f6bae112f7f68c32c04403c72f3d432fb43221c888bdaef5657b"
+    },
+    {
+      "path": "examples/notes-js/manifest.json",
+      "bytes": 642,
+      "sha256": "f37af21f6004a923b1f4fb2b5e563df406f109acf0ba2df0606550ca1c7603a2"
+    },
+    {
+      "path": "examples/notes-js/NOTICE",
+      "bytes": 164,
+      "sha256": "1c2b7ecb3eb46f00bb3034ebc5955a737edfe2689230e57bab978acd6ffb3129"
+    },
+    {
+      "path": "examples/notes-js/README.md",
+      "bytes": 430,
+      "sha256": "43650cf5de59cc0db8206d3723999424481ae175b02cc215486c391a78354be9"
+    },
+    {
+      "path": "examples/notes-js/src/index.html",
+      "bytes": 12798,
+      "sha256": "86379df43c13cbe5f257e4747099148fec36688beb9c30c2749511c4aad5d35b"
+    },
+    {
+      "path": "examples/notes-js/src/main.js",
+      "bytes": 13844,
+      "sha256": "1c5232cc4f085333b21b73bd5ac4ca299c39e86620bba1f02406da5dd6585676"
+    },
+    {
+      "path": "examples/scaffold-js/assets/application.dti",
+      "bytes": 9228,
+      "sha256": "3d36382be82cea4a9afcd1e4bb9e16b5fcdfb52782a04cb1d4901416dfe381b9"
+    },
+    {
+      "path": "examples/scaffold-js/assets/tile.dti",
+      "bytes": 9228,
+      "sha256": "3d36382be82cea4a9afcd1e4bb9e16b5fcdfb52782a04cb1d4901416dfe381b9"
+    },
+    {
+      "path": "examples/scaffold-js/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "examples/scaffold-js/locales/catalog.json",
+      "bytes": 124,
+      "sha256": "101208fa15f44986008e3fd027c9a05dec9b2816701bf1d1db9b6e8205cc5704"
+    },
+    {
+      "path": "examples/scaffold-js/locales/en.json",
+      "bytes": 373,
+      "sha256": "8921323358099e20f59998974acafaa606b17204b05aed5735dc35762c0e74e8"
+    },
+    {
+      "path": "examples/scaffold-js/locales/zh-CN.json",
+      "bytes": 381,
+      "sha256": "3ed12115b82f619ebb045e134e33a672618ce29462ce4d80d30b670408e87e52"
+    },
+    {
+      "path": "examples/scaffold-js/locales/zh-HK.json",
+      "bytes": 363,
+      "sha256": "09b35844845b0854e343dc4eb2c6742a36d8ff09c4338c537319de52a2861340"
+    },
+    {
+      "path": "examples/scaffold-js/manifest.json",
+      "bytes": 473,
+      "sha256": "7c79ca31ff471854155fc9161da6556d2a97e4e8eee0ebf7571b63ced4385820"
+    },
+    {
+      "path": "examples/scaffold-js/NOTICE",
+      "bytes": 575,
+      "sha256": "e0c6711eac0303eeadd66cc580fee2148f9619a10dd69ddb87ab18432289fe89"
+    },
+    {
+      "path": "examples/scaffold-js/README.md",
+      "bytes": 896,
+      "sha256": "bbfbdef5d1980deb274331ca855bf44a9df03323915e3c86857bd0cc47bada3f"
+    },
+    {
+      "path": "examples/scaffold-js/src/index.html",
+      "bytes": 127,
+      "sha256": "dee15064dfbccfa6df151ff9fe4a07b6e119415e69e6a50c272dcfedd8bc8fb1"
+    },
+    {
+      "path": "examples/scaffold-js/src/main.js",
+      "bytes": 3119,
+      "sha256": "5525211aaecd725d163dd342e479184a8bf59b5cba959c6b3b8d99f120e53c57"
+    },
+    {
+      "path": "examples/scaffold-js/ui/components.js",
+      "bytes": 1315,
+      "sha256": "c41e738d2d9bbbf87c4e266df39f77d9ef801fbff35f04e01885f68fbe36369c"
+    },
+    {
+      "path": "examples/scaffold-js/ui/framework.js",
+      "bytes": 33679,
+      "sha256": "e4d50adf45cb39641ae38abfd885216880db24a34c02bcaaac595df257e1de64"
+    },
+    {
+      "path": "examples/scaffold-js/ui/navigation.js",
+      "bytes": 7495,
+      "sha256": "c8343668cc19087326551220eb2999281494b580798592034176470406218992"
+    },
+    {
+      "path": "examples/scaffold-js/ui/patterns.js",
+      "bytes": 8535,
+      "sha256": "8f2c3955cacf479b97e37c2c563c9227572bd597edfacffef8f82deda7ac65d5"
+    },
+    {
+      "path": "examples/scaffold-js/ui/scaffold.js",
+      "bytes": 13178,
+      "sha256": "3d525486a8c7f5019ec3d6251fda3a66f33b257979d1a9371dfdced4c95e3c09"
+    },
+    {
+      "path": "examples/scaffold-native/assets/application.dti",
+      "bytes": 9228,
+      "sha256": "3d36382be82cea4a9afcd1e4bb9e16b5fcdfb52782a04cb1d4901416dfe381b9"
+    },
+    {
+      "path": "examples/scaffold-native/assets/tile.dti",
+      "bytes": 9228,
+      "sha256": "3d36382be82cea4a9afcd1e4bb9e16b5fcdfb52782a04cb1d4901416dfe381b9"
+    },
+    {
+      "path": "examples/scaffold-native/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "examples/scaffold-native/locales/catalog.json",
+      "bytes": 124,
+      "sha256": "101208fa15f44986008e3fd027c9a05dec9b2816701bf1d1db9b6e8205cc5704"
+    },
+    {
+      "path": "examples/scaffold-native/locales/en.json",
+      "bytes": 26,
+      "sha256": "a464e1f9b499085c085ce5e03e8b7877b7b0188d3802a32f1bd5facec8380d3e"
+    },
+    {
+      "path": "examples/scaffold-native/locales/zh-CN.json",
+      "bytes": 25,
+      "sha256": "d1b1a1eda0031461e26668ef6c249f0302b76186879b06588d1ada0731cd7400"
+    },
+    {
+      "path": "examples/scaffold-native/locales/zh-HK.json",
+      "bytes": 25,
+      "sha256": "4f63fd24f57bbcd5a48eb5113aa5eb9efd49ace5f7c7119fb2a62147d62a528d"
+    },
+    {
+      "path": "examples/scaffold-native/manifest.json",
+      "bytes": 448,
+      "sha256": "7cb9d038c2a58d2bbe57bf440456854a77c4496b9baebfbfc424c4001eea7324"
+    },
+    {
+      "path": "examples/scaffold-native/NOTICE",
+      "bytes": 575,
+      "sha256": "e0c6711eac0303eeadd66cc580fee2148f9619a10dd69ddb87ab18432289fe89"
+    },
+    {
+      "path": "examples/scaffold-native/README.md",
+      "bytes": 772,
+      "sha256": "a970953a82005666a4bc71717873b8cac19ef411a8703cacd72d3d3360997513"
+    },
+    {
+      "path": "examples/scaffold-native/src/main.cpp",
+      "bytes": 6409,
+      "sha256": "87c0bd29327811c32b68db7cc72f732630917f571487caa5b50c765b49dab11e"
+    },
+    {
+      "path": "examples/timer-js/assets/application.dti",
+      "bytes": 9228,
+      "sha256": "562942c3f403e69124b24ab70a38caf7922befa4443718299b4a49d727ed9bad"
+    },
+    {
+      "path": "examples/timer-js/assets/splash.dti",
+      "bytes": 9228,
+      "sha256": "562942c3f403e69124b24ab70a38caf7922befa4443718299b4a49d727ed9bad"
+    },
+    {
+      "path": "examples/timer-js/assets/tile-1x1.dti",
+      "bytes": 1612,
+      "sha256": "7c67817ee32990f1d0aca9e3a28c9f118a6de4278a8e487b57ffce6660a372d0"
+    },
+    {
+      "path": "examples/timer-js/assets/tile-2x2.dti",
+      "bytes": 4108,
+      "sha256": "7583cfe4dbed2f816e966acbcaff2cf4348b0a53754cf4775873480228864a87"
+    },
+    {
+      "path": "examples/timer-js/assets/tile-4x2.dti",
+      "bytes": 6412,
+      "sha256": "bf97fd73e47986b452e878d5a50f7ae14625a10409264e8b9887cc34f51a2d64"
+    },
+    {
+      "path": "examples/timer-js/assets/tile-4x4.dti",
+      "bytes": 16396,
+      "sha256": "28c2ba05a15cb86df320ae70a6d93f956e272f33ac8b09a6c33bed7ffe8731ff"
+    },
+    {
+      "path": "examples/timer-js/assets/tile.dti",
+      "bytes": 9228,
+      "sha256": "562942c3f403e69124b24ab70a38caf7922befa4443718299b4a49d727ed9bad"
+    },
+    {
+      "path": "examples/timer-js/desktile.json",
+      "bytes": 36,
+      "sha256": "4849a9f84c12249f92094665ba9b8abbf77cf4112d8896f24d16ee0b2367f041"
+    },
+    {
+      "path": "examples/timer-js/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "examples/timer-js/licenses/icons-Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "examples/timer-js/licenses/icons-MIT.txt",
+      "bytes": 1099,
+      "sha256": "c89dabc60b2e4e1a04b33bd7010b5a56bb4725ffe8c00d793a5ae009fbbfebd8"
+    },
+    {
+      "path": "examples/timer-js/licenses/MATERIAL-SYMBOLS.md",
+      "bytes": 330,
+      "sha256": "682a1979179921878936e20252c65c839e156951fd8089a8f9940dabecece806"
+    },
+    {
+      "path": "examples/timer-js/locales/catalog.json",
+      "bytes": 130,
+      "sha256": "14168233f2de198680b4a2503952ea041f70ca1a59e8d413af0f9603734f9b97"
+    },
+    {
+      "path": "examples/timer-js/locales/en-US.json",
+      "bytes": 1404,
+      "sha256": "c78dfa9425f33ae36ce90809ef8076d6720e1d07d852f178e2d904c2665022ab"
+    },
+    {
+      "path": "examples/timer-js/locales/zh-CN.json",
+      "bytes": 1372,
+      "sha256": "756e2528cd72b519fa681e1f727d753cbdf0b29c773b0b561c59b5eb4f9afce0"
+    },
+    {
+      "path": "examples/timer-js/locales/zh-HK.json",
+      "bytes": 1381,
+      "sha256": "883b0dc33b102c1f770c5d1383f6a37882994de7c59efc4e5a11c3e7e092c917"
+    },
+    {
+      "path": "examples/timer-js/manifest.json",
+      "bytes": 611,
+      "sha256": "832c3cd8e169286bb008b24f320ef42bb3f2c46ee043bb84c9429ab15022469c"
+    },
+    {
+      "path": "examples/timer-js/NOTICE",
+      "bytes": 164,
+      "sha256": "a1ab4ac0c27a9c806c78a512500068530542e2eb55eeb712aecbb2beca5d260e"
+    },
+    {
+      "path": "examples/timer-js/README.md",
+      "bytes": 430,
+      "sha256": "5c4d18c9f6256bc03d6dde481613c70cba06a6132611fd95afbd0b181c5a95ab"
+    },
+    {
+      "path": "examples/timer-js/src/index.html",
+      "bytes": 4736,
+      "sha256": "e7fca0b603d122979ad5a93a735be0b696cdb8853b461fedfd351d5dd0f99fe4"
+    },
+    {
+      "path": "examples/timer-js/src/main.js",
+      "bytes": 13584,
+      "sha256": "cd9383bdb6a8baeb045739f2d85da4eca484643f50660dbd8866d850a85cb9c0"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "NOTICE",
+      "bytes": 575,
+      "sha256": "e0c6711eac0303eeadd66cc580fee2148f9619a10dd69ddb87ab18432289fe89"
+    },
+    {
+      "path": "resources/icons/catalog.json",
+      "bytes": 6775,
+      "sha256": "176c0b9779658c89b539c3f936410cf8397f60bfc7fac4e4dacfb6e869dafc67"
+    },
+    {
+      "path": "resources/icons/dti/About.dti",
+      "bytes": 9228,
+      "sha256": "fa66b177fbb5ddbd973e32cc82fd310165078eae40015f6841732d636b353916"
+    },
+    {
+      "path": "resources/icons/dti/AppInstaller.dti",
+      "bytes": 9228,
+      "sha256": "316f3a2ca8bdecaf6799094b0dc058e20809e51b9665020fca593433d6a54f99"
+    },
+    {
+      "path": "resources/icons/dti/ApplicationSettings.dti",
+      "bytes": 9228,
+      "sha256": "e49c2b09ab343e99298068e4f5a255373a50e8e04a61d64ae361e9456f7765eb"
+    },
+    {
+      "path": "resources/icons/dti/Apps.dti",
+      "bytes": 9228,
+      "sha256": "6eaf2603df45a8df57ea4a9532fa14dd9f7c965b5ab8448dfdcd37e97fd600d1"
+    },
+    {
+      "path": "resources/icons/dti/Archive.dti",
+      "bytes": 9228,
+      "sha256": "a46e3e3393c7455960888d53ac091953022ac98063f8ea6372548a5b0cfa6cb1"
+    },
+    {
+      "path": "resources/icons/dti/Back.dti",
+      "bytes": 9228,
+      "sha256": "645ef52fbe5ec5a6058da09ffe920ccc44cba0ace0fe8f1e755bfb5c6c9b6b4e"
+    },
+    {
+      "path": "resources/icons/dti/Background.dti",
+      "bytes": 9228,
+      "sha256": "cae38f8127ab6754931cd768bbe5d1af38cffb10f49d4e516867954d7f950441"
+    },
+    {
+      "path": "resources/icons/dti/Backspace.dti",
+      "bytes": 9228,
+      "sha256": "d06efbde7ac6d87f03d6714bb77af895352743954dae700d53e184c9abd31d11"
+    },
+    {
+      "path": "resources/icons/dti/Battery.dti",
+      "bytes": 9228,
+      "sha256": "58f1abf212beb0f560adfa4081fc74c0db046edfb4abdc46bf4ff15dda18d230"
+    },
+    {
+      "path": "resources/icons/dti/Bluetooth.dti",
+      "bytes": 9228,
+      "sha256": "5b1539f04a854058d1849e990c20eb8a534bbfd8cce60f451e7949bbb80bc3e6"
+    },
+    {
+      "path": "resources/icons/dti/BluetoothOff.dti",
+      "bytes": 9228,
+      "sha256": "1a9889dbf337ad3f56074ae8bd7a709f09dafda5d0672d3308e5353400275e76"
+    },
+    {
+      "path": "resources/icons/dti/Bookmark.dti",
+      "bytes": 9228,
+      "sha256": "bf7491b906c5d2471effc7af1472ac0e5719761e1d08c1a8949fd89de84c3b83"
+    },
+    {
+      "path": "resources/icons/dti/BookmarkFilled.dti",
+      "bytes": 9228,
+      "sha256": "9e3777a69d7a6726c887f593e6283bebb620e08182d5115482617138bd4746dc"
+    },
+    {
+      "path": "resources/icons/dti/Brightness.dti",
+      "bytes": 9228,
+      "sha256": "3cdacdb65bb64ce9f34f978cef7a1437ac77c820c6aeb0e34fc8dade74fc0f20"
+    },
+    {
+      "path": "resources/icons/dti/Calendar.dti",
+      "bytes": 9228,
+      "sha256": "f707f5bc91634d28959919344513dd2b1b57f7cc07078bfde8a81ee6e629c1ae"
+    },
+    {
+      "path": "resources/icons/dti/CalendarEventList.dti",
+      "bytes": 9228,
+      "sha256": "ac7f225be2d7aec3210d16293b17cc6cedffebc6703cb66e24fe9375d2dedb81"
+    },
+    {
+      "path": "resources/icons/dti/Check.dti",
+      "bytes": 9228,
+      "sha256": "049a9eca11b6b29d3af05e569b6b9a3fa605616e559f83dd24de87c2c45e8ccc"
+    },
+    {
+      "path": "resources/icons/dti/ChevronDown.dti",
+      "bytes": 9228,
+      "sha256": "01e075ca22bc7628dbaf3beb2702a929c9c054ab6ec6f56832fe8a6e9014d7b1"
+    },
+    {
+      "path": "resources/icons/dti/ChevronUp.dti",
+      "bytes": 9228,
+      "sha256": "77c6bfe2d81128e3d3ec50e062a7c878ec2470eca9b07f3be1d00764eb53a4a7"
+    },
+    {
+      "path": "resources/icons/dti/ClearCache.dti",
+      "bytes": 9228,
+      "sha256": "819395af4787e5de06b7826f7c9b7d75aab47c5c1e627679d150deb322d09dab"
+    },
+    {
+      "path": "resources/icons/dti/Close.dti",
+      "bytes": 9228,
+      "sha256": "407cd24dd6558184e8382c42370703005369737da4a40cdf5d1a71515b0245e6"
+    },
+    {
+      "path": "resources/icons/dti/Cloud.dti",
+      "bytes": 9228,
+      "sha256": "80514bc797d060df141f97efa19ad55a59ed31835d5125164a68fb3572dad4e8"
+    },
+    {
+      "path": "resources/icons/dti/Code.dti",
+      "bytes": 9228,
+      "sha256": "e080ec5c6a5384f173bf3575b02fe092a021a7edffd395235996ac0fc1ea6f11"
+    },
+    {
+      "path": "resources/icons/dti/ContentCopy.dti",
+      "bytes": 9228,
+      "sha256": "659521fe55d50dc91b410e3683357b8c9cd815d03707c5e6dd2429d1dea4e8ad"
+    },
+    {
+      "path": "resources/icons/dti/ContentPaste.dti",
+      "bytes": 9228,
+      "sha256": "97e9467f00c7b731bd16a6db8e3f52b5b63e758aa5913cd2a8bdb4782f569baa"
+    },
+    {
+      "path": "resources/icons/dti/Delete.dti",
+      "bytes": 9228,
+      "sha256": "8162e7ed26128833347591787e6dbedbb71be08058ff80c68f90151003ff1eff"
+    },
+    {
+      "path": "resources/icons/dti/DeskTile.dti",
+      "bytes": 9228,
+      "sha256": "3d36382be82cea4a9afcd1e4bb9e16b5fcdfb52782a04cb1d4901416dfe381b9"
+    },
+    {
+      "path": "resources/icons/dti/DesktopCalendar.dti",
+      "bytes": 9228,
+      "sha256": "5d7b087fd00855d5f2dc8e28cf716434daa04c212e1adbf512c9d05ae4361730"
+    },
+    {
+      "path": "resources/icons/dti/DesktopFiles.dti",
+      "bytes": 9228,
+      "sha256": "03fee63cd3ef46fe3a47caa48402e6da3426a167c0cb4838a13c1f11c7d5e156"
+    },
+    {
+      "path": "resources/icons/dti/DesktopResize.dti",
+      "bytes": 9228,
+      "sha256": "16b71115c251e0ed1b988e107335327432e24b115dee1756602ff5fd987d0a90"
+    },
+    {
+      "path": "resources/icons/dti/DesktopUninstall.dti",
+      "bytes": 9228,
+      "sha256": "3b3fb8d3421d435211c1edf7da9715f7ba28d167f0ca42a0c5bfbeed75f4aa4f"
+    },
+    {
+      "path": "resources/icons/dti/DesktopWeather.dti",
+      "bytes": 9228,
+      "sha256": "4a46b7d1ccb6c5b516ee53cc57757c2647591c67310f9bad39048fe6a1daa27f"
+    },
+    {
+      "path": "resources/icons/dti/DisableApp.dti",
+      "bytes": 9228,
+      "sha256": "a29a1a8613cfdb8fe65d2da53b913426aece1de140c37f4be1256b493de9ff94"
+    },
+    {
+      "path": "resources/icons/dti/Document.dti",
+      "bytes": 9228,
+      "sha256": "f090bba2d38f9578a96ebc948c327658e162210539067ccf348d39ebbba24baa"
+    },
+    {
+      "path": "resources/icons/dti/DoneAll.dti",
+      "bytes": 9228,
+      "sha256": "9a5d50c5d1721acf917267826859e4b7dde692eab4dc9595c51bfcdfa71e0666"
+    },
+    {
+      "path": "resources/icons/dti/Download.dti",
+      "bytes": 9228,
+      "sha256": "86a0656131cabe91bda49bab2e514a90d5e2f9245e9c34f2c728d2c3232529fa"
+    },
+    {
+      "path": "resources/icons/dti/Edit.dti",
+      "bytes": 9228,
+      "sha256": "85c5e5fcd894fc79850a64905d231ce4d6f9b6adf1bd90ee581f647fd9db2115"
+    },
+    {
+      "path": "resources/icons/dti/Erase.dti",
+      "bytes": 9228,
+      "sha256": "8162e7ed26128833347591787e6dbedbb71be08058ff80c68f90151003ff1eff"
+    },
+    {
+      "path": "resources/icons/dti/Error.dti",
+      "bytes": 9228,
+      "sha256": "92e539b03c7f367daa163a51203120501915f07f9577c58fcd839b2478cbecf0"
+    },
+    {
+      "path": "resources/icons/dti/Eye.dti",
+      "bytes": 9228,
+      "sha256": "fd69503814d61e4d71b22ee6309d3edc4856305142ccde26cb891a36f3035e37"
+    },
+    {
+      "path": "resources/icons/dti/EyeOff.dti",
+      "bytes": 9228,
+      "sha256": "e6a2895c313fb05fc250972c54e20ec5c6e5d77ae3a890b52a03bc9c25953645"
+    },
+    {
+      "path": "resources/icons/dti/FileCopy.dti",
+      "bytes": 9228,
+      "sha256": "f2c2e46e1ecf1206c384cd0753ea15eb2989ae5bdd8d183b2d1f122a03f872c0"
+    },
+    {
+      "path": "resources/icons/dti/FileExport.dti",
+      "bytes": 9228,
+      "sha256": "02ca79d3ba36297a840ec36ba1ae14891a57a8ef7f89be5f13ddd782713a27df"
+    },
+    {
+      "path": "resources/icons/dti/FileImport.dti",
+      "bytes": 9228,
+      "sha256": "e5043ca27145a19e635d45976c907e7466a2388a0f2f09a3df80611562334c26"
+    },
+    {
+      "path": "resources/icons/dti/FileMove.dti",
+      "bytes": 9228,
+      "sha256": "bb6b34c1e37482078d365202f3d0ffd14806dad6cca4be948f42ecee6aa341db"
+    },
+    {
+      "path": "resources/icons/dti/Folder.dti",
+      "bytes": 9228,
+      "sha256": "4481cb862bdce87efbee92ede1441d95e2de187f1f6c6cb954f19d8b2f2417c9"
+    },
+    {
+      "path": "resources/icons/dti/FolderCopy.dti",
+      "bytes": 9228,
+      "sha256": "a6b2928603bdbd60cd35f758a967e7bec4e2af5554207f4f7b2fee471c20cbf8"
+    },
+    {
+      "path": "resources/icons/dti/Forward.dti",
+      "bytes": 9228,
+      "sha256": "792bb76e63e442e9c59c89c13373f9a2cb8d8914a778b0fe0233574267a0647e"
+    },
+    {
+      "path": "resources/icons/dti/Ftp.dti",
+      "bytes": 9228,
+      "sha256": "f138db83b9af2090c89d3946dac0a3992d55da2569943f926c87cf27355776ee"
+    },
+    {
+      "path": "resources/icons/dti/Home.dti",
+      "bytes": 9228,
+      "sha256": "6acad16eb25d31cdb9e022dd87d8e954048ec5086d7841a22522864604854f8c"
+    },
+    {
+      "path": "resources/icons/dti/ImageLayout.dti",
+      "bytes": 9228,
+      "sha256": "46e307774a676d2f73bd6fe52282416a6e87498dac4d97bc23d859fc4ebbdcd1"
+    },
+    {
+      "path": "resources/icons/dti/Information.dti",
+      "bytes": 9228,
+      "sha256": "00bd88f8141ffd661c07b38bcd7b6c8600cefc35f7d36a3520f662414f54b93b"
+    },
+    {
+      "path": "resources/icons/dti/InformationOutline.dti",
+      "bytes": 9228,
+      "sha256": "424c87c5b631dd385cdb331642d59197a094ca5c3af4cd423f0bc7d836b52311"
+    },
+    {
+      "path": "resources/icons/dti/InstallApp.dti",
+      "bytes": 9228,
+      "sha256": "05b165aa9c551ba10269c89f1b62836961bc2ea08407295871d8e83da0508d34"
+    },
+    {
+      "path": "resources/icons/dti/Keypad.dti",
+      "bytes": 9228,
+      "sha256": "4d58fefb4337e646a6aa7d1ef6f42fcd6250dd4dc6784237374cfe8d9e5b105a"
+    },
+    {
+      "path": "resources/icons/dti/Language.dti",
+      "bytes": 9228,
+      "sha256": "df5201ea9871f3a30f43f64cd56702c13dad3ebaebfe199858e774b9e919e408"
+    },
+    {
+      "path": "resources/icons/dti/ListCelebration.dti",
+      "bytes": 9228,
+      "sha256": "74b61aa04ec1f13f4de153e74d0f8ec4df1c2c416a3ce943afa8f702d243e94b"
+    },
+    {
+      "path": "resources/icons/dti/ListCleaningServices.dti",
+      "bytes": 9228,
+      "sha256": "d535cc81013c19eeba132033edd03207397466ee29fdacecdada9c36119a2d78"
+    },
+    {
+      "path": "resources/icons/dti/ListFitnessCenter.dti",
+      "bytes": 9228,
+      "sha256": "0018320fcf761dc8c55cd89e6c370ecf2296795eb9aa77b65cf37cba103e8480"
+    },
+    {
+      "path": "resources/icons/dti/ListFlight.dti",
+      "bytes": 9228,
+      "sha256": "dd390234f091e1dc768b37dbb9235f7682d45498aa66d6b3176509f183feabbb"
+    },
+    {
+      "path": "resources/icons/dti/ListGroups.dti",
+      "bytes": 9228,
+      "sha256": "49933e56f3db4263af03ebd7b9a9f423cfdcc8ed520370dc26f2e5fe30416cf5"
+    },
+    {
+      "path": "resources/icons/dti/ListHomeRepairService.dti",
+      "bytes": 9228,
+      "sha256": "8596bce5ec240744a7e4bc2eca46f58b0d412b8d8f39a80dce4d656498774aec"
+    },
+    {
+      "path": "resources/icons/dti/ListLuggage.dti",
+      "bytes": 9228,
+      "sha256": "1b9af6439484d940d3e835ad9bbd1dd68e6b8c7021a319c56a169007c38ca42d"
+    },
+    {
+      "path": "resources/icons/dti/ListMedicalServices.dti",
+      "bytes": 9228,
+      "sha256": "2146daf7364b218074e12736a019ec2ad3dd9b1856adb50657d34fef933472eb"
+    },
+    {
+      "path": "resources/icons/dti/ListMenuBook.dti",
+      "bytes": 9228,
+      "sha256": "05b307fe0a6f0b3ca33157db118d46d18fb8b23ba40b62d50c9c74559004fc30"
+    },
+    {
+      "path": "resources/icons/dti/ListPets.dti",
+      "bytes": 9228,
+      "sha256": "507655270a2988d540a3998078298ec74246590b56b12ed89d1de2ac203701c2"
+    },
+    {
+      "path": "resources/icons/dti/ListReceiptLong.dti",
+      "bytes": 9228,
+      "sha256": "bd0cc624463e94ef4ff31b9015e3a28dd1d94f01191ce20a24484bf86aa1081f"
+    },
+    {
+      "path": "resources/icons/dti/ListRestaurant.dti",
+      "bytes": 9228,
+      "sha256": "14ef285cf247a39341479c029d91dfa820e3e5ffafbab84cce661eb188151200"
+    },
+    {
+      "path": "resources/icons/dti/ListSavings.dti",
+      "bytes": 9228,
+      "sha256": "cd66b68f26eb37654df609d1d8c595ae70e485d5b1c1b1891ccf6fe877671b89"
+    },
+    {
+      "path": "resources/icons/dti/ListSchool.dti",
+      "bytes": 9228,
+      "sha256": "b2cea11ab82ac14071a339a81009e1cf50d7959b00c40ce7733dc9d1634ab84f"
+    },
+    {
+      "path": "resources/icons/dti/ListShoppingCart.dti",
+      "bytes": 9228,
+      "sha256": "9d1eb2546753892a2ae5f7feb5e1c7d5c4ad7221713d67f759f1ba054d2d2b6a"
+    },
+    {
+      "path": "resources/icons/dti/ListWork.dti",
+      "bytes": 9228,
+      "sha256": "f6971ce5cb2bf1065d5c24547615cb8cffe1051d3039568a41c5e01358ea9a0e"
+    },
+    {
+      "path": "resources/icons/dti/LocationAdd.dti",
+      "bytes": 9228,
+      "sha256": "ffe5b54e22920425269a5dc6ed6d532f96f96f9eae4fbd1328b7a70ece3fd0bb"
+    },
+    {
+      "path": "resources/icons/dti/Lock.dti",
+      "bytes": 9228,
+      "sha256": "dba12b4129a521231777ccb8d209179d4a421323c643d95c56ef50df134b4502"
+    },
+    {
+      "path": "resources/icons/dti/MaterialCalendar.dti",
+      "bytes": 9228,
+      "sha256": "57d08b4879958dc0a00addfb8069d59a7d3a4151057aee5745cf0b39bd5d7781"
+    },
+    {
+      "path": "resources/icons/dti/MaterialCloud.dti",
+      "bytes": 9228,
+      "sha256": "5fc6f0b16370cd6cf8780abeb0f2fedc0cbad4bd7abe9ed860fdd1a907fc85a9"
+    },
+    {
+      "path": "resources/icons/dti/MaterialDocument.dti",
+      "bytes": 9228,
+      "sha256": "4b79278c1d58351719ce8920c2ec639351416c9cb3750fee9bbb90ffc6b4628b"
+    },
+    {
+      "path": "resources/icons/dti/MaterialWidgets.dti",
+      "bytes": 9228,
+      "sha256": "3e82223e53c8d580e834a13d45dc87e4a69ac348fbf533b48d0c498bde0b99ed"
+    },
+    {
+      "path": "resources/icons/dti/Menu.dti",
+      "bytes": 9228,
+      "sha256": "709b96d5ffdde2d9a4f92f75d2b851b0301df9875848acbe3e91af3d59f9ff56"
+    },
+    {
+      "path": "resources/icons/dti/MenuOpen.dti",
+      "bytes": 9228,
+      "sha256": "c5db759e5867f1a15fe57c3a0ed41d9435977b72fd652f9c4ec85dfff4eff0e0"
+    },
+    {
+      "path": "resources/icons/dti/Minus.dti",
+      "bytes": 9228,
+      "sha256": "97df9b03efe83bec90b42942ea45f6c343c14dfe87e34f4bb38f82b773b7b439"
+    },
+    {
+      "path": "resources/icons/dti/Movie.dti",
+      "bytes": 9228,
+      "sha256": "9c160b885c0a98a750f3a8340b458af1cd6c967f1383d0c1f8258ff82ca9e4cd"
+    },
+    {
+      "path": "resources/icons/dti/Music.dti",
+      "bytes": 9228,
+      "sha256": "2de04fdb740016379940014069755818971dd9daf6e98c66706c7827011e2754"
+    },
+    {
+      "path": "resources/icons/dti/NewFile.dti",
+      "bytes": 9228,
+      "sha256": "69e201446a2bda5cc6736c14342c5b1afe2e67b5bda3a1e11f4de8e2a2897f13"
+    },
+    {
+      "path": "resources/icons/dti/NewFolder.dti",
+      "bytes": 9228,
+      "sha256": "86046060ecbb793a7c0d5dbf61385cd0904d47f4817885b88264b5152a4573f3"
+    },
+    {
+      "path": "resources/icons/dti/Newline.dti",
+      "bytes": 9228,
+      "sha256": "ce4ea41459651b9a8a89c8838e39952b9f7c99d4d4918b70e5a9ac78dbb23178"
+    },
+    {
+      "path": "resources/icons/dti/NoteAdd.dti",
+      "bytes": 9228,
+      "sha256": "ad76c82825f516b592083bcbeb8f968b10938d2b9b3c2e6ff192d9e1fe587ff2"
+    },
+    {
+      "path": "resources/icons/dti/Notes.dti",
+      "bytes": 9228,
+      "sha256": "1b742bd9b3cb81e1460b29384375144bc7bb196fa910d7309ca99c266105af4b"
+    },
+    {
+      "path": "resources/icons/dti/Notifications.dti",
+      "bytes": 9228,
+      "sha256": "eab0f61b98bf8505d0036d80495559284cebe07ea4e92b9d6f53545d2e875a71"
+    },
+    {
+      "path": "resources/icons/dti/OpenApp.dti",
+      "bytes": 9228,
+      "sha256": "2f0c84f06b5d4cb9c567336699865feaa09f0402cfe3ff18a6565d376d76e715"
+    },
+    {
+      "path": "resources/icons/dti/Palette.dti",
+      "bytes": 9228,
+      "sha256": "be9e5a6579322fc530f9c6ab2ac4b4655e1ecff3e989b41f6c8e5d5a17ff2e66"
+    },
+    {
+      "path": "resources/icons/dti/Pause.dti",
+      "bytes": 9228,
+      "sha256": "8338ec1f201729c91d5bac1764d519b55fb78438392cf21b89776a56fa00beda"
+    },
+    {
+      "path": "resources/icons/dti/PermissionShield.dti",
+      "bytes": 9228,
+      "sha256": "2abbff809cf036333ca5ef5c878f6f809794620e59080f8a68f9bb0f57b76f1f"
+    },
+    {
+      "path": "resources/icons/dti/Photo.dti",
+      "bytes": 9228,
+      "sha256": "3911371f8bec1883882aa560bbf6e66d0fedeb22800a789573352b7a93df9767"
+    },
+    {
+      "path": "resources/icons/dti/PidsErrors.dti",
+      "bytes": 9228,
+      "sha256": "73b4b9b98e3f5839115a73c3762a1fefc37b8094915b76cf12c7b3e7075d3b16"
+    },
+    {
+      "path": "resources/icons/dti/PidsSettings.dti",
+      "bytes": 9228,
+      "sha256": "d521edf0dc4f90bc44803c76136c75d3f9d96cbb3fcbb9e6aa4a71f625d74695"
+    },
+    {
+      "path": "resources/icons/dti/Pin.dti",
+      "bytes": 9228,
+      "sha256": "747c5bdcb109815b28d0cab03205166e27ef122c3cbdf71d3edfeb6221995b89"
+    },
+    {
+      "path": "resources/icons/dti/PinFilled.dti",
+      "bytes": 9228,
+      "sha256": "1fa7c9bcd07966da1485e06586022a5d5b1666405823b3c0e9be7da61041ad07"
+    },
+    {
+      "path": "resources/icons/dti/Play.dti",
+      "bytes": 9228,
+      "sha256": "91df5a22f1f367798777f20d6f68b9a16bc6b96292ab175ff7314ed49459f7b1"
+    },
+    {
+      "path": "resources/icons/dti/Plus.dti",
+      "bytes": 9228,
+      "sha256": "fc9845b66360754a5f20c4511077f9ec9cce5a10aa7d102dcb9e58739ca77402"
+    },
+    {
+      "path": "resources/icons/dti/Privacy.dti",
+      "bytes": 9228,
+      "sha256": "25c46349252783ec6e7546852d7f6fed932140831e05f93a9d1598cc65a0f68d"
+    },
+    {
+      "path": "resources/icons/dti/Rain.dti",
+      "bytes": 9228,
+      "sha256": "537931ca13e3fa539e434b575d9ebaa2a3669d031b29ea55ab47f9e54e4cba0a"
+    },
+    {
+      "path": "resources/icons/dti/Refresh.dti",
+      "bytes": 9228,
+      "sha256": "1a0d4bd96e36a94e53c95e545987b816272aaf32bf91f317ba4b03aec508d691"
+    },
+    {
+      "path": "resources/icons/dti/Reset.dti",
+      "bytes": 9228,
+      "sha256": "9859b421ee9cc3abd7c400806680fcdd7a3f66f6401d5ca4f250d431ba29144b"
+    },
+    {
+      "path": "resources/icons/dti/RouteStation.dti",
+      "bytes": 9228,
+      "sha256": "e8639c1dc5b0a586098e908d6e4db9bfb0d5fc2edba662607872de6a913414d0"
+    },
+    {
+      "path": "resources/icons/dti/Save.dti",
+      "bytes": 9228,
+      "sha256": "f7c66b4eb14fd306b22a1d1b3457ec259fdcd340d383524992938c840568bba2"
+    },
+    {
+      "path": "resources/icons/dti/SaveChanges.dti",
+      "bytes": 9228,
+      "sha256": "1419d4b8ec3cbf7635fe736a20d5d3e588c1971c94137e4c14f448aeff31e823"
+    },
+    {
+      "path": "resources/icons/dti/SavedNetworks.dti",
+      "bytes": 9228,
+      "sha256": "62213c1ddad162e2a5c6e67c2873425f8c72f7f6bf56f7fb591802bde29f48ae"
+    },
+    {
+      "path": "resources/icons/dti/ScrollHorizontal.dti",
+      "bytes": 9228,
+      "sha256": "edfd1857481330e99b1a0dc8fca3659a4edff09ef916e7e5f5b218c571c5795c"
+    },
+    {
+      "path": "resources/icons/dti/ScrollVertical.dti",
+      "bytes": 9228,
+      "sha256": "6d88941d3d5055ee3d4fc1b1431cfbf0f8d2f98883380f2cbfadc69e2f88e8a2"
+    },
+    {
+      "path": "resources/icons/dti/Search.dti",
+      "bytes": 9228,
+      "sha256": "6bb96fa67883bedb983bd13c622ad7ce28a8df6b769d0eaec010b9e2a792cddc"
+    },
+    {
+      "path": "resources/icons/dti/Settings.dti",
+      "bytes": 9228,
+      "sha256": "f36774813d89d7d87c0a5522fd02af717e9d1403fefddba1cd0afe8257750d3c"
+    },
+    {
+      "path": "resources/icons/dti/Shift.dti",
+      "bytes": 9228,
+      "sha256": "d94561f7f6c92968708629319a63dc76a22573631629572b7ab6aff91b1da599"
+    },
+    {
+      "path": "resources/icons/dti/ShiftFilled.dti",
+      "bytes": 9228,
+      "sha256": "a6da628386196512f487f72676b2bc2395e2bac64125a259432b83f6311e1f06"
+    },
+    {
+      "path": "resources/icons/dti/Snow.dti",
+      "bytes": 9228,
+      "sha256": "ba4e82fb4b64b56a84f0849f0bdc9333cda734f964b48821d6dbe4b7d56f6228"
+    },
+    {
+      "path": "resources/icons/dti/StartDownload.dti",
+      "bytes": 9228,
+      "sha256": "ff0e278a019cd0005f7b91d46e0c3ed4dff97c35f8c59b02fcbaab0387b2b21a"
+    },
+    {
+      "path": "resources/icons/dti/Storage.dti",
+      "bytes": 9228,
+      "sha256": "e11f5f94a557546b9a8d107919ba6c93bbd0ecaa9c4e0e0953e88dc449bf79df"
+    },
+    {
+      "path": "resources/icons/dti/Storm.dti",
+      "bytes": 9228,
+      "sha256": "58bc634fe8972280b635ca9b5cefd99063d41197a11df7cabe21e79a1bfdf213"
+    },
+    {
+      "path": "resources/icons/dti/System.dti",
+      "bytes": 9228,
+      "sha256": "0d30b873883d85d447a424440ea5125f24789d87ae7f23f4c21129292b4a4d5d"
+    },
+    {
+      "path": "resources/icons/dti/TaskActive.dti",
+      "bytes": 9228,
+      "sha256": "87e1ac70f8eaf3ccad877360bd5ebe61d1cdfb8d78cbb7f0d08b723e9dfd55fc"
+    },
+    {
+      "path": "resources/icons/dti/TaskCancel.dti",
+      "bytes": 9228,
+      "sha256": "d7009bc74a441ff42842c830f48315a9f3cae0d46b87c32aecd671ad9bd6486a"
+    },
+    {
+      "path": "resources/icons/dti/TaskComplete.dti",
+      "bytes": 9228,
+      "sha256": "53b0aae7b0a694bf65a9f69de4c0e7df2823a01e0b4b0d9d73a814487bfa42c9"
+    },
+    {
+      "path": "resources/icons/dti/TaskRetry.dti",
+      "bytes": 9228,
+      "sha256": "5ff66c6c822db05e8be94d26b7c2b464bbc2ec5e7e37354c559e1d987c43ced3"
+    },
+    {
+      "path": "resources/icons/dti/TileDensity.dti",
+      "bytes": 9228,
+      "sha256": "b42df06394b48daa186651792498c1b4a6b73891cf0324e6962bb51e68484363"
+    },
+    {
+      "path": "resources/icons/dti/Time.dti",
+      "bytes": 9228,
+      "sha256": "ec44f04aa11afe9fe4a5aad710ac867144eb0a78d77a472b24f79dd6664d58bf"
+    },
+    {
+      "path": "resources/icons/dti/Timer.dti",
+      "bytes": 9228,
+      "sha256": "562942c3f403e69124b24ab70a38caf7922befa4443718299b4a49d727ed9bad"
+    },
+    {
+      "path": "resources/icons/dti/Train.dti",
+      "bytes": 9228,
+      "sha256": "bea0fbdca4708d04a9055b952f0305b1caefee023e9ae2d2c38772effb45644e"
+    },
+    {
+      "path": "resources/icons/dti/Uninstall.dti",
+      "bytes": 9228,
+      "sha256": "1d4942559ca402a690a5601b37f8f3f07bfe37dd654329492befe68a95e21504"
+    },
+    {
+      "path": "resources/icons/dti/UpdateApp.dti",
+      "bytes": 9228,
+      "sha256": "3800420746345ec1a656cbadaaba415d3079f19151866dfecbc8aa8717d4e6ba"
+    },
+    {
+      "path": "resources/icons/dti/Warning.dti",
+      "bytes": 9228,
+      "sha256": "773ab75511b7468045464dd2fbf33b42559e36ca2e49509ed230261f9285ded7"
+    },
+    {
+      "path": "resources/icons/dti/Wifi.dti",
+      "bytes": 9228,
+      "sha256": "2c06928c814b513c5a909b8d0ff8890cca8b78cbb23a19aca50bf8e2bffa9f8b"
+    },
+    {
+      "path": "resources/icons/dti/WifiOff.dti",
+      "bytes": 9228,
+      "sha256": "8a6b6c0819a44affc54c04188bc62dac4a73011a4723831bc14fb8f07d6496f1"
+    },
+    {
+      "path": "resources/icons/LICENSE",
+      "bytes": 1099,
+      "sha256": "c89dabc60b2e4e1a04b33bd7010b5a56bb4725ffe8c00d793a5ae009fbbfebd8"
+    },
+    {
+      "path": "resources/icons/LICENSE-MATERIAL-SYMBOLS",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "resources/icons/MATERIAL-SYMBOLS.md",
+      "bytes": 330,
+      "sha256": "682a1979179921878936e20252c65c839e156951fd8089a8f9940dabecece806"
+    },
+    {
+      "path": "resources/icons/source/about-sharp.svg",
+      "bytes": 250,
+      "sha256": "26c8165fc373e7160353e7d819012f399220c9d31b1ea9349f67741d7463d68e"
+    },
+    {
+      "path": "resources/icons/source/app-installer.svg",
+      "bytes": 278,
+      "sha256": "69fc3d22ee5126da349209ff7adb69eefb954f98b135026db578ba3427f8e288"
+    },
+    {
+      "path": "resources/icons/source/application-settings.svg",
+      "bytes": 768,
+      "sha256": "11f4ad380ac35a725cfa630fc732478e945adff7c5254c4f1abc561393e56f92"
+    },
+    {
+      "path": "resources/icons/source/apps-40.svg",
+      "bytes": 192,
+      "sha256": "be6f9dcbd5e691851f1d74e92878b3b648930badf921ed59e0ef6e3dbd8f8d72"
+    },
+    {
+      "path": "resources/icons/source/apps-sharp.svg",
+      "bytes": 252,
+      "sha256": "2a16d23cca991397d6e425a990f6577fd30107abd78a7dd8bc2d90c720d0b66b"
+    },
+    {
+      "path": "resources/icons/source/background.svg",
+      "bytes": 223,
+      "sha256": "ebaebf4fe2b281691032574b9ad43207e21c7428b0fb0ba30f54a8882fcc2b0b"
+    },
+    {
+      "path": "resources/icons/source/backspace-sharp.svg",
+      "bytes": 230,
+      "sha256": "bf7bb4d949713679d2a90df8c3e20ec84bebc4c4da4cfda86cc71b14a764265d"
+    },
+    {
+      "path": "resources/icons/source/battery-half-sharp.svg",
+      "bytes": 255,
+      "sha256": "00bc4b30eb449770c2679a2ec306a97b1fdcde7421e849e54eb39c2815f6ff4a"
+    },
+    {
+      "path": "resources/icons/source/bluetooth-off.svg",
+      "bytes": 293,
+      "sha256": "f18f343b963213bb41417fc5602f7c7b7a32f2a6f3cabf384a46fc71842ab80b"
+    },
+    {
+      "path": "resources/icons/source/bluetooth.svg",
+      "bytes": 274,
+      "sha256": "389e25785bae53a271de4cbf2b6e95246313db764992c73effe8de4e9941078c"
+    },
+    {
+      "path": "resources/icons/source/bookmark-filled.svg",
+      "bytes": 100,
+      "sha256": "5a58c25bad414cc39b2b859b1e6875f41638e163f2833f9b066de4cc32fca900"
+    },
+    {
+      "path": "resources/icons/source/bookmark.svg",
+      "bytes": 128,
+      "sha256": "94770bb267d28b9b61bacca2c47e841225b06d6695f742016f192a130b5a26ff"
+    },
+    {
+      "path": "resources/icons/source/boot-desktile.svg",
+      "bytes": 302,
+      "sha256": "6cefb184637e453b30fb9457451e5b4c4f49a5a605748f3a714491ef57b1e2a4"
+    },
+    {
+      "path": "resources/icons/source/calendar-event-list.svg",
+      "bytes": 286,
+      "sha256": "1e337b0a656f4cd99b71b790d2181f4ce738c824317122c44b4f9e2eda01b2d2"
+    },
+    {
+      "path": "resources/icons/source/calendar-sharp.svg",
+      "bytes": 322,
+      "sha256": "00478ac39516fae23b03b34b527de9d885d393ff8d163665cde44ca318fee96c"
+    },
+    {
+      "path": "resources/icons/source/check.svg",
+      "bytes": 129,
+      "sha256": "2daa0e3c1d451266676841657e454eecd2a66138647383eb6fad6f5cfc8afebf"
+    },
+    {
+      "path": "resources/icons/source/chevron-back-sharp.svg",
+      "bytes": 228,
+      "sha256": "8345eb7de7afe60fc715fcc6f900535c78cc0bd81dd16edac02eb87047c24d79"
+    },
+    {
+      "path": "resources/icons/source/chevron-down-sharp.svg",
+      "bytes": 229,
+      "sha256": "1b27848a2e0fbb007e94cecadfe1ae03d3e35605a1c52cef6f22b7aec07b099e"
+    },
+    {
+      "path": "resources/icons/source/chevron-forward-sharp.svg",
+      "bytes": 228,
+      "sha256": "3a200769aa763ecd6978631ca8884861dd67814b99910f5e3f3401fb59fc67aa"
+    },
+    {
+      "path": "resources/icons/source/chevron-up-sharp.svg",
+      "bytes": 229,
+      "sha256": "1ea59c9fdfbfb6c51f0bdd110be5e47973c44114178c2f8190819356670f5e5d"
+    },
+    {
+      "path": "resources/icons/source/clear-cache.svg",
+      "bytes": 281,
+      "sha256": "cb74a2e0459338d0e66d480795729e21ea2cc95a7f054d8098ab19010847665e"
+    },
+    {
+      "path": "resources/icons/source/close.svg",
+      "bytes": 188,
+      "sha256": "8c78d5b2409048680c80393049241c164e29bb2a477ef97a288a1f66935324a6"
+    },
+    {
+      "path": "resources/icons/source/cloud-sharp.svg",
+      "bytes": 473,
+      "sha256": "a6d8ed6b516bb08aaff8fbe28cbf52d574305138ba22855814a2c51202327806"
+    },
+    {
+      "path": "resources/icons/source/color-palette-sharp.svg",
+      "bytes": 759,
+      "sha256": "31998633ec9dade6a548ba9abdefc1b843faa054862e649b91a7f8d660b56175"
+    },
+    {
+      "path": "resources/icons/source/delete.svg",
+      "bytes": 269,
+      "sha256": "81fb1d5bee830586bd43e1687809f099724eb51dd6ba07051e86b463b2ce592d"
+    },
+    {
+      "path": "resources/icons/source/desktile.svg",
+      "bytes": 209,
+      "sha256": "28324fcd86e579772e0097895170d98efeca261b1d48ffe2ea42ab3882097639"
+    },
+    {
+      "path": "resources/icons/source/desktop-calendar.svg",
+      "bytes": 191,
+      "sha256": "5b47c90fe1f1860ce8d7b2b7706387b43775b1a65d978530a909fadc94889137"
+    },
+    {
+      "path": "resources/icons/source/desktop-files.svg",
+      "bytes": 287,
+      "sha256": "e5364226aa8f09d98713bedfd50eabf7182ec81992a08a785990d0cd50e9119a"
+    },
+    {
+      "path": "resources/icons/source/desktop-resize.svg",
+      "bytes": 430,
+      "sha256": "24f90b4e773199622d3ce7ffd28e93bafbc7484044e6b0dc3b98c0481f19e3b1"
+    },
+    {
+      "path": "resources/icons/source/desktop-uninstall.svg",
+      "bytes": 608,
+      "sha256": "6da242531ee8aa126aeb7119c86880f5b87fbe1f5dd873113f534a9d02a146e1"
+    },
+    {
+      "path": "resources/icons/source/desktop-weather.svg",
+      "bytes": 978,
+      "sha256": "2f95e9628ba8c33f4fc1d58b5261183b4fd29cc73f8e8ae484d9a8bd021dcf75"
+    },
+    {
+      "path": "resources/icons/source/disable-app.svg",
+      "bytes": 511,
+      "sha256": "e4f0750024d53610d30704da6c9816b99b9c5e18ba4196f8a2dfbcfb1c88302a"
+    },
+    {
+      "path": "resources/icons/source/document-sharp.svg",
+      "bytes": 310,
+      "sha256": "2978cd15d8ea558f09a6502f57452f02142065a0e3bacd554f747a6b52fc7719"
+    },
+    {
+      "path": "resources/icons/source/done-all.svg",
+      "bytes": 254,
+      "sha256": "8f63bd61d6b781262bbc4d909c3d066eb609db9fe5211fa296702b41d39889b0"
+    },
+    {
+      "path": "resources/icons/source/eye-off-sharp.svg",
+      "bytes": 797,
+      "sha256": "bbe516604e16a919499b761fafc92b9f5e612976e4eb95f2b4840d51f9b22c11"
+    },
+    {
+      "path": "resources/icons/source/eye-outline.svg",
+      "bytes": 498,
+      "sha256": "6dbdecbbbb2c260629343e3c9468ec99132e9e4849adecfc950d67d0bd484e5f"
+    },
+    {
+      "path": "resources/icons/source/eye-sharp.svg",
+      "bytes": 473,
+      "sha256": "f0a25679a42cecff3eba9c6c73d0dcc423325d823b6426b16a2af9aa52829d81"
+    },
+    {
+      "path": "resources/icons/source/file-export.svg",
+      "bytes": 256,
+      "sha256": "436fe740ff5f0062a89524397ab024f9e843d00606eb83bac0f42989a50d429b"
+    },
+    {
+      "path": "resources/icons/source/file-import.svg",
+      "bytes": 276,
+      "sha256": "52fb56ce6068f2eb961934e3f2120d87bfcccebb16792204ed09257ea9e55e89"
+    },
+    {
+      "path": "resources/icons/source/folder-sharp.svg",
+      "bytes": 182,
+      "sha256": "34e4d8549d31ddfe6955ba3401daaa6e6fdeb7ed3db184664e4a8ffb8df891bb"
+    },
+    {
+      "path": "resources/icons/source/ftp-network.svg",
+      "bytes": 350,
+      "sha256": "917fb79803069f0478f57ee86b30fc3cd987562b307ad4f3a90784c61a214e43"
+    },
+    {
+      "path": "resources/icons/source/guide-color-picker.svg",
+      "bytes": 300,
+      "sha256": "1af87d423c90c3de82abe410b05f9c40e26d6074277ffea9d260e1c118ca8945"
+    },
+    {
+      "path": "resources/icons/source/guide-dashboard-customize.svg",
+      "bytes": 238,
+      "sha256": "a200583349209744802af3dfe5d383f51c9fbac3a4dea08b87c6f456c72dea90"
+    },
+    {
+      "path": "resources/icons/source/guide-format-paint.svg",
+      "bytes": 250,
+      "sha256": "62f3d99962d78d35da001aef0e04934acc1741083f374fa400e68aac8c73643e"
+    },
+    {
+      "path": "resources/icons/source/guide-magic-wand.svg",
+      "bytes": 457,
+      "sha256": "f5d86744051d271833e7b8826fae881f119fb9ec303c1493e20879d4e71fbd61"
+    },
+    {
+      "path": "resources/icons/source/guide-paint-bucket.svg",
+      "bytes": 266,
+      "sha256": "3324be233d1c6f2b0c3153f7e15e1ac1f5c277b48996360c985fbd2d35ae334b"
+    },
+    {
+      "path": "resources/icons/source/guide-paint-roller.svg",
+      "bytes": 244,
+      "sha256": "f1d72bb05f2691d4baf3e2a60824daa0eb21160fc6a727dcd33f2e39f5ec4143"
+    },
+    {
+      "path": "resources/icons/source/guide-palette.svg",
+      "bytes": 829,
+      "sha256": "7c55796b345669a86a1d764e0925feef93f6d6dde06065e0ffc7659a1cf6b646"
+    },
+    {
+      "path": "resources/icons/source/guide-sparkles.svg",
+      "bytes": 285,
+      "sha256": "81480f2a45dc06ffb849a6d735562dc7c9ee919044f6d70ab335240cdec38345"
+    },
+    {
+      "path": "resources/icons/source/guide-text-fields.svg",
+      "bytes": 190,
+      "sha256": "dc09c45853452672aba129667e20a8d78f605613eb46fc9395b6a943f27a1594"
+    },
+    {
+      "path": "resources/icons/source/guide-tune.svg",
+      "bytes": 294,
+      "sha256": "ecc237e916e567e8e8968556a0936471c9e9ac9f6c8beccd6d9f35008dc12b70"
+    },
+    {
+      "path": "resources/icons/source/guide-wallpaper.svg",
+      "bytes": 359,
+      "sha256": "c0e1f3d7f7a0d8fbbcdbf720f2bb23aba89cce7d10cba70144ffa2f4211b5a92"
+    },
+    {
+      "path": "resources/icons/source/home-sharp.svg",
+      "bytes": 242,
+      "sha256": "06e1bbce66adb0dbc9e1b6f8ef0ffc8fdcf311e991560e6a1d5df23d827cdebe"
+    },
+    {
+      "path": "resources/icons/source/image-layout.svg",
+      "bytes": 357,
+      "sha256": "3b9867c7b4455177f374075098400feb72fae60abb1119a0aef8727dc7995a94"
+    },
+    {
+      "path": "resources/icons/source/information-circle-outline.svg",
+      "bytes": 609,
+      "sha256": "04a4689153b73e6f5ae6cb19daa6ef65190df2e6148009571171ffe78d428eff"
+    },
+    {
+      "path": "resources/icons/source/information-circle-sharp.svg",
+      "bytes": 278,
+      "sha256": "2a50cb9044c0d2aea2ef1a6d865b0f14240f63f96d26c8c9ae8e51566e66116c"
+    },
+    {
+      "path": "resources/icons/source/information-outline.svg",
+      "bytes": 527,
+      "sha256": "add0890a80e45eac7d6897d22c761b1f45fdca5f8368f7b45a0f5e7f530bb2ee"
+    },
+    {
+      "path": "resources/icons/source/install-app.svg",
+      "bytes": 262,
+      "sha256": "9e9502484376f414a8eaf2767c1f27737180b93a1cf28ef16e4ba5169915847b"
+    },
+    {
+      "path": "resources/icons/source/keypad-sharp.svg",
+      "bytes": 687,
+      "sha256": "0bb3e5958b84d5ea6f1c15b4f73fd6d8b4d5cfd66b00d2a7335c7971245817c4"
+    },
+    {
+      "path": "resources/icons/source/lock-closed-sharp.svg",
+      "bytes": 306,
+      "sha256": "e95e893136220983449b6795f49075847a3c1a6dfdf6f546c321707ce6c5b38f"
+    },
+    {
+      "path": "resources/icons/source/material-archive.svg",
+      "bytes": 207,
+      "sha256": "7dc35a78f5beb323ff3d4787f7cb9444a935e4dabc58e90dc859e4186263602c"
+    },
+    {
+      "path": "resources/icons/source/material-calendar.svg",
+      "bytes": 327,
+      "sha256": "a2eae95fc220653f8cee71dbcff382c6137ae0424b24b30ec6cd3fc263d6396f"
+    },
+    {
+      "path": "resources/icons/source/material-cloud.svg",
+      "bytes": 383,
+      "sha256": "569bc1aef1bc6195e1d5f928796ddd61701344066a7930e281e37c46b8e26eae"
+    },
+    {
+      "path": "resources/icons/source/material-code.svg",
+      "bytes": 187,
+      "sha256": "8f4bca53e9da436407689afbc1912b2e6254415d9fe231bdb538a526b480d1e0"
+    },
+    {
+      "path": "resources/icons/source/material-content-copy.svg",
+      "bytes": 163,
+      "sha256": "1421ed0e98d1ebf581f5bc456db68a9f24047a857db01d162a9e8ddaad665781"
+    },
+    {
+      "path": "resources/icons/source/material-content-paste.svg",
+      "bytes": 324,
+      "sha256": "fc2fe11e2c73a56bda25f34ffd0dc273506a6ff18c7c88a029f2c436e670509a"
+    },
+    {
+      "path": "resources/icons/source/material-description.svg",
+      "bytes": 223,
+      "sha256": "a95a86c8230b488fe287357d72ea10db4359520cb5df1f0116bed9fc9618fbbd"
+    },
+    {
+      "path": "resources/icons/source/material-download.svg",
+      "bytes": 474,
+      "sha256": "423eb6af45386ca67266e9cc134537b0d3c5705b83652f389af86a7ff4623d54"
+    },
+    {
+      "path": "resources/icons/source/material-drive-file-move.svg",
+      "bytes": 250,
+      "sha256": "8d2df77a63b1a9ece9cfe15042448e35408e785e3b2a78cccb85275ed448c5f2"
+    },
+    {
+      "path": "resources/icons/source/material-edit.svg",
+      "bytes": 330,
+      "sha256": "a8a55757e176127fdda3cea0a590dfba59497bb1f2a521dd1485f039f86417aa"
+    },
+    {
+      "path": "resources/icons/source/material-error.svg",
+      "bytes": 513,
+      "sha256": "d80d7e09f9087d7ccfd5d8d60503021a932b64298a96e5acffaa6f409645d754"
+    },
+    {
+      "path": "resources/icons/source/material-file-copy.svg",
+      "bytes": 230,
+      "sha256": "d93a4279db0d7bcd79ac961d721a2c56606790ca44fdcde65d779b778b161ec0"
+    },
+    {
+      "path": "resources/icons/source/material-folder-copy.svg",
+      "bytes": 222,
+      "sha256": "63813dc68ce59079aad26124af4d288a71c4a0985bbda36ec17f9190cc404d78"
+    },
+    {
+      "path": "resources/icons/source/material-language.svg",
+      "bytes": 978,
+      "sha256": "6c0b07e3f8a7530a1bb599db1e8056d635ba5d69f4a0527ed1aca376b2011090"
+    },
+    {
+      "path": "resources/icons/source/material-location-add.svg",
+      "bytes": 402,
+      "sha256": "a11692c961775d5d314e96b0f19ebb1c455c05302db3d4326a85c091b2732dfd"
+    },
+    {
+      "path": "resources/icons/source/material-menu-open.svg",
+      "bytes": 238,
+      "sha256": "70aeaeb763555388589067c47eec51638c94d353ed5c4a195be07c2a34beda44"
+    },
+    {
+      "path": "resources/icons/source/material-menu.svg",
+      "bytes": 184,
+      "sha256": "3a66a58607416da911873413c08df4ec2a72f02d2335f0c2ca22118279863aac"
+    },
+    {
+      "path": "resources/icons/source/material-movie.svg",
+      "bytes": 212,
+      "sha256": "5fa2668a48d9e7d7d43fdff0737f05f6205d58bf7bdda219370db907d9685f34"
+    },
+    {
+      "path": "resources/icons/source/material-music.svg",
+      "bytes": 196,
+      "sha256": "d723ad39c14b0c6fc2209e0956083f5d2d3509aaabf19a5928de805a0d7e1d76"
+    },
+    {
+      "path": "resources/icons/source/material-new-file.svg",
+      "bytes": 258,
+      "sha256": "c83805855b64c279456b73199618a054516921f309885d2de3a6207bb9524817"
+    },
+    {
+      "path": "resources/icons/source/material-new-folder.svg",
+      "bytes": 240,
+      "sha256": "2b50a864a35bdf6254f716d96f99ef7bc66ded94b0486d553694f7faa388b3cf"
+    },
+    {
+      "path": "resources/icons/source/material-start-download.svg",
+      "bytes": 232,
+      "sha256": "444ab10fa72def1dc0b75035c2c720241a15c149af09de95ab07175fc5ad4992"
+    },
+    {
+      "path": "resources/icons/source/material-task-active.svg",
+      "bytes": 741,
+      "sha256": "4b2caa7229d52e1520f5a2e7717f0ec4861a2d08a1b389e349a87c72d9ab6bbb"
+    },
+    {
+      "path": "resources/icons/source/material-task-cancel.svg",
+      "bytes": 204,
+      "sha256": "fd16bdddc20e3dc7efb41afa11dbf7315738ab23491e8e9624ca07706e2f3e2c"
+    },
+    {
+      "path": "resources/icons/source/material-task-complete.svg",
+      "bytes": 472,
+      "sha256": "768287a5b771aaf800060497ca6f7d0b4e845994fcfa7e2d21787d263a8030c8"
+    },
+    {
+      "path": "resources/icons/source/material-task-retry.svg",
+      "bytes": 364,
+      "sha256": "f041b95e937b38a7947f226ceaaf36be0860de8f7f0230c0c59d9d92f70e6410"
+    },
+    {
+      "path": "resources/icons/source/material-warning.svg",
+      "bytes": 332,
+      "sha256": "197e321e4215a4c5a682bb4ae171d01c352e0915c8f639ffdae158b910c28e2a"
+    },
+    {
+      "path": "resources/icons/source/material-widgets.svg",
+      "bytes": 351,
+      "sha256": "7a1e5da0cac82e9a7f297ebef278c3997cc2915c103e93a42a4f419ad42eb4cf"
+    },
+    {
+      "path": "resources/icons/source/minus.svg",
+      "bytes": 105,
+      "sha256": "c3165c51d7bc0c75ce9c932203ed613fe1ebe03622702c9eddc7ebba385b9b04"
+    },
+    {
+      "path": "resources/icons/source/newline.svg",
+      "bytes": 199,
+      "sha256": "622ba35c24525d7d44aff6fba43d709bf5d9452de8a29f6a7673159b1734f457"
+    },
+    {
+      "path": "resources/icons/source/note-add.svg",
+      "bytes": 292,
+      "sha256": "64b34dff049df11dc8a7db9b72dfe5d5f1e2cd59ed09d3f42b2af7a0257fc40f"
+    },
+    {
+      "path": "resources/icons/source/notes.svg",
+      "bytes": 231,
+      "sha256": "617deeae9abeae9a9875763942176dfc16cbd5be089828243b0620d2c21f893e"
+    },
+    {
+      "path": "resources/icons/source/notifications.svg",
+      "bytes": 346,
+      "sha256": "ac6050a0e9ec7328cf443d1af24bdc50c98113cd77c3a71f81e9ad452fd0ba87"
+    },
+    {
+      "path": "resources/icons/source/open-app.svg",
+      "bytes": 227,
+      "sha256": "25dad6f50751582b1c9d24631bd1070fe4e86a16ceba18e1751234f36c428b02"
+    },
+    {
+      "path": "resources/icons/source/pause.svg",
+      "bytes": 110,
+      "sha256": "af0235b97dccae465e6649304403c6b3ba20982124e248209e4b8e88e01b4f05"
+    },
+    {
+      "path": "resources/icons/source/permission-shield.svg",
+      "bytes": 237,
+      "sha256": "a6e2e67baffd6611b38aab0a4f67cb31a18cc0c3de6b23c153faeb8313269ae9"
+    },
+    {
+      "path": "resources/icons/source/photo-sharp.svg",
+      "bytes": 278,
+      "sha256": "32f94bd5dfb3f5256b5654811a239b57187cf4decb8511af224b498b01b01447"
+    },
+    {
+      "path": "resources/icons/source/pids-errors.svg",
+      "bytes": 751,
+      "sha256": "075c4db480ca6f56a4ded0f9004dc1c992a70443724082f3de95472c306163b8"
+    },
+    {
+      "path": "resources/icons/source/pids-settings.svg",
+      "bytes": 555,
+      "sha256": "a90d1b45840da3a650070c2cd24e3cd7c859e3aed0b3277f6a67a50bacb161aa"
+    },
+    {
+      "path": "resources/icons/source/pin-filled.svg",
+      "bytes": 195,
+      "sha256": "4e9c6462513a849ff7646bacb30f621fdacb17955d40f6e31be10a31d37a0a4c"
+    },
+    {
+      "path": "resources/icons/source/pin.svg",
+      "bytes": 336,
+      "sha256": "200d978b605b33b2f718c747b51873aef5da7e7dfbf25872044d79132c55b2d8"
+    },
+    {
+      "path": "resources/icons/source/play.svg",
+      "bytes": 96,
+      "sha256": "2cf80a163c8dddfb164005ad70c72ba84d8af05db7d57366c615f550b121d6f0"
+    },
+    {
+      "path": "resources/icons/source/plus-32.svg",
+      "bytes": 152,
+      "sha256": "e101aaba4ff3ba3e69eef635c8d467796819e72bf3c45ccd5e93087cbc658c0b"
+    },
+    {
+      "path": "resources/icons/source/plus.svg",
+      "bytes": 195,
+      "sha256": "333a520724f5d9e01fbc240c118ead673ffc17d66bde71f3752b391e7b2272c5"
+    },
+    {
+      "path": "resources/icons/source/privacy.svg",
+      "bytes": 601,
+      "sha256": "d7ec3b89db211c11cb64fe53a353fb83e955de5b163dfb1f6a011b6b82308774"
+    },
+    {
+      "path": "resources/icons/source/rainy-sharp.svg",
+      "bytes": 948,
+      "sha256": "1c188c29ee44585ee2a89020607f83f910ed00138457e27a06f56fd215c3fee3"
+    },
+    {
+      "path": "resources/icons/source/recovery-continue.svg",
+      "bytes": 136,
+      "sha256": "7a9af16dc2d528c36b1ab98f387b8654633c01aeea83c489f226b1b1bd8a49a1"
+    },
+    {
+      "path": "resources/icons/source/recovery-error-records.svg",
+      "bytes": 567,
+      "sha256": "ac2f59478614e34e3da764cc2be8a8421c5889230e9bbe70cbb73fd3f25512ae"
+    },
+    {
+      "path": "resources/icons/source/recovery-sd-card.svg",
+      "bytes": 143,
+      "sha256": "80efb470721eda36342c603c168f56c0fa51e5aa977bbe562daecaf2739544f6"
+    },
+    {
+      "path": "resources/icons/source/recovery-tools.svg",
+      "bytes": 732,
+      "sha256": "af5258f72b5ffd3e338597ce307bbecb2dcff17c20b7ac36abb432fcb222d98c"
+    },
+    {
+      "path": "resources/icons/source/refresh-sharp.svg",
+      "bytes": 390,
+      "sha256": "8041aa93ff00dfad07edd40f02220e4e51890a355ba18bb84be37e574eaed3ef"
+    },
+    {
+      "path": "resources/icons/source/reset.svg",
+      "bytes": 183,
+      "sha256": "ad731377875907ff52fd22d1f5d4c08cd0fe5bf488da6e76e5c07a14e63f49de"
+    },
+    {
+      "path": "resources/icons/source/route-station.svg",
+      "bytes": 349,
+      "sha256": "7704ebd45613abe978f3cf88166b4ac6c11313dbaa132fd87a60a8507184a230"
+    },
+    {
+      "path": "resources/icons/source/save-changes.svg",
+      "bytes": 282,
+      "sha256": "ca33a9785f3b66e63f694bc931b4dbb1b3594bdbd3173d1de86868c77c4c16a7"
+    },
+    {
+      "path": "resources/icons/source/save.svg",
+      "bytes": 255,
+      "sha256": "fdf752dc7bb14996fa358ad81686f60f36d4b886241f282c34eb3d30cee3a052"
+    },
+    {
+      "path": "resources/icons/source/saved-networks.svg",
+      "bytes": 515,
+      "sha256": "07484769a8c30d9d0297e76769cc74291e62035d59e216ef0d5704a095b2ea80"
+    },
+    {
+      "path": "resources/icons/source/scroll-horizontal.svg",
+      "bytes": 254,
+      "sha256": "cc14d7919b49ad8f7727b76fd7402ed164a45363999621a2c52fef164839f829"
+    },
+    {
+      "path": "resources/icons/source/scroll-vertical.svg",
+      "bytes": 256,
+      "sha256": "2f5352966aa6ba55fad82a3d86d175f912d7e842140c4ae7c6c24198b374ad30"
+    },
+    {
+      "path": "resources/icons/source/search.svg",
+      "bytes": 370,
+      "sha256": "f6be052db5d27ed510e7cbdcfc39d16402db0a7f102ca733421e568fc48e7141"
+    },
+    {
+      "path": "resources/icons/source/server-sharp.svg",
+      "bytes": 247,
+      "sha256": "2c98c7d7d14b54d05b24cf1ca76473f1b92ccffd8a634da16a164da32cb703cc"
+    },
+    {
+      "path": "resources/icons/source/settings-outline.svg",
+      "bytes": 1333,
+      "sha256": "3637da54cc92bd3ddba5b518595c00dbb0f32ea86b6c3d47cb28fafc66049b66"
+    },
+    {
+      "path": "resources/icons/source/settings-sharp.svg",
+      "bytes": 941,
+      "sha256": "e2f43bb1578427df01f911b3025c4a1164d08a2395503997ce17e2391f07e463"
+    },
+    {
+      "path": "resources/icons/source/shift-filled-sharp.svg",
+      "bytes": 148,
+      "sha256": "49d81c55052c111a124e80ee1755f3c47d3ec778bf76fd6d3b85dca6b1fae5fa"
+    },
+    {
+      "path": "resources/icons/source/shift-sharp.svg",
+      "bytes": 188,
+      "sha256": "9482bb423e4a017b25e4c5532586b6e5821478594ebd6899f353d499811d22a8"
+    },
+    {
+      "path": "resources/icons/source/snow-sharp.svg",
+      "bytes": 1466,
+      "sha256": "034adf54cbd8618eb65da85bdf7f38507d0b67995f6a70b49785fc8c48eff51c"
+    },
+    {
+      "path": "resources/icons/source/stepper-down.svg",
+      "bytes": 186,
+      "sha256": "8754a8b5415ec567e983fcbf8c66675d2a8e05d43e49b55c1a776a32f3760768"
+    },
+    {
+      "path": "resources/icons/source/stepper-up.svg",
+      "bytes": 187,
+      "sha256": "cdba1d46b6b58ce638eefa8876088d34ff3e7eba7db0d11e7485f5462d40b90c"
+    },
+    {
+      "path": "resources/icons/source/sunny-outline.svg",
+      "bytes": 1325,
+      "sha256": "f5c1f010921c5a291ab5cae39408d00a2408b3afd432a9da08fbe776c5aa3b89"
+    },
+    {
+      "path": "resources/icons/source/sunny-sharp.svg",
+      "bytes": 501,
+      "sha256": "459cec8d4761945c5143593d425185437ab910839df9321c64d37f0e681883e6"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-celebration.svg",
+      "bytes": 377,
+      "sha256": "9516e253cc05581449aad12f37b6f87ab5bb0572b62eade7cb39a78e9f1c5222"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-cleaning_services.svg",
+      "bytes": 254,
+      "sha256": "1e3482754908f0bff835a4fd1e4e6d18c4ddf09a506c5e132117de138e031477"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-fitness_center.svg",
+      "bytes": 295,
+      "sha256": "d906083818ebe506af273e428915717533a62c3683d559f9d6095dfa23d0500b"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-flight.svg",
+      "bytes": 251,
+      "sha256": "88e2bc229d9bdd731c5caed797df66af408680d72e1a0d194f121b75cb65baa7"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-groups.svg",
+      "bytes": 813,
+      "sha256": "8b410e2f84fadb1312112f1af0ca287a9c76a0011e2c1c7f8edb52103182924e"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-home_repair_service.svg",
+      "bytes": 288,
+      "sha256": "2ed199b27625eb1daf751d6a21f694f4cab58ea2a927c58b92097622ea4a3c35"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-luggage.svg",
+      "bytes": 350,
+      "sha256": "839be48b996ce0dc3c7c1252e2fb46ce3b4eb89ab2a0a0e79b046bdc9c0558b5"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-medical_services.svg",
+      "bytes": 270,
+      "sha256": "b7dcbd1a075ad48e50f981609f6656c0667beff7bb413a0d8fbeb9ecdf44133b"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-menu_book.svg",
+      "bytes": 803,
+      "sha256": "e569c7924796e239b6de2bc6305935e8cf03ed6a119d38ab77ca56c647780f11"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-pets.svg",
+      "bytes": 639,
+      "sha256": "e6c96f986be8bd7d5506186ca60d567be46c4fc3f45fe96a2b9f71fac0607cb4"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-receipt_long.svg",
+      "bytes": 618,
+      "sha256": "efdf3c929487c5dcc8268fce7a500f2e2748e750706633c672caad2faf833d5c"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-restaurant.svg",
+      "bytes": 267,
+      "sha256": "6fb677aa55562eb1dcc33628691ba980e80a52021a99c1d8f36c69e6c0ee1b4d"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-savings.svg",
+      "bytes": 575,
+      "sha256": "7dd231cbb9136e1c2d5777e5933383deb2cb2e3097c09960f2e8f1406a181e05"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-school.svg",
+      "bytes": 289,
+      "sha256": "283bea9f59b223eb54a17af6447d09d4132813e55ec1a26f04bba64f4dc00b5b"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-shopping_cart.svg",
+      "bytes": 430,
+      "sha256": "12b4a381a2d5e3c4b8d67d2c6e05816a5d0b336d95048f70304720aa67322e70"
+    },
+    {
+      "path": "resources/icons/source/symbol-sharp-work.svg",
+      "bytes": 214,
+      "sha256": "31ba83a26dd192d9f4b2d541882dfe0949780c903c5c60c8792238c6a7b44661"
+    },
+    {
+      "path": "resources/icons/source/system-sharp.svg",
+      "bytes": 273,
+      "sha256": "9deea44b3c2f67380b1dde379699dfef2ddd0e743801781146c4d35eb4df3315"
+    },
+    {
+      "path": "resources/icons/source/thunderstorm-sharp.svg",
+      "bytes": 732,
+      "sha256": "2ee5acd3c01824d0d827ec6f98b7a63c6fb5e76375a0cbb2e4ef5a69f4f267db"
+    },
+    {
+      "path": "resources/icons/source/tile-density.svg",
+      "bytes": 224,
+      "sha256": "a43f5fe7e8e553a4144c3d645711b8ce1f389962ddcea0cbc89c4bfdea6d5434"
+    },
+    {
+      "path": "resources/icons/source/time-sharp.svg",
+      "bytes": 355,
+      "sha256": "6891fbec3f99dc2d32ece84ffd73be64810e663e168a2188ae93b79e080599c5"
+    },
+    {
+      "path": "resources/icons/source/timer.svg",
+      "bytes": 483,
+      "sha256": "2cebb2ed6f2fcec462e5639d67fd329621ad1962eca6073df050395dfd9e2254"
+    },
+    {
+      "path": "resources/icons/source/train-outline.svg",
+      "bytes": 881,
+      "sha256": "87df73f3d7052569ad8f82605ecb49fc9df4a980be6693a855b5b5c54153e021"
+    },
+    {
+      "path": "resources/icons/source/train-sharp.svg",
+      "bytes": 522,
+      "sha256": "cde2a0f5bcedbb503d2a85412a39cdb328eb923f167ebbb06fb7ba4cc96b60d7"
+    },
+    {
+      "path": "resources/icons/source/trash-outline.svg",
+      "bytes": 968,
+      "sha256": "71a2a1effff28dd9fb107ef14d2dc27441188853aaf1399057da0a11e7bc67aa"
+    },
+    {
+      "path": "resources/icons/source/trash-sharp.svg",
+      "bytes": 536,
+      "sha256": "6766b5e47159b4c26b1945a987c6511b28193e191fcac2a1b4cfb7f54bb604fc"
+    },
+    {
+      "path": "resources/icons/source/uninstall.svg",
+      "bytes": 318,
+      "sha256": "67131cfa55bfbf52a21d53142a8f1a4d471e80d75dd4dbc9126e462049df469f"
+    },
+    {
+      "path": "resources/icons/source/update-app.svg",
+      "bytes": 217,
+      "sha256": "ea9c6aa60b1a3cb6c8d571a014bd1a1510a132c7f4e777bf1669fbfd12b7f0d3"
+    },
+    {
+      "path": "resources/icons/source/wifi-off.svg",
+      "bytes": 400,
+      "sha256": "5c1e93d2e6dcac33e956d520244f89f357ce7e8efbbfd706a2785a43defedf2c"
+    },
+    {
+      "path": "resources/icons/source/wifi-outline.svg",
+      "bytes": 770,
+      "sha256": "97a8505a4b4bd2a0208a0e19276510b96c02369679cbeca0759fb21693de4398"
+    },
+    {
+      "path": "resources/icons/source/wifi-sharp.svg",
+      "bytes": 395,
+      "sha256": "c4e0385fc05b2bd7d4423081334106e69da6c039c5a4478b399e3b2ba82f9150"
+    },
+    {
+      "path": "sdk/bluetooth.md",
+      "bytes": 11400,
+      "sha256": "ac1fe66a01bf94514d13c8e9ecebea04afc730ee23cdd405c7be57fbc0c7bf7c"
+    },
+    {
+      "path": "sdk/contract/desktile-api.json",
+      "bytes": 15294,
+      "sha256": "d0b5f48b0cf587eaa0103fec5ba8eff3c9b36f24822b5cd374f86e6d16c7dcfc"
+    },
+    {
+      "path": "sdk/contract/manifest.schema.json",
+      "bytes": 5971,
+      "sha256": "07f3c6bf8cbbda3076bdf7c5bb112a533492c10414464b43c4c10853cfaa1a0a"
+    },
+    {
+      "path": "sdk/contract/permissions.json",
+      "bytes": 1427,
+      "sha256": "4d6881c571bbfa5342521766c733d32d6d1129f904e368cda350131c7251e747"
+    },
+    {
+      "path": "sdk/docs/notifications.md",
+      "bytes": 7888,
+      "sha256": "aed4d1ea3aba4166864bd292ee56f95ef9bc46123ad299c2dee2311c01c08394"
+    },
+    {
+      "path": "sdk/docs/text-input.md",
+      "bytes": 1482,
+      "sha256": "76921b7ef27d7e5bd074d1469f920dcbdeed3c3d42185d35b77c6386cef6c6fd"
+    },
+    {
+      "path": "sdk/icon-appearances.md",
+      "bytes": 5754,
+      "sha256": "5ce36551647f29ee512155d4fa9c2a3ababdaf33fe1f487fcaded894d98d7f60"
+    },
+    {
+      "path": "sdk/include/desktile/adaptive_choice.hpp",
+      "bytes": 319,
+      "sha256": "81dd0873d05738c54f50ba4d70e0c8c298731d817745873c720804178df9df4c"
+    },
+    {
+      "path": "sdk/include/desktile/base64.hpp",
+      "bytes": 2359,
+      "sha256": "dcbb59d58035f5fc0391c7ade423c9871b5bdc7997f6cd1cf05b61ece8b14376"
+    },
+    {
+      "path": "sdk/include/desktile/bluetooth.hpp",
+      "bytes": 8334,
+      "sha256": "818a90b1d8aeb489457f7311524fb733b1aa8e8c577f63aabd3970e3aff114f2"
+    },
+    {
+      "path": "sdk/include/desktile/bluetooth_uuid.hpp",
+      "bytes": 750,
+      "sha256": "df98ad0beae4012014dceb853fad3eac2bef09bcdc1a77784760e6baafb884e9"
+    },
+    {
+      "path": "sdk/include/desktile/color_palette.hpp",
+      "bytes": 1152,
+      "sha256": "89834e8255b67c2ac701694f2dd92f8b6a16703893ea585be993bbbfe6d5a213"
+    },
+    {
+      "path": "sdk/include/desktile/color_palette_paint.hpp",
+      "bytes": 513,
+      "sha256": "0c2132d81383307575032823ee31c09408b9a30a432e129f9aa6c2de5ae74674"
+    },
+    {
+      "path": "sdk/include/desktile/color_scheme.hpp",
+      "bytes": 1974,
+      "sha256": "9a094fc6e1f28f2dede883ee2ce099fe34a13200da7f2f6497af62a1ce0361a9"
+    },
+    {
+      "path": "sdk/include/desktile/config_state.hpp",
+      "bytes": 564,
+      "sha256": "295f078b2eb50c6d080e33c028ebfb9d2069ad113ea978eb5a16f3de88a8ecde"
+    },
+    {
+      "path": "sdk/include/desktile/confirmation_dialog.hpp",
+      "bytes": 1893,
+      "sha256": "0b5c9dba4c47df66d581f2e867febdb147501dc185db0196c1bb17698f995149"
+    },
+    {
+      "path": "sdk/include/desktile/date.hpp",
+      "bytes": 3284,
+      "sha256": "974a0eba9bb924f0db1fbce9acc665f82c87fb463057c52616603728a711429e"
+    },
+    {
+      "path": "sdk/include/desktile/date_time_picker.hpp",
+      "bytes": 4896,
+      "sha256": "45274abfa13dccb115df47df1dd059cb6d4f2d39aad50cde8c98bbe731504852"
+    },
+    {
+      "path": "sdk/include/desktile/file_metadata.hpp",
+      "bytes": 515,
+      "sha256": "4b4dd332a641ddc6fbb1c0d6cf73b36ed9b0b9e476454f0430f2748a47f60f6d"
+    },
+    {
+      "path": "sdk/include/desktile/file_picker.hpp",
+      "bytes": 1023,
+      "sha256": "c0b3ed72c1b0974343bee45ef980e2368dfabbcc22168c27992b8871572b1ee1"
+    },
+    {
+      "path": "sdk/include/desktile/font_preferences.hpp",
+      "bytes": 955,
+      "sha256": "0ea57dfd4a9904c5ad6d1af2d93f4a245a899742ce2f1329455e04b745b86d20"
+    },
+    {
+      "path": "sdk/include/desktile/geometry.hpp",
+      "bytes": 214,
+      "sha256": "4c569f90a340ac4da0670c868af2b8af17be9d866c075b44a031eeefb74cc5cd"
+    },
+    {
+      "path": "sdk/include/desktile/icon_appearance.hpp",
+      "bytes": 940,
+      "sha256": "51260a4cbfa4ff4b36f3bcf783362d7ea25909488039f3614d4609533318ee77"
+    },
+    {
+      "path": "sdk/include/desktile/internal/settings_surface.hpp",
+      "bytes": 528,
+      "sha256": "2572f6b5d1afec277dd3e25fb4ea8e1cc82caa836b630a8f03113045e1dd3552"
+    },
+    {
+      "path": "sdk/include/desktile/internal/system_tile.hpp",
+      "bytes": 605,
+      "sha256": "41094eadf4f3d4c0443768c72aafa5e9637474330c3eabf7ff13eb4f31136cab"
+    },
+    {
+      "path": "sdk/include/desktile/internal/system_ui.hpp",
+      "bytes": 2856,
+      "sha256": "a4cceb97ade516257a8fdf2b8d7c67460530dfc4f0457020e4ad07ec4f83ead5"
+    },
+    {
+      "path": "sdk/include/desktile/internal/user_file.hpp",
+      "bytes": 952,
+      "sha256": "9fc01bc59f3b8d225de01ad0a2943de43599aa832b9ba6f6300b0ef2d546505a"
+    },
+    {
+      "path": "sdk/include/desktile/json.hpp",
+      "bytes": 15110,
+      "sha256": "4d19dac7eeb2bcd0b935e2db1c01c727095286731a23d5f7eadd5a9f1869a439"
+    },
+    {
+      "path": "sdk/include/desktile/list.hpp",
+      "bytes": 672,
+      "sha256": "66d51a6b5425693d046127c2ea0aff3c28d088fddb5e7ae40d51adb6ac1fc2c8"
+    },
+    {
+      "path": "sdk/include/desktile/locale.hpp",
+      "bytes": 8334,
+      "sha256": "d2de542f81a78fd9a122f6d305b02e81a0ed53f46892172834eadb779448b0eb"
+    },
+    {
+      "path": "sdk/include/desktile/messages.hpp",
+      "bytes": 5269,
+      "sha256": "bbf3c0f43acf3936e051d0de19da9223ab326d2f7563f99acd207cb36dac97e7"
+    },
+    {
+      "path": "sdk/include/desktile/native_sample.hpp",
+      "bytes": 5258,
+      "sha256": "c66c52b7f49e70ac38a3ebf1876bc8342468efdc717c58e99635d23853624551"
+    },
+    {
+      "path": "sdk/include/desktile/navigation.hpp",
+      "bytes": 8444,
+      "sha256": "129af27b2c2c5f1301591b140095f8798b138aa7c924e91d3750ba39be56801c"
+    },
+    {
+      "path": "sdk/include/desktile/notifications.hpp",
+      "bytes": 1909,
+      "sha256": "3676bfa24f50e2dd4a29955ab690d6918ff4b0e861de64de7194711d01c46ae3"
+    },
+    {
+      "path": "sdk/include/desktile/progress.hpp",
+      "bytes": 5373,
+      "sha256": "118e2bfbeac4f48931339e7c87cab5c8a83aaf2ba686660664243b0318f6575d"
+    },
+    {
+      "path": "sdk/include/desktile/record_store.hpp",
+      "bytes": 3292,
+      "sha256": "a3e4ceb003755c8d547a52cb83161f9ee11f1427f79e8bf1c0d9da6f3a61cccc"
+    },
+    {
+      "path": "sdk/include/desktile/save_state.hpp",
+      "bytes": 1192,
+      "sha256": "c0d99f11c857a7d316c722b644faf579f234e17ef39ab38a63d433c1803b8439"
+    },
+    {
+      "path": "sdk/include/desktile/scaffold.hpp",
+      "bytes": 1022,
+      "sha256": "23b4a68a825494dcfe95cadb6f1b40769a0080c921a5dbac3e099d9c52399202"
+    },
+    {
+      "path": "sdk/include/desktile/scaffold_view.hpp",
+      "bytes": 15327,
+      "sha256": "ec3ff40d5789c33812bd9d9f19f1ecde2df16c5636cf1c7f9a003a0bca4509c9"
+    },
+    {
+      "path": "sdk/include/desktile/sdk.h",
+      "bytes": 23401,
+      "sha256": "d3b8ce5a1867fdb8cb34ce6bf77ec9f49eda4fc4ed00e13387ef2da1580ddc85"
+    },
+    {
+      "path": "sdk/include/desktile/sdk.hpp",
+      "bytes": 13816,
+      "sha256": "48904418cc6f0c7e90520cdd880f44be4d84fba4da30a1f61b2c5efc18e07bd6"
+    },
+    {
+      "path": "sdk/include/desktile/settings_path.hpp",
+      "bytes": 1078,
+      "sha256": "73e41d720cfe3bc350bb104eef16552bc8d1f3120a8d07b56fef03dad1988b36"
+    },
+    {
+      "path": "sdk/include/desktile/settings_state.hpp",
+      "bytes": 579,
+      "sha256": "38b6dac34d73f30fbd128f69c89f6df1701c5b22bd9ec38df3624079a750962e"
+    },
+    {
+      "path": "sdk/include/desktile/splash_policy.hpp",
+      "bytes": 1035,
+      "sha256": "dfd902bcc81a1ea3f155ef75015ae4f94be8b3033c1883f77582499220c6c68e"
+    },
+    {
+      "path": "sdk/include/desktile/stepper.hpp",
+      "bytes": 2428,
+      "sha256": "2725f5f7bafcc6a728edb225c589ff3715afff10f139e5b17e4df994001ba26d"
+    },
+    {
+      "path": "sdk/include/desktile/system_app.hpp",
+      "bytes": 3435,
+      "sha256": "17abf0e12da09b23f7ddc3155ff9ae4406103a0e52341ab991465114ec282eef"
+    },
+    {
+      "path": "sdk/include/desktile/task_list.hpp",
+      "bytes": 698,
+      "sha256": "b0e4618543c4c82afc9024acaec37984142817a2ca32727a28380703868e0755"
+    },
+    {
+      "path": "sdk/include/desktile/text_limits.hpp",
+      "bytes": 286,
+      "sha256": "93d93ed9ed2cc40fd360a3945c3088a0fbb4bf05f7d9439682c4d4692f62780e"
+    },
+    {
+      "path": "sdk/include/desktile/tile_icon.hpp",
+      "bytes": 1241,
+      "sha256": "3f327fbf81de59d4864f68d2c0ac47d82aaf1f630f74b54e5385cfadebdd0f8b"
+    },
+    {
+      "path": "sdk/include/desktile/tile_time_model.hpp",
+      "bytes": 7521,
+      "sha256": "ab6f679bf0f63805c70bc037c0c12012a85fd6c9a6fc075ee89d13afe0d23e45"
+    },
+    {
+      "path": "sdk/include/desktile/tile_time_picker.hpp",
+      "bytes": 13011,
+      "sha256": "8caf411c9db6de1a8023b58e007a378e2b56a0c4b217365ca02eb58cec0eb87c"
+    },
+    {
+      "path": "sdk/include/desktile/ui_metrics.h",
+      "bytes": 3773,
+      "sha256": "857689a1c2dc55593a3bee8e59cea095bce907c0fa4ecd79034e71525aedc6c4"
+    },
+    {
+      "path": "sdk/include/desktile/wave_progress.hpp",
+      "bytes": 783,
+      "sha256": "efd5388d77ff0ab83fa823ad174d05be7abf44b21e8bd10f0da58c777a68b278"
+    },
+    {
+      "path": "sdk/include/desktile/wrap.hpp",
+      "bytes": 2251,
+      "sha256": "2f8046e190d9d0c540a846a83bcdef292877e070bb78c6f1eed6385285e0448c"
+    },
+    {
+      "path": "sdk/javascript/components.d.ts",
+      "bytes": 6175,
+      "sha256": "2f0f0e0300ec6d350bf8ade81218afdf6e9ea2bd6589e97280e55b9c123c02ca"
+    },
+    {
+      "path": "sdk/javascript/components.js",
+      "bytes": 1315,
+      "sha256": "c41e738d2d9bbbf87c4e266df39f77d9ef801fbff35f04e01885f68fbe36369c"
+    },
+    {
+      "path": "sdk/javascript/desktile.d.ts",
+      "bytes": 9418,
+      "sha256": "f0e338ac0c440507ffa5e3ea918812765606feed0fd5bf5519ecbfc66a1aa29b"
+    },
+    {
+      "path": "sdk/javascript/framework.js",
+      "bytes": 33679,
+      "sha256": "e4d50adf45cb39641ae38abfd885216880db24a34c02bcaaac595df257e1de64"
+    },
+    {
+      "path": "sdk/javascript/navigation.js",
+      "bytes": 7495,
+      "sha256": "c8343668cc19087326551220eb2999281494b580798592034176470406218992"
+    },
+    {
+      "path": "sdk/javascript/patterns.js",
+      "bytes": 8535,
+      "sha256": "8f2c3955cacf479b97e37c2c563c9227572bd597edfacffef8f82deda7ac65d5"
+    },
+    {
+      "path": "sdk/javascript/platform.d.ts",
+      "bytes": 10051,
+      "sha256": "f7266f4f9f8391426ab7422105a660c209d67cb73274e46cb5c1ef4bc0620b94"
+    },
+    {
+      "path": "sdk/javascript/scaffold.js",
+      "bytes": 13178,
+      "sha256": "3d525486a8c7f5019ec3d6251fda3a66f33b257979d1a9371dfdced4c95e3c09"
+    },
+    {
+      "path": "tools/build_dtapp.py",
+      "bytes": 12837,
+      "sha256": "9c753dc6c203cba546996dcdaf8bbff587b5a61c6ce8eb4366e3023e87d72888"
+    },
+    {
+      "path": "tools/build_dti.py",
+      "bytes": 1385,
+      "sha256": "94064017b18f1e1e3c54b81c0779c0cc8343cd834881c9752da79d25925b1a39"
+    },
+    {
+      "path": "tools/build_native_app.py",
+      "bytes": 4847,
+      "sha256": "5dfbb0c02f0f13e7c8475b9765bf2cade2b075029a20d9f317e029c2df07945c"
+    },
+    {
+      "path": "tools/icon_asset.py",
+      "bytes": 7028,
+      "sha256": "a5befd476a9d866b68d674346caba6ec170f16e95baf4a919ba8225b6eb32150"
+    },
+    {
+      "path": "tools/image_asset.py",
+      "bytes": 1690,
+      "sha256": "f725a345a7fbc9eb8f79113e2e9dccdc08a2b538fd4b92d7dfc9d6aaa4b0bc9e"
+    },
+    {
+      "path": "tools/locale_catalog.py",
+      "bytes": 4286,
+      "sha256": "b99f40d9b339ee2356166e7e490ef995900685557c69b0d8501bb4daf358b7fb"
+    },
+    {
+      "path": "tools/notification_icon.py",
+      "bytes": 1348,
+      "sha256": "e062bcde0a124251fa03a71ae9c06bad8a9d6a1fba3e381028150f1be784fef6"
+    },
+    {
+      "path": "tools/tile_icon_resources.py",
+      "bytes": 1730,
+      "sha256": "04c83f0e806d90c339a736028135016310f7d345d1a9db6e2e5c9f7c12ef75f0"
+    }
+  ]
+}

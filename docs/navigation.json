@@ -1,0 +1,370 @@
+[
+  {
+    "text": "开始使用",
+    "link": "/",
+    "children": [
+      {
+        "text": "DevKit 概览",
+        "link": "/"
+      },
+      {
+        "text": "安装开发环境",
+        "link": "/start/install.md"
+      },
+      {
+        "text": "创建第一个应用",
+        "link": "/start/first-app.md"
+      }
+    ]
+  },
+  {
+    "text": "应用开发",
+    "link": "/guide/project.md",
+    "children": [
+      {
+        "text": "项目结构",
+        "link": "/guide/project.md"
+      },
+      {
+        "text": "页面与生命周期",
+        "link": "/guide/lifecycle.md"
+      },
+      {
+        "text": "资源与语言",
+        "link": "/guide/resources.md"
+      },
+      {
+        "text": "启动画面 Splash",
+        "link": "/guide/splash.md"
+      },
+      {
+        "text": "Native C++ 应用",
+        "link": "/guide/native.md"
+      },
+      {
+        "text": "测试应用",
+        "link": "/guide/testing.md"
+      },
+      {
+        "text": "应用示例",
+        "link": "/examples/index.md",
+        "children": [
+          {
+            "text": "示例概览",
+            "link": "/examples/index.md"
+          },
+          {
+            "text": "便签示例",
+            "link": "/examples/notes.md"
+          },
+          {
+            "text": "计时器示例",
+            "link": "/examples/timer.md"
+          },
+          {
+            "text": "ToDo 示例",
+            "link": "/examples/todo.md"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "设计与组件",
+    "link": "/components/",
+    "children": [
+      {
+        "text": "界面设计规范",
+        "link": "/design/"
+      },
+      {
+        "text": "组件目录",
+        "link": "/components/"
+      },
+      {
+        "text": "应用框架与导航",
+        "link": "/components/scaffold.md"
+      },
+      {
+        "text": "导航 Nav",
+        "link": "/components/navigation.md"
+      },
+      {
+        "text": "常用界面组合",
+        "link": "/components/patterns.md"
+      },
+      {
+        "text": "完整图标目录",
+        "link": "/components/icon-catalog.md"
+      },
+      {
+        "text": "系统应用菜单",
+        "link": "/components/app-menu.md"
+      },
+      {
+        "text": "布局",
+        "children": [
+          {
+            "text": "页面 Page",
+            "link": "/components/page.md"
+          },
+          {
+            "text": "应用栏 System bar",
+            "link": "/components/system-bar.md"
+          },
+          {
+            "text": "横向容器 Row",
+            "link": "/components/row.md"
+          },
+          {
+            "text": "纵向容器 Column",
+            "link": "/components/column.md"
+          },
+          {
+            "text": "层叠容器 Stack",
+            "link": "/components/stack.md"
+          },
+          {
+            "text": "网格 Grid",
+            "link": "/components/grid.md"
+          },
+          {
+            "text": "滚动容器 Scroll view",
+            "link": "/components/scroll-view.md"
+          }
+        ]
+      },
+      {
+        "text": "显示内容",
+        "children": [
+          {
+            "text": "文字 Text",
+            "link": "/components/text.md"
+          },
+          {
+            "text": "图片 Image",
+            "link": "/components/image.md"
+          },
+          {
+            "text": "图标 Icon",
+            "link": "/components/icon.md"
+          },
+          {
+            "text": "画布 Canvas view",
+            "link": "/components/canvas-view.md"
+          },
+          {
+            "text": "进度 Progress",
+            "link": "/components/progress.md"
+            },
+            {
+              "text": "移动方块",
+              "link": "/components/loading-squares.md"
+            },
+            {
+              "text": "脉动竖条",
+              "link": "/components/loading-bars.md"
+          }
+        ]
+      },
+      {
+        "text": "操作与输入",
+        "children": [
+          {
+            "text": "按钮 Button",
+            "link": "/components/button.md"
+          },
+          {
+            "text": "按钮变体",
+            "link": "/components/button-variants.md"
+          },
+          {
+            "text": "悬浮操作按钮 FAB",
+            "link": "/components/fab.md"
+          },
+          {
+            "text": "颜色选择",
+            "link": "/components/color-swatch.md"
+          },
+          {
+            "text": "开关 Toggle",
+            "link": "/components/toggle.md"
+          },
+          {
+            "text": "复选框 Checkbox",
+            "link": "/components/checkbox.md"
+          },
+          {
+            "text": "滑块 Slider",
+            "link": "/components/slider.md"
+          },
+          {
+            "text": "输入框 Text field",
+            "link": "/components/text-field.md"
+          },
+          {
+            "text": "文本编辑器 Document editor",
+            "link": "/components/document-editor.md"
+          },
+          {
+            "text": "步进选择器 Choice stepper",
+            "link": "/components/choice-stepper.md"
+          },
+          {
+            "text": "日期时间选择器",
+            "link": "/components/date-time-picker.md"
+          },
+          {
+            "text": "时长选择器",
+            "link": "/components/duration-picker.md"
+          },
+          {
+            "text": "上下步进器 Number stepper",
+            "link": "/components/number-stepper.md"
+          }
+        ]
+      },
+      {
+        "text": "列表与弹窗",
+        "children": [
+          {
+            "text": "列表 List",
+            "link": "/components/list.md"
+          },
+          {
+            "text": "列表项 List row",
+            "link": "/components/list-row.md"
+          },
+          {
+            "text": "列表说明 List note",
+            "link": "/components/list-note.md"
+          },
+          {
+            "text": "对话框 Dialog",
+            "link": "/components/dialog.md"
+          },
+          {
+            "text": "紧密列表 Compact list",
+            "link": "/components/list-compact.md"
+          },
+          {
+            "text": "菜单 Menu",
+            "link": "/components/menu.md"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "系统服务",
+    "link": "/services/",
+    "children": [
+      {
+        "text": "服务概览",
+        "link": "/services/"
+      },
+      {
+        "text": "权限申请",
+        "link": "/services/permissions.md"
+      },
+      {
+        "text": "私有存储",
+        "link": "/services/storage.md"
+      },
+      {
+        "text": "用户文件",
+        "link": "/services/files.md"
+      },
+      {
+        "text": "网络请求",
+        "link": "/services/network.md"
+      },
+      {
+        "text": "后台任务",
+        "link": "/services/tasks.md"
+      },
+      {
+        "text": "通知",
+        "link": "/services/notifications.md"
+      },
+      {
+        "text": "蓝牙 BLE",
+        "link": "/services/bluetooth.md"
+      },
+      {
+        "text": "日历与待办数据",
+        "link": "/services/data.md"
+      },
+      {
+        "text": "系统输入法",
+        "link": "/services/input.md"
+      }
+    ]
+  },
+  {
+    "text": "API 参考",
+    "link": "/api/",
+    "children": [
+      {
+        "text": "查阅接口",
+        "link": "/api/"
+      },
+      {
+        "text": "JavaScript 全局接口",
+        "link": "/api/javascript.md"
+      },
+      {
+        "text": "平台服务类型",
+        "link": "/api/platform.md"
+      },
+      {
+        "text": "界面构建器",
+        "link": "/api/builders.md"
+      },
+      {
+        "text": "Native C/C++ 接口",
+        "link": "/api/native.md"
+      },
+      {
+        "text": "属性、事件与限制",
+        "link": "/api/contract.md"
+      }
+    ]
+  },
+  {
+    "text": "开发工具",
+    "link": "/tools/",
+    "children": [
+      {
+        "text": "VS Code 插件",
+        "link": "/tools/"
+      },
+      {
+        "text": "命令行",
+        "link": "/tools/cli.md"
+      },
+      {
+        "text": "制作图标与磁贴资源",
+        "link": "/tools/assets.md"
+      },
+      {
+        "text": "连接与安装到设备",
+        "link": "/tools/device.md"
+      },
+      {
+        "text": "串口调试命令",
+        "link": "/tools/serial.md"
+      }
+    ]
+  },
+  {
+    "text": "发布应用",
+    "link": "/publish/",
+    "children": [
+      {
+        "text": "打包、签名与分发",
+        "link": "/publish/"
+      }
+    ]
+  }
+]

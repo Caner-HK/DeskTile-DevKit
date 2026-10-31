@@ -1,0 +1,10 @@
+{
+  "title": "Reading guide",
+  "reading": "Read",
+  "settings": "Settings",
+  "heading": "Small Tile. Big Style.",
+  "body": "Keep your favourite words close. Open the menu at the top left to switch between reading and settings.",
+  "largeText": "Large text",
+  "saveError": "Couldn't save settings. Try again.",
+  "readError": "Couldn't load settings. Reopen the app."
+}

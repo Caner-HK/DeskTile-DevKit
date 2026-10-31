@@ -1,0 +1,530 @@
+[
+  {
+    "id": 0,
+    "name": "Eye"
+  },
+  {
+    "id": 1,
+    "name": "EyeOff"
+  },
+  {
+    "id": 2,
+    "name": "Information"
+  },
+  {
+    "id": 3,
+    "name": "Settings"
+  },
+  {
+    "id": 4,
+    "name": "Brightness"
+  },
+  {
+    "id": 5,
+    "name": "Train"
+  },
+  {
+    "id": 6,
+    "name": "Erase"
+  },
+  {
+    "id": 7,
+    "name": "Wifi"
+  },
+  {
+    "id": 8,
+    "name": "Battery"
+  },
+  {
+    "id": 9,
+    "name": "Storage"
+  },
+  {
+    "id": 10,
+    "name": "Forward"
+  },
+  {
+    "id": 11,
+    "name": "Back"
+  },
+  {
+    "id": 12,
+    "name": "Palette"
+  },
+  {
+    "id": 13,
+    "name": "Home"
+  },
+  {
+    "id": 14,
+    "name": "Refresh"
+  },
+  {
+    "id": 15,
+    "name": "Keypad"
+  },
+  {
+    "id": 16,
+    "name": "Time"
+  },
+  {
+    "id": 17,
+    "name": "Backspace"
+  },
+  {
+    "id": 18,
+    "name": "Shift"
+  },
+  {
+    "id": 19,
+    "name": "ShiftFilled"
+  },
+  {
+    "id": 20,
+    "name": "ChevronUp"
+  },
+  {
+    "id": 21,
+    "name": "ChevronDown"
+  },
+  {
+    "id": 22,
+    "name": "Lock"
+  },
+  {
+    "id": 23,
+    "name": "Apps"
+  },
+  {
+    "id": 24,
+    "name": "About"
+  },
+  {
+    "id": 25,
+    "name": "System"
+  },
+  {
+    "id": 26,
+    "name": "Calendar"
+  },
+  {
+    "id": 27,
+    "name": "Photo"
+  },
+  {
+    "id": 28,
+    "name": "Folder"
+  },
+  {
+    "id": 29,
+    "name": "DesktopCalendar"
+  },
+  {
+    "id": 30,
+    "name": "DesktopWeather"
+  },
+  {
+    "id": 31,
+    "name": "DesktopFiles"
+  },
+  {
+    "id": 32,
+    "name": "PidsSettings"
+  },
+  {
+    "id": 33,
+    "name": "PidsErrors"
+  },
+  {
+    "id": 34,
+    "name": "Notes"
+  },
+  {
+    "id": 35,
+    "name": "NoteAdd"
+  },
+  {
+    "id": 36,
+    "name": "Timer"
+  },
+  {
+    "id": 37,
+    "name": "InformationOutline"
+  },
+  {
+    "id": 38,
+    "name": "Newline"
+  },
+  {
+    "id": 39,
+    "name": "Plus"
+  },
+  {
+    "id": 40,
+    "name": "Minus"
+  },
+  {
+    "id": 41,
+    "name": "Delete"
+  },
+  {
+    "id": 42,
+    "name": "Save"
+  },
+  {
+    "id": 43,
+    "name": "Document"
+  },
+  {
+    "id": 44,
+    "name": "Cloud"
+  },
+  {
+    "id": 45,
+    "name": "Rain"
+  },
+  {
+    "id": 46,
+    "name": "Storm"
+  },
+  {
+    "id": 47,
+    "name": "Snow"
+  },
+  {
+    "id": 48,
+    "name": "Close"
+  },
+  {
+    "id": 49,
+    "name": "Check"
+  },
+  {
+    "id": 50,
+    "name": "Play"
+  },
+  {
+    "id": 51,
+    "name": "Pause"
+  },
+  {
+    "id": 52,
+    "name": "Reset"
+  },
+  {
+    "id": 53,
+    "name": "Search"
+  },
+  {
+    "id": 54,
+    "name": "BookmarkFilled"
+  },
+  {
+    "id": 55,
+    "name": "Bookmark"
+  },
+  {
+    "id": 56,
+    "name": "Pin"
+  },
+  {
+    "id": 57,
+    "name": "PinFilled"
+  },
+  {
+    "id": 58,
+    "name": "DeskTile"
+  },
+  {
+    "id": 59,
+    "name": "MaterialWidgets"
+  },
+  {
+    "id": 60,
+    "name": "MaterialCalendar"
+  },
+  {
+    "id": 61,
+    "name": "MaterialDocument"
+  },
+  {
+    "id": 62,
+    "name": "MaterialCloud"
+  },
+  {
+    "id": 63,
+    "name": "Music"
+  },
+  {
+    "id": 64,
+    "name": "Movie"
+  },
+  {
+    "id": 65,
+    "name": "Code"
+  },
+  {
+    "id": 66,
+    "name": "Archive"
+  },
+  {
+    "id": 67,
+    "name": "NewFolder"
+  },
+  {
+    "id": 68,
+    "name": "Edit"
+  },
+  {
+    "id": 69,
+    "name": "UpdateApp"
+  },
+  {
+    "id": 70,
+    "name": "InstallApp"
+  },
+  {
+    "id": 71,
+    "name": "AppInstaller"
+  },
+  {
+    "id": 72,
+    "name": "NewFile"
+  },
+  {
+    "id": 73,
+    "name": "OpenApp"
+  },
+  {
+    "id": 74,
+    "name": "DoneAll"
+  },
+  {
+    "id": 75,
+    "name": "Error"
+  },
+  {
+    "id": 76,
+    "name": "LocationAdd"
+  },
+  {
+    "id": 77,
+    "name": "ScrollHorizontal"
+  },
+  {
+    "id": 78,
+    "name": "ScrollVertical"
+  },
+  {
+    "id": 79,
+    "name": "Warning"
+  },
+  {
+    "id": 80,
+    "name": "Uninstall"
+  },
+  {
+    "id": 81,
+    "name": "PermissionShield"
+  },
+  {
+    "id": 82,
+    "name": "WifiOff"
+  },
+  {
+    "id": 83,
+    "name": "ClearCache"
+  },
+  {
+    "id": 84,
+    "name": "ApplicationSettings"
+  },
+  {
+    "id": 85,
+    "name": "SaveChanges"
+  },
+  {
+    "id": 86,
+    "name": "ContentCopy"
+  },
+  {
+    "id": 87,
+    "name": "FileMove"
+  },
+  {
+    "id": 88,
+    "name": "ContentPaste"
+  },
+  {
+    "id": 89,
+    "name": "FileCopy"
+  },
+  {
+    "id": 90,
+    "name": "FolderCopy"
+  },
+  {
+    "id": 91,
+    "name": "Language"
+  },
+  {
+    "id": 92,
+    "name": "Menu"
+  },
+  {
+    "id": 93,
+    "name": "MenuOpen"
+  },
+  {
+    "id": 94,
+    "name": "TaskComplete"
+  },
+  {
+    "id": 95,
+    "name": "TaskActive"
+  },
+  {
+    "id": 96,
+    "name": "Download"
+  },
+  {
+    "id": 97,
+    "name": "StartDownload"
+  },
+  {
+    "id": 98,
+    "name": "TaskCancel"
+  },
+  {
+    "id": 99,
+    "name": "TaskRetry"
+  },
+  {
+    "id": 100,
+    "name": "DesktopUninstall"
+  },
+  {
+    "id": 101,
+    "name": "DesktopResize"
+  },
+  {
+    "id": 102,
+    "name": "FileImport"
+  },
+  {
+    "id": 103,
+    "name": "FileExport"
+  },
+  {
+    "id": 104,
+    "name": "SavedNetworks"
+  },
+  {
+    "id": 105,
+    "name": "ListShoppingCart"
+  },
+  {
+    "id": 106,
+    "name": "ListWork"
+  },
+  {
+    "id": 107,
+    "name": "ListSchool"
+  },
+  {
+    "id": 108,
+    "name": "ListMenuBook"
+  },
+  {
+    "id": 109,
+    "name": "ListFlight"
+  },
+  {
+    "id": 110,
+    "name": "ListLuggage"
+  },
+  {
+    "id": 111,
+    "name": "ListHomeRepairService"
+  },
+  {
+    "id": 112,
+    "name": "ListCleaningServices"
+  },
+  {
+    "id": 113,
+    "name": "ListRestaurant"
+  },
+  {
+    "id": 114,
+    "name": "ListFitnessCenter"
+  },
+  {
+    "id": 115,
+    "name": "ListMedicalServices"
+  },
+  {
+    "id": 116,
+    "name": "ListSavings"
+  },
+  {
+    "id": 117,
+    "name": "ListReceiptLong"
+  },
+  {
+    "id": 118,
+    "name": "ListPets"
+  },
+  {
+    "id": 119,
+    "name": "ListCelebration"
+  },
+  {
+    "id": 120,
+    "name": "ListGroups"
+  },
+  {
+    "id": 121,
+    "name": "Ftp"
+  },
+  {
+    "id": 122,
+    "name": "CalendarEventList"
+  },
+  {
+    "id": 123,
+    "name": "ImageLayout"
+  },
+  {
+    "id": 124,
+    "name": "RouteStation"
+  },
+  {
+    "id": 125,
+    "name": "Bluetooth"
+  },
+  {
+    "id": 126,
+    "name": "BluetoothOff"
+  },
+  {
+    "id": 127,
+    "name": "Privacy"
+  },
+  {
+    "id": 128,
+    "name": "DisableApp"
+  },
+  {
+    "id": 129,
+    "name": "TileDensity"
+  },
+  {
+    "id": 130,
+    "name": "Notifications"
+  },
+  {
+    "id": 131,
+    "name": "Background"
+  }
+]

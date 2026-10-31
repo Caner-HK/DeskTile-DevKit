@@ -1,0 +1,14 @@
+{
+  "manifest_version": 1,
+  "id": "hk.caner.desktile.timer",
+  "name": {"zh-CN": "计时器", "zh-HK": "計時器", "en-US": "Timer", "en": "Timer"},
+  "version": "1.0.0",
+  "version_code": 1,
+  "metadata": {"author": "Caner"},
+  "runtime": "javascript",
+  "entry": {"document": "src/index.html", "script": "src/main.js"},
+  "sdk": {"minimum": "1.0", "target": "1.0"},
+  "icons": {"application": "assets/application.dti", "tile": "assets/tile.dti", "splash": "assets/splash.dti", "tile_variants": true},
+  "tile": {"default_size": "2x2", "supported_sizes": ["1x1", "2x2", "4x2", "4x4"]},
+  "permissions": []
+}

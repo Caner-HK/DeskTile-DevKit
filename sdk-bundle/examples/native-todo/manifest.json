@@ -1,0 +1,14 @@
+{
+  "manifest_version": 1,
+  "id": "hk.caner.desktile.todo",
+  "name": "ToDo",
+  "version": "1.0.0",
+  "version_code": 1,
+  "metadata": {"author": "Caner"},
+  "runtime": "native-module",
+  "entry": {"module": "app.elf"},
+  "sdk": {"minimum": "1.0", "target": "1.0"},
+  "icons": {"application": "assets/application.dti", "tile": "assets/tile.dti", "tile_variants": true, "splash": "assets/splash.dti"},
+  "tile": {"default_size": "2x2", "supported_sizes": ["1x1", "2x2", "4x2", "4x4"]},
+  "permissions": ["tasks.read", "tasks.write"]
+}

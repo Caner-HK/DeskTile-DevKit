@@ -1,0 +1,3 @@
+# SDK snapshots and downloadable source archives are checksummed.
+# Preserve their original bytes across Windows and Linux checkouts.
+* -text

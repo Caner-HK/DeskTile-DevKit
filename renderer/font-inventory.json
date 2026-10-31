@@ -1,0 +1,262 @@
+{
+  "fonts": [
+    {
+      "name": "system16",
+      "family": "MiSans",
+      "size": 16,
+      "glyphs": 1314,
+      "tableOffset": 0,
+      "offset": 62404,
+      "bytes": 154719,
+      "sha256": "0ff57f0b9fa3f52c45b66dec90889854455b0c8e5fe1d226bae68f99e13c8d27"
+    },
+    {
+      "name": "system20",
+      "family": "MiSans",
+      "size": 20,
+      "glyphs": 1314,
+      "tableOffset": 0,
+      "offset": 217123,
+      "bytes": 237757,
+      "sha256": "2a652c3a8aacc7591a7b48ac06a2858b1a029f5d42a1c87b4566a57d2ae4faf7"
+    },
+    {
+      "name": "system32",
+      "family": "MiSans",
+      "size": 32,
+      "glyphs": 1314,
+      "tableOffset": 0,
+      "offset": 454880,
+      "bytes": 599803,
+      "sha256": "de43a2af327fdae026fc7c0fe9ede6eab099a7ecda4fef4625fdaa5abd0531cd"
+    },
+    {
+      "name": "system48",
+      "family": "MiSans",
+      "size": 48,
+      "glyphs": 1316,
+      "tableOffset": 0,
+      "offset": 1054683,
+      "bytes": 1327723,
+      "sha256": "244b001c0efc61d7b796fd712b0680ed832056570c6c760f735ce22ec4af2fa9"
+    },
+    {
+      "name": "systemextended16",
+      "family": "MiSans",
+      "size": 16,
+      "glyphs": 15591,
+      "tableOffset": 2382406,
+      "offset": 2694226,
+      "bytes": 1893612,
+      "sha256": "5edcd4817d3d6a9fe19f8cb6463df59f68094dfd641b575de55bfd5925ede744"
+    },
+    {
+      "name": "systemextended20",
+      "family": "MiSans",
+      "size": 20,
+      "glyphs": 15591,
+      "tableOffset": 4587838,
+      "offset": 4899658,
+      "bytes": 2910461,
+      "sha256": "0e8652ed9ee4302a7434a4cb19cd10a5529ed36921eff329a929ea36a4b7df35"
+    },
+    {
+      "name": "systemextended32",
+      "family": "MiSans",
+      "size": 32,
+      "glyphs": 15591,
+      "tableOffset": 7810119,
+      "offset": 8121939,
+      "bytes": 7339195,
+      "sha256": "7b2064aa2b8a0973c083491b60bcfa3ee1846b77c9960735b37d0950c840b65b"
+    },
+    {
+      "name": "systemextended48",
+      "family": "MiSans",
+      "size": 48,
+      "glyphs": 15591,
+      "tableOffset": 15461134,
+      "offset": 15772954,
+      "bytes": 16216663,
+      "sha256": "9fbc71b4249b1bd155bccf47deaa88979d1321c4db1930fa11a1a283628dd063"
+    },
+    {
+      "name": "cabin16",
+      "family": "Cabin",
+      "size": 16,
+      "glyphs": 410,
+      "tableOffset": 0,
+      "offset": 31989617,
+      "bytes": 21293,
+      "sha256": "686dcd6c7d9450f6148a57b0ce65b7d7b81171f68960dd9ead45ca375b87e193"
+    },
+    {
+      "name": "cabin20",
+      "family": "Cabin",
+      "size": 20,
+      "glyphs": 410,
+      "tableOffset": 0,
+      "offset": 32010910,
+      "bytes": 32630,
+      "sha256": "a31cc9f07a6afdb3341891641fda4b8ff2289cdb0b59122b8d46fe61ecdcdaf2"
+    },
+    {
+      "name": "cabin32",
+      "family": "Cabin",
+      "size": 32,
+      "glyphs": 410,
+      "tableOffset": 0,
+      "offset": 32043540,
+      "bytes": 80737,
+      "sha256": "609c3477e35e46c1d87b33d88c469745d677549ee8f9bc7f46cfdeeeef74a28f"
+    },
+    {
+      "name": "cabin48",
+      "family": "Cabin",
+      "size": 48,
+      "glyphs": 410,
+      "tableOffset": 0,
+      "offset": 32124277,
+      "bytes": 183462,
+      "sha256": "fe5e9916aa4660093be26f2d3b762c5a4d8e83b5565ea929c124905c2a962270"
+    },
+    {
+      "name": "noto16",
+      "family": "Noto Sans",
+      "size": 16,
+      "glyphs": 710,
+      "tableOffset": 0,
+      "offset": 32307739,
+      "bytes": 42257,
+      "sha256": "8554eaa979239f5a4e32c7d955e8d57601a9f79582c567e2acd73d3cea619b7f"
+    },
+    {
+      "name": "noto20",
+      "family": "Noto Sans",
+      "size": 20,
+      "glyphs": 710,
+      "tableOffset": 0,
+      "offset": 32349996,
+      "bytes": 62671,
+      "sha256": "1454bb0de195bf867af4fdeadd8ac927e21eae5dfae0debeabb8aa6ecfd564d2"
+    },
+    {
+      "name": "noto32",
+      "family": "Noto Sans",
+      "size": 32,
+      "glyphs": 710,
+      "tableOffset": 0,
+      "offset": 32412667,
+      "bytes": 163912,
+      "sha256": "2d8eed04d44f51c4063bb79720fd3c6adef3857a4f48beb8399ce7a59e927dc1"
+    },
+    {
+      "name": "noto48",
+      "family": "Noto Sans",
+      "size": 48,
+      "glyphs": 710,
+      "tableOffset": 0,
+      "offset": 32576579,
+      "bytes": 350166,
+      "sha256": "afa4efa9e483c900f7fea4e8afc5d56ae95c81351b51e4f296e98758d9e1d5cb"
+    },
+    {
+      "name": "serif16",
+      "family": "Source Serif 4",
+      "size": 16,
+      "glyphs": 656,
+      "tableOffset": 0,
+      "offset": 32926745,
+      "bytes": 36235,
+      "sha256": "8fa97c9a6b8697cea544125b784e0c002094743194c7f10bbfab5f5f9abb9ee9"
+    },
+    {
+      "name": "serif20",
+      "family": "Source Serif 4",
+      "size": 20,
+      "glyphs": 656,
+      "tableOffset": 0,
+      "offset": 32962980,
+      "bytes": 55643,
+      "sha256": "f560fd5b331fda83e36dfe0e13c25439bb065b17c7c3636e9a4eebddbb9814ab"
+    },
+    {
+      "name": "serif32",
+      "family": "Source Serif 4",
+      "size": 32,
+      "glyphs": 656,
+      "tableOffset": 0,
+      "offset": 33018623,
+      "bytes": 137949,
+      "sha256": "4f23cd8138f8e469ef0d59fe2b3b93477d6816a899c30fe778c613ed0eb67757"
+    },
+    {
+      "name": "serif48",
+      "family": "Source Serif 4",
+      "size": 48,
+      "glyphs": 656,
+      "tableOffset": 0,
+      "offset": 33156572,
+      "bytes": 311823,
+      "sha256": "9287bfb410a14a2f8ddb3e3a22c859c62901e2b9a34ec73496ec7354092d5dc1"
+    },
+    {
+      "name": "system22",
+      "family": "MiSans",
+      "size": 22,
+      "glyphs": 1314,
+      "tableOffset": 0,
+      "offset": 33468395,
+      "bytes": 284633,
+      "sha256": "a45f44e878441a07c4e682f660f2e49239bccc3b34884c7868e5f0a79df407fd"
+    },
+    {
+      "name": "systemextended22",
+      "family": "MiSans",
+      "size": 22,
+      "glyphs": 15591,
+      "tableOffset": 33753028,
+      "offset": 34064848,
+      "bytes": 3475702,
+      "sha256": "e5f1b94712c5a31a11ddda37a32492198dbbc9df5c2b101b3673b4bce0058f65"
+    },
+    {
+      "name": "cabin22",
+      "family": "Cabin",
+      "size": 22,
+      "glyphs": 410,
+      "tableOffset": 0,
+      "offset": 37540550,
+      "bytes": 39302,
+      "sha256": "2c7d6be30734ea5ec579214dae15a70def203af490a3d14684f3312864fae33f"
+    },
+    {
+      "name": "noto22",
+      "family": "Noto Sans",
+      "size": 22,
+      "glyphs": 710,
+      "tableOffset": 0,
+      "offset": 37579852,
+      "bytes": 74842,
+      "sha256": "4f792ab2c59550175b9f38b638fb0f2e3a402e6c669b16ad4ee2d315c807d29e"
+    },
+    {
+      "name": "serif22",
+      "family": "Source Serif 4",
+      "size": 22,
+      "glyphs": 656,
+      "tableOffset": 0,
+      "offset": 37654694,
+      "bytes": 66667,
+      "sha256": "e921e237b1012a8cd9b9113ea1deca25c53c2b2165d8d70c3149e795d2a11a50"
+    }
+  ],
+  "excluded": [
+    "GDS Transport",
+    "Myriad Pro",
+    "DFLiSongHK",
+    "Transport Medium",
+    "PIDS application typefaces"
+  ],
+  "sourceFamilies": {}
+}

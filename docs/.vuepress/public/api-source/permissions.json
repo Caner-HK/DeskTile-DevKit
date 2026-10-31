@@ -1,0 +1,23 @@
+{
+  "contract_version": 1,
+  "permissions": [
+    {"id": "network", "user_grantable": true, "system_only": false},
+    {"id": "private-storage", "user_grantable": false, "system_only": false, "implicit": true},
+    {"id": "user-files.read", "user_grantable": true, "system_only": false},
+    {"id": "user-files.write", "user_grantable": true, "system_only": false},
+    {"id": "bluetooth", "user_grantable": true, "system_only": false},
+    {"id": "notifications", "user_grantable": true, "system_only": false},
+    {"id": "background", "user_grantable": true, "system_only": false},
+    {"id": "display.keep-awake", "user_grantable": true, "system_only": false},
+    {"id": "device.basic-info", "user_grantable": true, "system_only": false},
+    {"id": "system.settings", "user_grantable": false, "system_only": true},
+    {"id": "system.update", "user_grantable": false, "system_only": true},
+    {"id": "package.install", "user_grantable": false, "system_only": true},
+    {"id": "package.manage", "user_grantable": false, "system_only": true},
+    {"id": "device.provision", "user_grantable": false, "system_only": true},
+    {"id": "calendar.read", "user_grantable": true, "system_only": false},
+    {"id": "calendar.write", "user_grantable": true, "system_only": false},
+    {"id": "tasks.read", "user_grantable": true, "system_only": false},
+    {"id": "tasks.write", "user_grantable": true, "system_only": false}
+  ]
+}

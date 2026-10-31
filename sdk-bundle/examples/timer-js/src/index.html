@@ -1,0 +1,54 @@
+<dt-page id="page">
+  <dt-system-bar id="bar" height="72">
+    <dt-row alignment="1" flex-grow="1">
+      <dt-button id="back" accessibility-label="回到桌面" width="96" height="72" button-style="5" padding="0,8,0,0" alignment="1" justification="1"><dt-icon id="navigation-icon" icon="13" width="32" height="32"></dt-icon></dt-button>
+      <dt-icon icon="36" width="40" height="40" margin="0,18,4,22" foreground-role="1"></dt-icon>
+      <dt-text id="bar-title" text="计时器" font-size="32" flex-grow="1"></dt-text>
+    </dt-row>
+  </dt-system-bar>
+  <dt-stack id="body">
+    <dt-column id="content" padding="24" gap="20" alignment="1" justification="1">
+      <dt-text id="status" text="准备就绪" font-size="20" height="28" alignment="1"></dt-text>
+      <dt-button id="clock" text="05:00" accessibility-label="设置倒数时间" width="752" height="88" font-size="48" button-style="4"></dt-button>
+      <dt-row gap="16" height="52">
+        <dt-button id="one" text="1 分钟" width="176" height="52" font-size="20" button-style="1"></dt-button>
+        <dt-button id="five" text="5 分钟" width="176" height="52" font-size="20" button-style="1"></dt-button>
+        <dt-button id="fifteen" text="15 分钟" width="176" height="52" font-size="20" button-style="1"></dt-button>
+        <dt-button id="custom" text="设置时长" width="176" height="52" font-size="20" button-style="1"></dt-button>
+      </dt-row>
+      <dt-row gap="16" height="52">
+        <dt-button id="start" text="开始" icon="50" width="368" height="52" font-size="20"></dt-button>
+        <dt-button id="reset" text="重置" icon="52" width="368" height="52" font-size="20" button-style="1"></dt-button>
+      </dt-row>
+    </dt-column>
+    <dt-column id="picker" visible="false">
+      <dt-duration-picker id="time-selector" height="308" value="300" minimum="0" maximum="359999"></dt-duration-picker>
+      <dt-row height="52" margin="0,24,0,24" gap="16"><dt-column flex-grow="1"></dt-column><dt-button id="picker-cancel" text="取消" icon="48" width="152" height="52" font-size="20" button-style="9"></dt-button><dt-button id="picker-save" text="确定" icon="49" width="152" height="52" font-size="20"></dt-button></dt-row>
+    </dt-column>
+    <dt-dialog id="info-dialog" width="704" max-height="400" dialog-presentation="1" dialog-title-divider="true" padding="24" surface-style="2" visible="false"><dt-column gap="12" flex-grow="1">
+      <dt-text id="info-title" text="关于计时器" height="40" margin="0,0,16,0" font-size="32"></dt-text>
+      <dt-scroll flex-grow="1"><dt-column gap="12">
+      <dt-text id="info-usage" font-size="20" foreground-role="4" text-wrap="true"></dt-text>
+      <dt-text id="info-persistence" font-size="20" foreground-role="4" text-wrap="true"></dt-text>
+      </dt-column></dt-scroll>
+      <dt-row height="52"><dt-column flex-grow="1"></dt-column><dt-button id="info-close" text="关闭" icon="48" width="152" height="52" font-size="20"></dt-button></dt-row>
+    </dt-column></dt-dialog>
+  </dt-stack>
+  <dt-stack id="focus-screen" visible="false">
+    <dt-canvas id="focus" pointer-input="true"></dt-canvas>
+    <dt-column id="options" padding="24" visible="false">
+      <dt-column flex-grow="1"></dt-column>
+      <dt-row gap="16" height="52">
+        <dt-button id="restart" text="重新开始" icon="52" width="240" height="52" font-size="20" button-style="1"></dt-button>
+        <dt-button id="pause" text="暂停" icon="51" width="240" height="52" font-size="20" button-style="1"></dt-button>
+        <dt-button id="end" text="结束计时" icon="48" width="240" height="52" font-size="20" button-style="1"></dt-button>
+      </dt-row>
+    </dt-column>
+  </dt-stack>
+  <dt-button id="alarm" button-style="4" alignment="1" justification="1" visible="false"><dt-column id="alarm-group" alignment="1" justification="1" gap="24"><dt-icon icon="36" width="80" height="80"></dt-icon><dt-text id="alarm-title" text="时间到" font-size="48" height="72" alignment="1"></dt-text><dt-text id="alarm-hint" text="点击停止" height="28" font-size="20" alignment="1"></dt-text></dt-column></dt-button>
+  <dt-dialog id="error-dialog" width="592" max-height="400" dialog-presentation="1" dialog-title-divider="true" padding="24" surface-style="2" visible="false"><dt-column gap="24" flex-grow="1">
+    <dt-text id="error-title" font-size="32" height="48" margin="0,0,12,0"></dt-text>
+    <dt-scroll flex-grow="1"><dt-text id="error-body" font-size="20" foreground-role="4" text-wrap="true"></dt-text></dt-scroll>
+    <dt-row height="52"><dt-button id="error-close" text="关闭" icon="48" flex-grow="1" height="52" font-size="20" button-style="9"></dt-button></dt-row>
+  </dt-column></dt-dialog>
+</dt-page>

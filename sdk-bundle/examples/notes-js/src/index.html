@@ -1,0 +1,79 @@
+<dt-page id="page">
+  <dt-system-bar id="appbar" height="72">
+    <dt-row alignment="1" flex-grow="1">
+      <dt-button id="back" accessibility-label="回到桌面" width="96" height="72" button-style="5" padding="0,8,0,0" alignment="1" justification="1"><dt-icon id="navigation-icon" icon="13" width="32" height="32"></dt-icon></dt-button>
+      <dt-icon icon="34" width="40" height="40" margin="0,18,4,22" foreground-role="1"></dt-icon>
+      <dt-text id="app-title" text="便签" font-size="32" flex-grow="1"></dt-text>
+      <dt-row id="editor-actions" height="72" padding="0,12,0,0" visible="false">
+        <dt-button id="export" accessibility-label="导出为文件" width="72" height="72" button-style="4" padding="0" alignment="1" justification="1"><dt-icon icon="103" width="32" height="32"></dt-icon></dt-button>
+        <dt-row width="16" height="72" alignment="1" justification="1"><dt-column id="action-divider" width="1" height="36"></dt-column></dt-row>
+        <dt-button id="save" accessibility-label="保存便签" width="72" height="72" button-style="4" alignment="1" justification="1" visible="false"><dt-icon icon="42" width="32" height="32"></dt-icon></dt-button>
+        <dt-button id="delete" accessibility-label="删除便签" width="72" height="72" button-style="4" alignment="1" justification="1" visible="false"><dt-icon icon="41" width="32" height="32" foreground-role="2"></dt-icon></dt-button>
+      </dt-row>
+      <dt-button id="import" accessibility-label="导入文本文件" width="72" height="72" margin="0,12,0,0" button-style="4" alignment="1" justification="1"><dt-icon icon="102" width="32" height="32"></dt-icon></dt-button>
+    </dt-row>
+  </dt-system-bar>
+  <dt-stack>
+    <dt-column id="home">
+      <dt-column id="empty" flex-grow="1" gap="16" alignment="1" justification="1">
+        <dt-icon icon="34" foreground-role="3" width="80" height="80"></dt-icon>
+        <dt-text id="empty-title" text="还没有便签" height="40" font-size="32" alignment="1"></dt-text>
+        <dt-text id="empty-body" text="点击新建，记录想法" height="28" font-size="20" foreground-role="3" alignment="1"></dt-text>
+      </dt-column>
+      <dt-scroll id="notes-scroll" scroll-axis="0" flex-grow="1" visible="false"><dt-column id="notes-list">
+        <dt-list-row id="note-0" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-0" height="40" font-size="32"></dt-text><dt-text id="preview-0" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-1" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-1" height="40" font-size="32"></dt-text><dt-text id="preview-1" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-2" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-2" height="40" font-size="32"></dt-text><dt-text id="preview-2" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-3" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-3" height="40" font-size="32"></dt-text><dt-text id="preview-3" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-4" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-4" height="40" font-size="32"></dt-text><dt-text id="preview-4" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-5" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-5" height="40" font-size="32"></dt-text><dt-text id="preview-5" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-6" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-6" height="40" font-size="32"></dt-text><dt-text id="preview-6" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-7" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-7" height="40" font-size="32"></dt-text><dt-text id="preview-7" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-8" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-8" height="40" font-size="32"></dt-text><dt-text id="preview-8" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-9" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-9" height="40" font-size="32"></dt-text><dt-text id="preview-9" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-10" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-10" height="40" font-size="32"></dt-text><dt-text id="preview-10" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-11" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-11" height="40" font-size="32"></dt-text><dt-text id="preview-11" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-12" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-12" height="40" font-size="32"></dt-text><dt-text id="preview-12" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-13" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-13" height="40" font-size="32"></dt-text><dt-text id="preview-13" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-14" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-14" height="40" font-size="32"></dt-text><dt-text id="preview-14" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-15" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-15" height="40" font-size="32"></dt-text><dt-text id="preview-15" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-16" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-16" height="40" font-size="32"></dt-text><dt-text id="preview-16" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-17" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-17" height="40" font-size="32"></dt-text><dt-text id="preview-17" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-18" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-18" height="40" font-size="32"></dt-text><dt-text id="preview-18" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-19" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-19" height="40" font-size="32"></dt-text><dt-text id="preview-19" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-20" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-20" height="40" font-size="32"></dt-text><dt-text id="preview-20" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-21" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-21" height="40" font-size="32"></dt-text><dt-text id="preview-21" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-22" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-22" height="40" font-size="32"></dt-text><dt-text id="preview-22" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-list-row id="note-23" height="92" padding="8,24,8,24" visible="false"><dt-column><dt-text id="title-23" height="40" font-size="32"></dt-text><dt-text id="preview-23" height="28" font-size="20" foreground-role="3"></dt-text></dt-column></dt-list-row>
+        <dt-column height="112"></dt-column>
+      </dt-column></dt-scroll>
+    </dt-column>
+    <dt-column id="new-overlay" alignment="2" justification="2" padding="0,24,24,0">
+      <dt-button id="new" accessibility-label="新建便签" width="80" height="80" button-style="8" alignment="1" justification="1"><dt-icon icon="35" width="40" height="40"></dt-icon></dt-button>
+    </dt-column>
+    <dt-column id="detail" visible="false">
+      <dt-scroll id="document-scroll" scroll-axis="0" flex-grow="1"><dt-document-editor id="body" accessibility-label="编辑便签" placeholder="写下想记住的事" padding="24" height="376" document-headings="true"></dt-document-editor></dt-scroll>
+    </dt-column>
+    <dt-dialog id="info-dialog" width="704" max-height="400" dialog-presentation="1" dialog-title-divider="true" padding="24" surface-style="2" visible="false"><dt-column gap="12" flex-grow="1">
+      <dt-text id="about-title" text="关于便签" height="40" margin="0,0,16,0" font-size="32"></dt-text>
+      <dt-scroll flex-grow="1"><dt-column gap="12">
+        <dt-text id="about-body" text="记录待办事项、日常计划和灵感。轻触便签可查看内容，上下滑动可浏览列表与正文。" font-size="20" foreground-role="4" text-wrap="true"></dt-text>
+        <dt-text id="about-storage" font-size="20" foreground-role="4" text-wrap="true">新建或编辑后，轻触保存按钮保存内容。便签保存在本机，离线时也可查看与编辑。可在“设置 → 应用”中管理应用及其数据。</dt-text>
+        <dt-text id="info-files" font-size="20" foreground-role="4" text-wrap="true"></dt-text>
+      </dt-column></dt-scroll>
+      <dt-row height="52"><dt-column flex-grow="1"></dt-column><dt-button id="info-close" text="关闭" icon="48" width="152" height="52" font-size="20"></dt-button></dt-row>
+    </dt-column></dt-dialog>
+    <dt-dialog id="delete-dialog" width="592" max-height="400" dialog-presentation="1" dialog-title-divider="true" dialog-destructive="true" padding="24" surface-style="2" visible="false"><dt-column gap="24" flex-grow="1">
+      <dt-text id="delete-title" text="删除便签？" font-size="32" height="48" margin="0,0,12,0"></dt-text><dt-scroll flex-grow="1"><dt-text id="delete-body" text="删除后将移除这条便签。" font-size="20" foreground-role="4" text-wrap="true"></dt-text></dt-scroll>
+      <dt-row height="52" gap="12"><dt-button id="delete-cancel" text="取消" width="0" flex-grow="1" height="52" font-size="20" button-style="9"></dt-button><dt-button id="delete-confirm" text="删除" icon="41" width="0" flex-grow="1" height="52" font-size="20" button-style="2"></dt-button></dt-row>
+    </dt-column></dt-dialog>
+    <dt-dialog id="save-confirm-dialog" width="592" max-height="400" dialog-presentation="1" dialog-title-divider="true" padding="24" surface-style="2" visible="false"><dt-column gap="24" flex-grow="1">
+      <dt-text id="save-title" text="保存修改？" font-size="32" height="48" margin="0,0,12,0"></dt-text><dt-scroll flex-grow="1"><dt-text id="save-body" text="这条便签有尚未保存的内容。" font-size="20" foreground-role="4" text-wrap="true"></dt-text></dt-scroll>
+      <dt-row height="52" gap="12"><dt-button id="message-cancel" text="取消" width="0" flex-grow="1" height="52" font-size="20" button-style="9"></dt-button><dt-button id="discard" text="不保存" width="0" flex-grow="1" height="52" font-size="20" button-style="9"></dt-button><dt-button id="message-ok" text="保存" icon="85" width="0" flex-grow="1" height="52" font-size="20"></dt-button></dt-row>
+    </dt-column></dt-dialog>
+    <dt-dialog id="message-dialog" width="592" max-height="400" dialog-presentation="1" dialog-title-divider="true" padding="24" surface-style="2" visible="false"><dt-column gap="24" flex-grow="1">
+      <dt-text id="message-title" font-size="32" height="48" margin="0,0,12,0"></dt-text><dt-scroll flex-grow="1"><dt-text id="message-body" font-size="20" foreground-role="4" text-wrap="true"></dt-text></dt-scroll>
+      <dt-row height="52"><dt-button id="error-close" text="关闭" icon="48" flex-grow="1" height="52" font-size="20" button-style="9"></dt-button></dt-row>
+    </dt-column></dt-dialog>
+  </dt-stack>
+</dt-page>

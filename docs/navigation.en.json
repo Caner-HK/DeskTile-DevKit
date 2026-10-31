@@ -1,0 +1,370 @@
+[
+  {
+    "text": "Getting started",
+    "link": "/en/",
+    "children": [
+      {
+        "text": "DevKit overview",
+        "link": "/en/"
+      },
+      {
+        "text": "Install the tools",
+        "link": "/en/start/install.md"
+      },
+      {
+        "text": "Your first application",
+        "link": "/en/start/first-app.md"
+      }
+    ]
+  },
+  {
+    "text": "Application development",
+    "link": "/en/guide/project.md",
+    "children": [
+      {
+        "text": "Project structure",
+        "link": "/en/guide/project.md"
+      },
+      {
+        "text": "Pages and lifecycle",
+        "link": "/en/guide/lifecycle.md"
+      },
+      {
+        "text": "Resources and languages",
+        "link": "/en/guide/resources.md"
+      },
+      {
+        "text": "Splash screen",
+        "link": "/en/guide/splash.md"
+      },
+      {
+        "text": "Native C++ applications",
+        "link": "/en/guide/native.md"
+      },
+      {
+        "text": "Testing applications",
+        "link": "/en/guide/testing.md"
+      },
+      {
+        "text": "Examples",
+        "link": "/en/examples/index.md",
+        "children": [
+          {
+            "text": "Example overview",
+            "link": "/en/examples/index.md"
+          },
+          {
+            "text": "Notes",
+            "link": "/en/examples/notes.md"
+          },
+          {
+            "text": "Timer",
+            "link": "/en/examples/timer.md"
+          },
+          {
+            "text": "ToDo",
+            "link": "/en/examples/todo.md"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Design and components",
+    "link": "/en/components/",
+    "children": [
+      {
+        "text": "Design guidelines",
+        "link": "/en/design/"
+      },
+      {
+        "text": "Component catalog",
+        "link": "/en/components/"
+      },
+      {
+        "text": "Scaffold",
+        "link": "/en/components/scaffold.md"
+      },
+      {
+        "text": "Navigation",
+        "link": "/en/components/navigation.md"
+      },
+      {
+        "text": "Component patterns",
+        "link": "/en/components/patterns.md"
+      },
+      {
+        "text": "Icon catalog",
+        "link": "/en/components/icon-catalog.md"
+      },
+      {
+        "text": "App Menu",
+        "link": "/en/components/app-menu.md"
+      },
+      {
+        "text": "Layout",
+        "children": [
+          {
+            "text": "Page",
+            "link": "/en/components/page.md"
+          },
+          {
+            "text": "System bar",
+            "link": "/en/components/system-bar.md"
+          },
+          {
+            "text": "Row",
+            "link": "/en/components/row.md"
+          },
+          {
+            "text": "Column",
+            "link": "/en/components/column.md"
+          },
+          {
+            "text": "Stack",
+            "link": "/en/components/stack.md"
+          },
+          {
+            "text": "Grid",
+            "link": "/en/components/grid.md"
+          },
+          {
+            "text": "Scroll view",
+            "link": "/en/components/scroll-view.md"
+          }
+        ]
+      },
+      {
+        "text": "Content",
+        "children": [
+          {
+            "text": "Text",
+            "link": "/en/components/text.md"
+          },
+          {
+            "text": "Image",
+            "link": "/en/components/image.md"
+          },
+          {
+            "text": "Icon",
+            "link": "/en/components/icon.md"
+          },
+          {
+            "text": "Canvas view",
+            "link": "/en/components/canvas-view.md"
+          },
+          {
+            "text": "Progress",
+            "link": "/en/components/progress.md"
+          },
+          {
+            "text": "Moving squares",
+            "link": "/en/components/loading-squares.md"
+          },
+          {
+            "text": "Pulsing bars",
+            "link": "/en/components/loading-bars.md"
+          }
+        ]
+      },
+      {
+        "text": "Actions and input",
+        "children": [
+          {
+            "text": "Button",
+            "link": "/en/components/button.md"
+          },
+          {
+            "text": "Button variants",
+            "link": "/en/components/button-variants.md"
+          },
+          {
+            "text": "Floating action button",
+            "link": "/en/components/fab.md"
+          },
+          {
+            "text": "Color swatch",
+            "link": "/en/components/color-swatch.md"
+          },
+          {
+            "text": "Toggle",
+            "link": "/en/components/toggle.md"
+          },
+          {
+            "text": "Checkbox",
+            "link": "/en/components/checkbox.md"
+          },
+          {
+            "text": "Slider",
+            "link": "/en/components/slider.md"
+          },
+          {
+            "text": "Text field",
+            "link": "/en/components/text-field.md"
+          },
+          {
+            "text": "Document editor",
+            "link": "/en/components/document-editor.md"
+          },
+          {
+            "text": "Choice stepper",
+            "link": "/en/components/choice-stepper.md"
+          },
+          {
+            "text": "Date and time picker",
+            "link": "/en/components/date-time-picker.md"
+          },
+          {
+            "text": "Duration picker",
+            "link": "/en/components/duration-picker.md"
+          },
+          {
+            "text": "Number stepper",
+            "link": "/en/components/number-stepper.md"
+          }
+        ]
+      },
+      {
+        "text": "Lists and dialogs",
+        "children": [
+          {
+            "text": "List",
+            "link": "/en/components/list.md"
+          },
+          {
+            "text": "List row",
+            "link": "/en/components/list-row.md"
+          },
+          {
+            "text": "List note",
+            "link": "/en/components/list-note.md"
+          },
+          {
+            "text": "Dialog",
+            "link": "/en/components/dialog.md"
+          },
+          {
+            "text": "Compact list",
+            "link": "/en/components/list-compact.md"
+          },
+          {
+            "text": "Menu",
+            "link": "/en/components/menu.md"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "System services",
+    "link": "/en/services/",
+    "children": [
+      {
+        "text": "Service overview",
+        "link": "/en/services/"
+      },
+      {
+        "text": "Permissions",
+        "link": "/en/services/permissions.md"
+      },
+      {
+        "text": "Private storage",
+        "link": "/en/services/storage.md"
+      },
+      {
+        "text": "User files",
+        "link": "/en/services/files.md"
+      },
+      {
+        "text": "Network requests",
+        "link": "/en/services/network.md"
+      },
+      {
+        "text": "Background tasks",
+        "link": "/en/services/tasks.md"
+      },
+      {
+        "text": "Notifications",
+        "link": "/en/services/notifications.md"
+      },
+      {
+        "text": "Bluetooth BLE",
+        "link": "/en/services/bluetooth.md"
+      },
+      {
+        "text": "Calendar and tasks",
+        "link": "/en/services/data.md"
+      },
+      {
+        "text": "System input",
+        "link": "/en/services/input.md"
+      }
+    ]
+  },
+  {
+    "text": "API reference",
+    "link": "/en/api/",
+    "children": [
+      {
+        "text": "API overview",
+        "link": "/en/api/"
+      },
+      {
+        "text": "JavaScript globals",
+        "link": "/en/api/javascript.md"
+      },
+      {
+        "text": "Platform types",
+        "link": "/en/api/platform.md"
+      },
+      {
+        "text": "UI builders",
+        "link": "/en/api/builders.md"
+      },
+      {
+        "text": "Native C/C++",
+        "link": "/en/api/native.md"
+      },
+      {
+        "text": "Properties, events and limits",
+        "link": "/en/api/contract.md"
+      }
+    ]
+  },
+  {
+    "text": "Development tools",
+    "link": "/en/tools/",
+    "children": [
+      {
+        "text": "VS Code extension",
+        "link": "/en/tools/"
+      },
+      {
+        "text": "Command line",
+        "link": "/en/tools/cli.md"
+      },
+      {
+        "text": "Images, icons and tiles",
+        "link": "/en/tools/assets.md"
+      },
+      {
+        "text": "Device workflow",
+        "link": "/en/tools/device.md"
+      },
+      {
+        "text": "Serial commands",
+        "link": "/en/tools/serial.md"
+      }
+    ]
+  },
+  {
+    "text": "Publishing",
+    "link": "/en/publish/",
+    "children": [
+      {
+        "text": "Build, sign and distribute",
+        "link": "/en/publish/"
+      }
+    ]
+  }
+]
