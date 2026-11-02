@@ -5,7 +5,7 @@ import json, re, subprocess
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
-REPO=ROOT.parent
+REPO=ROOT.parent/'DeskTile_System'
 BUILD=ROOT/'build/docs-markup'
 PUBLIC=ROOT/'docs/.vuepress/public/previews'
 

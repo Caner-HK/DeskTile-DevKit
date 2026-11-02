@@ -3,7 +3,7 @@ from pathlib import Path
 import shutil, subprocess
 from preview_fonts import prepare
 ROOT=Path(__file__).resolve().parents[1]
-REPO=ROOT.parent
+REPO=ROOT.parent/'DeskTile_System'
 OUT=ROOT/'build/renderer'
 OUT.mkdir(parents=True,exist_ok=True)
 # The existing host adapter supplies a framebuffer, font loader and board stubs.

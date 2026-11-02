@@ -1148,7 +1148,7 @@ def generate_references():
             body+='\n'.join(line.replace('查看声明','View declaration') for line in source.splitlines() if line.startswith('| `'))+'\n'
         else:body+='\n## Type declarations\n\n[Download](/api-source/'+{'javascript':'desktile','platform':'platform','builders':'components'}[name]+'.d.ts).\n'
         write('api/'+name+'.md',body)
-    contract=json.loads((ROOT.parent/'sdk/contract/desktile-api.json').read_text(encoding='utf-8'))
+    contract=json.loads((ROOT.parent/'DeskTile_System/sdk/contract/desktile-api.json').read_text(encoding='utf-8'))
     body='# Properties, events and limits\n\nSDK ABI: 1.0. Strings use UTF-8 and colors use `0xRRGGBB`. Handles belong to the application that creates them. Query optional capabilities before calling their APIs.\n\n## Properties\n\nProperty IDs follow this zero-based table. HTML uses names; scripts and Native calls use the matching enums.\n\n| ID | Property | Type | Enum values |\n| --- | --- | --- | --- |\n'
     for i,p in enumerate(contract['properties']):body+=f"| {i} | `{p['id']}` | {p['value']} | "+', '.join(f'{k}={v}' for k,v in p.get('values',{}).items())+' |\n'
     for title,head,rows in [('Events','ID | Event',enumerate(contract['events'])),('Runtime limits','Item | Limit',contract['limits'].items()),('Optional capabilities','Capability | Bit value',contract['capabilities'].items())]:

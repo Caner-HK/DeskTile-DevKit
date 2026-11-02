@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib, json, re
 
 ROOT = Path(__file__).resolve().parents[1]
-REPO = ROOT.parent
+REPO = ROOT.parent/'DeskTile_System'
 
 def prepare(out):
     source = (REPO/'src/graphics/UiNativeGlyphs.h').read_text(encoding='utf-8')

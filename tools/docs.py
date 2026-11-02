@@ -9,7 +9,7 @@ from docs_content import COMPONENTS, PROPERTIES
 from component_examples import examples as component_examples, page, script, DETAILS
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
-REPO=ROOT.parent
+REPO=ROOT.parent/'DeskTile_System'
 DOCS=ROOT/'docs'
 PUBLIC=DOCS/'.vuepress/public'
 

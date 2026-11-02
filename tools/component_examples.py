@@ -3,7 +3,7 @@ from pathlib import Path
 from html import escape
 import json, subprocess
 
-REPO=Path(__file__).resolve().parents[2]
+REPO=Path(__file__).resolve().parents[2]/'DeskTile_System'
 
 def appbar(title, icon=58):
     return ('<dt-system-bar id="catalog-appbar" height="72"><dt-row alignment="1" flex-grow="1">'

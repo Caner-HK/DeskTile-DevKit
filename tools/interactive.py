@@ -3,7 +3,7 @@ from pathlib import Path
 import shutil, subprocess
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
-REPO=ROOT.parent
+REPO=ROOT.parent/'DeskTile_System'
 OUT=ROOT/'build/interactive'
 # Reuse the maintained framebuffer/font adapter, without running its static build.
 prelude=(ROOT/'tools/renderer.py').read_text(encoding='utf-8').split('\nvs=subprocess')[0]

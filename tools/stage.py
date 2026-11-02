@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib,json,shutil,re,struct,subprocess,sys,zipfile
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
-REPO=ROOT.parent
+REPO=ROOT.parent/'DeskTile_System'
 DEST=ROOT/'sdk-bundle'
 
 def copy(source,target):
