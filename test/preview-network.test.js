@@ -31,7 +31,7 @@ test('preview network executes through QuickJS, permissions and the real complet
   const parent=path.join(kit,'build/network-tests');fs.mkdirSync(parent,{recursive:true});
   const root=fs.mkdtempSync(path.join(parent,'app-'));
   try{
-    fs.cpSync(path.join(kit,'../samples/timer-js'),root,{recursive:true,filter:p=>!p.includes(path.sep+'.desktile')&&!p.includes(path.sep+'dist')});
+    fs.cpSync(path.join(kit,'sdk-bundle/examples/timer-js'),root,{recursive:true,filter:p=>!p.includes(path.sep+'.desktile')&&!p.includes(path.sep+'dist')});
     const manifest=JSON.parse(fs.readFileSync(path.join(root,'manifest.json')));manifest.id='com.example.networktest';manifest.permissions=['network'];fs.writeFileSync(path.join(root,'manifest.json'),JSON.stringify(manifest));
     const base='http://127.0.0.1:'+server.address().port;
     fs.writeFileSync(path.join(root,'src/main.js'),`

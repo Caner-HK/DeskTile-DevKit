@@ -50,17 +50,17 @@ Download the appropriate package from [Releases](https://github.com/Caner-HK/Des
 
 | File | Purpose |
 | --- | --- |
-| `desktile-devkit-1.0.0-win32-x64.vsix` | VS Code extension, including the SDK and Windows preview resources |
-| `desktile-devkit-1.0.0.tgz` | Standalone command-line toolkit |
-| `DeskTile-DevKit-1.0.0-windows-x64.zip` | Complete Windows toolkit and offline documentation |
+| `desktile-devkit-1.0.1-win32-x64.vsix` | VS Code extension, including the SDK and Windows preview resources |
+| `desktile-devkit-1.0.1.tgz` | Standalone command-line toolkit |
+| `DeskTile-DevKit-1.0.1-windows-x64.zip` | Complete Windows toolkit and offline documentation |
 | `artifacts.json` | Release file sizes and SHA-256 checksums |
 
-In VS Code, open the Extensions view menu, choose **Install from VSIX**, and select the downloaded `.vsix`. After installation, search for `DeskTile DevKit` in the Command Palette.
+In VS Code, open the Extensions view menu, choose **Install from VSIX**, and select the downloaded `.vsix`. After installation, select the DeskTile logo in the Activity Bar to open the DevKit tools. Open **Settings** for SDK selection, environment checks, updates, language and version information. **Toolbox location** lets you place the tools in Explorer instead. Commands are also available by searching for `DeskTile DevKit` in the Command Palette.
 
 Install the command-line tools with npm:
 
 ```powershell
-npm install --global .\desktile-devkit-1.0.0.tgz
+npm install --global .\desktile-devkit-1.0.1.tgz
 desktile doctor
 ```
 

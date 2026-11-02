@@ -25,7 +25,7 @@
 
 ## 图标目录与自有图标
 
-[完整图标目录](icon-catalog.md)列出名称、编号、预览和可打包的 DTI 文件。自己的图形使用 [Image 组件](image.md)加载包内资源；[资源制作](../tools/assets.md)说明如何将原始图片转换为 DTI。
+[完整图标目录](icon-catalog.md)列出名称、编号、预览和可打包的 DTI 文件。自己的图形使用 [Image 组件](image.md)加载包内资源；通过“导入资源”中的[导入图标 tab](../tools/assets.md#导入图标)导入外部图片、预览并保存为 DTI。
 
 ```html
 <dt-image resource="assets/my-symbol.dti" width="40" height="40"/>

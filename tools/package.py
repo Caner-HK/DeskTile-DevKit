@@ -35,7 +35,7 @@ def main():
     vsix=dist/f'desktile-devkit-{version}-win32-x64.vsix'
     subprocess.run(['node',args.vsce,'package','--no-dependencies','--allow-missing-repository','--target','win32-x64','--out',str(vsix)],cwd=ROOT,check=True)
     with zipfile.ZipFile(vsix) as z:
-        for name in ('lib/assets.js','lib/native-preview.js','lib/core.js','lib/workflow-panel.js','lib/toolchain.js','sdk-bundle/tools/icon_asset.py','renderer/interactive.exe','site/tools/index.html','site/tools/assets.html','site/tools/serial.html'):
+        for name in ('lib/assets.js','lib/asset-panel.js','lib/icon-designer.js','lib/updates.js','lib/language-support.js','lib/extension.js','lib/native-preview.js','lib/core.js','lib/workflow-panel.js','lib/toolchain.js','sdk-bundle/sdk/contract/manifest.schema.json','sdk-bundle/tools/build_dtapp.py','sdk-bundle/tools/icon_asset.py','renderer/interactive.exe','site/tools/index.html','site/tools/assets.html','site/tools/serial.html'):
             if z.read('extension/'+name)!=(ROOT/name).read_bytes():raise SystemExit('Stale VSIX entry: '+name)
     subprocess.run(['node',args.npm_cli,'pack','--pack-destination',str(dist),'--json'],cwd=ROOT,check=True)
     archive=dist/(portable.name+'.zip')

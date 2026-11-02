@@ -2,10 +2,13 @@
 #define NOMINMAX
 #include <windows.h>
 #include <windowsx.h>
+#include <UIAutomation.h>
 #include <commdlg.h>
 #include <map>
 #include "sdk/include/desktile/base64.hpp"
+#include "sdk/include/desktile/icon_appearance.hpp"
 #include "adapter.h"
+#include "preview_icon_resources.h"
 #include "src/runtime/JavaScriptAppRunner.h"
 #include "preview_native.h"
 #include "src/system/SharedDataService.h"
@@ -37,10 +40,13 @@ struct FrameWake {
  }
 };
 static LRESULT CALLBACK flatControlProc(HWND,UINT,WPARAM,LPARAM);
+static LRESULT CALLBACK toolbarToggleProc(HWND,UINT,WPARAM,LPARAM);
 struct Preview;
+static int hostMessage(Preview*,HWND,const std::wstring&,const std::wstring&,bool=false);
 static int flatPopup(Preview*,HWND,HWND,const std::vector<std::wstring>&,int);
 static Json parse(const std::vector<uint8_t>&b){return Json(cJSON_ParseWithLength(reinterpret_cast<const char*>(b.data()),b.size()),cJSON_Delete);}
 #include "preview_config.h"
+#include "preview_chrome.h"
 static std::string keyFile(const char*key){std::string out;for(auto p=reinterpret_cast<const unsigned char*>(key);*p;++p){char hex[3];sprintf_s(hex,"%02x",*p);out+=hex;}return out;}
 struct Storage:runtime::PrivateStorageProvider{
  fs::path root;
@@ -92,8 +98,11 @@ struct Services:runtime::SystemServiceProvider{
 struct Preview{
  struct FrameProbe {std::string path;int duration=3500;std::chrono::steady_clock::time_point start;std::vector<double> frames;};
  std::unique_ptr<FrameProbe> frameProbe;
+ preview_chrome::Appearance chrome;
+ std::wstring chromeText(const wchar_t*value)const{return chrome.label(value);}
  runtime::NativeSdkHost host;runtime::AppContext context;dt_app_context owner=0;
- Resources resources;Storage storage,cache;Services services;
+ PreviewIconResources resources;Storage storage,cache;Services services;
+ uint32_t iconAppearanceRevision=0;
  std::unique_ptr<runtime::DynamicAppRunner> app;
  RgbScanout screen;Canvas canvas;std::vector<uint32_t> pixels=std::vector<uint32_t>(800*480);
  HWND window=nullptr,keyboardWindow=nullptr,edit=nullptr;bool dark=false,failed=false,scripted=false,changed=true;
@@ -111,31 +120,55 @@ struct Preview{
   ui::notification_banner::text(canvas,displayName.c_str(),message.c_str(),clock,relative);
  }
  double dpi=1.0,zoom=1.0;bool fit=false;HWND settingsWindow=nullptr;HFONT formFont=nullptr;
- int settingValues[5]{};bool settingCharging=false;
- void loadPreferences(){auto v=preview_config::read(preview_config::directory());dark=v.dark;fit=v.fit;zoom=v.zoom;bounds=v.bounds;performance=v.performance;frameLimit=v.fps;services.locale=v.locale;services.battery=v.battery;services.wifi=v.wifi;services.charging=v.charging;native_ui::setWesternFont(sdk::WesternFont(v.font));}
- void savePreferences(){preview_config::Values v;v.dark=dark;v.fit=fit;v.zoom=zoom;v.bounds=bounds;v.performance=performance;v.fps=frameLimit;v.locale=services.locale;v.battery=services.battery;v.wifi=services.wifi;v.charging=services.charging;v.font=int(native_ui::currentWesternFont);preview_config::write(preview_config::directory(),v);}
+ int settingValues[7]{};
+ void loadPreferences(){auto v=preview_config::read(preview_config::directory());chrome.mode=v.uiTheme;chrome.language=v.uiLanguage;chrome.sync();dark=v.dark;fit=v.fit;zoom=v.zoom;bounds=v.bounds;performance=v.performance;frameLimit=v.fps;services.locale=v.locale;services.battery=v.battery;services.wifi=v.wifi;services.charging=v.charging;native_ui::setWesternFont(sdk::WesternFont(v.font));}
+ void savePreferences(){preview_config::Values v;v.uiTheme=chrome.mode;v.uiLanguage=chrome.language;v.dark=dark;v.fit=fit;v.zoom=zoom;v.bounds=bounds;v.performance=performance;v.fps=frameLimit;v.locale=services.locale;v.battery=services.battery;v.wifi=services.wifi;v.charging=services.charging;v.font=int(native_ui::currentWesternFont);preview_config::write(preview_config::directory(),v);}
  RECT viewport()const;POINT logicalPoint(int x,int y)const;void resizePreview();void layoutToolbar();void openSettings();bool applySettings();void processFile(const std::wstring*scriptPath=nullptr);bool desktopScenario(cJSON*);void drawAppMenu();Rect appMenuRow(size_t,size_t)const;int appMenuHit(int,int);void appMenuPointer(int,int,int);
- HWND themeControl=nullptr,boundsControl=nullptr,performanceControl=nullptr,rateControl=nullptr;HFONT chromeFont=nullptr;
- HFONT systemFont(){if(!chromeFont){NONCLIENTMETRICSW m{};m.cbSize=sizeof(m);SystemParametersInfoW(SPI_GETNONCLIENTMETRICS,sizeof(m),&m,0);m.lfMessageFont.lfHeight=int(std::lround(m.lfMessageFont.lfHeight/dpi));chromeFont=CreateFontIndirectW(&m.lfMessageFont);}return chromeFont;}
- HFONT panelFont(){if(!formFont){NONCLIENTMETRICSW m{};m.cbSize=sizeof(m);SystemParametersInfoW(SPI_GETNONCLIENTMETRICS,sizeof(m),&m,0);formFont=CreateFontIndirectW(&m.lfMessageFont);}return formFont;}
- RECT controlRect(int id,int width=0){if(!width){RECT r{0,0,800,556};if(window)GetClientRect(window,&r);width=window?int(r.right/dpi):800;}HDC dc=GetDC(nullptr);auto old=SelectObject(dc,systemFont());int x=8,y=6;RECT result{};for(int n=201;n<=id;++n){SIZE s{};auto text=controlLabel(n);GetTextExtentPoint32W(dc,text.c_str(),int(text.size()),&s);const int reserve=n==202||n==203?38:n==201||n==204?40:24;const int w=s.cx+reserve;if(x+w>width-8&&x>8){x=8;y+=36;}result={x,y,x+w,y+32};x+=w+4;}SelectObject(dc,old);ReleaseDC(nullptr,dc);return result;}
+ HWND themeControl=nullptr,boundsControl=nullptr,performanceControl=nullptr,rateControl=nullptr;HFONT chromeFont=nullptr,actionFont=nullptr,selectChromeFont=nullptr;
+ HFONT systemFont(){if(!chromeFont){NONCLIENTMETRICSW m{};m.cbSize=sizeof(m);SystemParametersInfoW(SPI_GETNONCLIENTMETRICS,sizeof(m),&m,0);m.lfMessageFont.lfHeight=-12;m.lfMessageFont.lfQuality=CLEARTYPE_NATURAL_QUALITY;chromeFont=CreateFontIndirectW(&m.lfMessageFont);}return chromeFont;}
+ HWND toolbarControl(int id)const{return GetDlgItem(window,id==202||id==203?id+200:id);}
+ HFONT selectFont(){if(!selectChromeFont){LOGFONTW font{};GetObjectW(systemFont(),sizeof(font),&font);font.lfHeight=-13;selectChromeFont=CreateFontIndirectW(&font);}return selectChromeFont;}
+ HFONT panelFont(){if(!formFont){NONCLIENTMETRICSW m{};m.cbSize=sizeof(m);SystemParametersInfoW(SPI_GETNONCLIENTMETRICS,sizeof(m),&m,0);m.lfMessageFont.lfHeight=-int(std::lround(13*dpi));m.lfMessageFont.lfQuality=CLEARTYPE_NATURAL_QUALITY;formFont=CreateFontIndirectW(&m.lfMessageFont);}return formFont;}
+ HFONT panelActionFont(){if(!actionFont){LOGFONTW font{};GetObjectW(panelFont(),sizeof(font),&font);font.lfHeight=-int(std::lround(12*dpi));actionFont=CreateFontIndirectW(&font);}return actionFont;}
+ RECT controlRect(int id,int width=0){if(!width){RECT r{0,0,800,556};if(window)GetClientRect(window,&r);width=window?int(r.right/dpi):800;}HDC dc=GetDC(nullptr);auto old=SelectObject(dc,systemFont());int x=4,y=6;RECT result{};for(int n=201;n<=id;++n){const bool select=n==201||n==204;SelectObject(dc,select?selectFont():systemFont());SIZE s{};auto text=controlLabel(n);GetTextExtentPoint32W(dc,text.c_str(),int(text.size()),&s);if(select){for(const auto&value:selectLabels(n)){SIZE option{};GetTextExtentPoint32W(dc,value.c_str(),int(value.size()),&option);s.cx=std::max(s.cx,option.cx);}}const int reserve=n==202||n==203||select?28:8;const int w=s.cx+reserve;if(x+w>width-4&&x>4){x=4;y+=30;}result={x,y,x+w,y+26};x+=w+2;}SelectObject(dc,old);ReleaseDC(nullptr,dc);return result;}
  int toolbarHeight(int width=0){return controlRect(206,width).bottom+6;}
- std::wstring controlLabel(int id)const{switch(id){case 201:return dark?L"Dark theme":L"Light theme";case 202:return L"Layout bounds";case 203:return L"Performance";case 204:return std::to_wstring(frameLimit)+L" FPS";case 205:return L"App menu";default:return L"Settings";}}
+ std::wstring controlLabel(int id)const{switch(id){case 201:return chromeText(dark?L"Dark theme":L"Light theme");case 202:return chromeText(L"Layout bounds");case 203:return chromeText(L"Performance");case 204:return std::to_wstring(frameLimit)+L" FPS";case 205:return chromeText(L"App menu");default:return chromeText(L"Settings");}}
+ std::vector<std::wstring> selectLabels(int id)const{return id==201?std::vector<std::wstring>{chromeText(L"Light theme"),chromeText(L"Dark theme")}:std::vector<std::wstring>{L"60 FPS",L"30 FPS",L"15 FPS"};}
  bool controlChecked(int id)const{return id==202?bounds:id==203?performance:false;}
- void paintControl(HDC dc,int id,RECT r,bool pressed=false,bool focused=false){
-  const bool checked=controlChecked(id),toggle=id==202||id==203,hot=window&&GetPropW(GetDlgItem(window,id),L"DeskTileHot");auto fill=CreateSolidBrush(pressed?RGB(220,225,230):checked?RGB(224,237,249):hot?RGB(235,238,241):RGB(246,246,246));FillRect(dc,&r,fill);DeleteObject(fill);
-  SelectObject(dc,systemFont());SetBkMode(dc,TRANSPARENT);SetTextColor(dc,RGB(32,32,32));RECT text=r;text.left+=toggle?30:12;text.right-=id==201||id==204?28:8;
-  if(toggle){RECT box{r.left+9,r.top+10,r.left+21,r.top+22};auto pen=CreatePen(PS_SOLID,1,checked?RGB(0,100,180):RGB(100,100,100));auto oldPen=SelectObject(dc,pen),oldBrush=SelectObject(dc,GetStockObject(NULL_BRUSH));Rectangle(dc,box.left,box.top,box.right,box.bottom);if(checked){MoveToEx(dc,box.left+2,box.top+6,nullptr);LineTo(dc,box.left+5,box.top+9);LineTo(dc,box.right-2,box.top+3);}SelectObject(dc,oldPen);SelectObject(dc,oldBrush);DeleteObject(pen);}
-  const auto label=controlLabel(id);DrawTextW(dc,label.c_str(),-1,&text,DT_LEFT|DT_VCENTER|DT_SINGLELINE|DT_NOPREFIX);
-  if(id==201||id==204){auto pen=CreatePen(PS_SOLID,1,RGB(70,70,70));auto old=SelectObject(dc,pen);const int x=r.right-18,y=r.top+14;MoveToEx(dc,x,y,nullptr);LineTo(dc,x+4,y+4);LineTo(dc,x+8,y);SelectObject(dc,old);DeleteObject(pen);}
-  if(focused){InflateRect(&r,-2,-2);DrawFocusRect(dc,&r);}
+ void paintControl(HDC dc,int id,RECT r,bool pressed=false,bool focused=false,double scale=1.0){
+  const auto px=[&](int value){return int(std::lround(value*scale));};const int saved=SaveDC(dc);
+  const bool checked=controlChecked(id),toggle=id==202||id==203,dropdown=id==201||id==204,hot=window&&GetPropW(toolbarControl(id),L"DeskTileHot");
+  auto fill=CreateSolidBrush(pressed?chrome.c.pressed:hot?chrome.c.hover:chrome.c.background);FillRect(dc,&r,fill);DeleteObject(fill);
+  SelectObject(dc,dropdown?(scale==1.0?selectFont():panelFont()):(scale==1.0?systemFont():panelActionFont()));SetBkMode(dc,TRANSPARENT);SetTextColor(dc,chrome.c.text);
+  RECT text=r;text.left+=px(toggle?24:dropdown?8:4);text.right-=px(dropdown?20:4);
+  if(toggle){
+   const int size=px(14),edge=std::max(1,px(1)),x=r.left+px(4),y=(r.top+r.bottom-size)/2;RECT box{x,y,x+size,y+size};
+   auto border=CreateSolidBrush(focused?chrome.c.accent:chrome.c.border);FillRect(dc,&box,border);
+   RECT inner{box.left+edge,box.top+edge,box.right-edge,box.bottom-edge};auto field=CreateSolidBrush(chrome.c.field);FillRect(dc,&inner,field);DeleteObject(field);DeleteObject(border);
+   if(checked){
+    LOGBRUSH brush{BS_SOLID,chrome.c.text,0};auto pen=ExtCreatePen(PS_GEOMETRIC|PS_SOLID|PS_JOIN_MITER|PS_ENDCAP_FLAT,edge,&brush,0,nullptr);auto previous=SelectObject(dc,pen);
+    BeginPath(dc);MoveToEx(dc,0,px(3),nullptr);LineTo(dc,px(3),px(6));LineTo(dc,px(9),0);EndPath(dc);
+    if(!WidenPath(dc))throw std::runtime_error("Cannot stroke checkbox mark");auto mark=PathToRegion(dc);if(!mark)throw std::runtime_error("Cannot create checkbox mark");
+    RECT ink;GetRgnBox(mark,&ink);OffsetRgn(mark,(box.left+box.right-ink.left-ink.right)/2,(box.top+box.bottom-ink.top-ink.bottom)/2);
+    auto color=CreateSolidBrush(chrome.c.text);FillRgn(dc,mark,color);DeleteObject(color);DeleteObject(mark);SelectObject(dc,previous);DeleteObject(pen);
+   }
+  }
+  const auto label=controlLabel(id);DrawTextW(dc,label.c_str(),-1,&text,DT_VCENTER|DT_SINGLELINE|DT_NOPREFIX|(toggle||dropdown?DT_LEFT:DT_CENTER));
+  if(dropdown){auto pen=CreatePen(PS_SOLID,std::max(1,px(1)),chrome.c.secondary);auto old=SelectObject(dc,pen);const int x=r.right-px(18),y=(r.top+r.bottom)/2-px(2);MoveToEx(dc,x,y,nullptr);LineTo(dc,x+px(4),y+px(4));LineTo(dc,x+px(8),y);SelectObject(dc,old);DeleteObject(pen);}
+  if(dropdown&&!focused){auto border=CreateSolidBrush(chrome.c.border);FrameRect(dc,&r,border);DeleteObject(border);}
+  if(focused&&!toggle){auto pen=CreatePen(PS_SOLID,std::max(1,px(1)),chrome.c.accent);auto oldPen=SelectObject(dc,pen),oldBrush=SelectObject(dc,GetStockObject(NULL_BRUSH));Rectangle(dc,r.left,r.top,r.right,r.bottom);SelectObject(dc,oldBrush);SelectObject(dc,oldPen);DeleteObject(pen);}
+  RestoreDC(dc,saved);
  }
- void paintChrome(HDC dc,int width=800,int height=556){const int topHeight=toolbarHeight(width);RECT all{0,0,width,height},top{0,0,width,topHeight},bottom{0,height-28,width,height};auto fill=CreateSolidBrush(RGB(224,224,224));FillRect(dc,&all,fill);DeleteObject(fill);fill=CreateSolidBrush(RGB(246,246,246));FillRect(dc,&top,fill);FillRect(dc,&bottom,fill);DeleteObject(fill);for(int id=201;id<=206;++id)paintControl(dc,id,controlRect(id,width));SelectObject(dc,systemFont());SetBkMode(dc,TRANSPARENT);SetTextColor(dc,RGB(70,70,70));bottom.left=12;DrawTextW(dc,metrics.c_str(),-1,&bottom,DT_LEFT|DT_VCENTER|DT_SINGLELINE|DT_NOPREFIX|DT_END_ELLIPSIS);auto pen=CreatePen(PS_SOLID,1,RGB(150,150,150));auto old=SelectObject(dc,pen);MoveToEx(dc,0,topHeight,nullptr);LineTo(dc,width,topHeight);MoveToEx(dc,0,height-29,nullptr);LineTo(dc,width,height-29);SelectObject(dc,old);DeleteObject(pen);}
- void refreshControls(){for(int id=201;window&&id<=206;++id){auto h=GetDlgItem(window,id);SetWindowTextW(h,controlLabel(id).c_str());InvalidateRect(h,nullptr,FALSE);}}
+ void paintChrome(HDC dc,int width=800,int height=556){const int topHeight=toolbarHeight(width);RECT all{0,0,width,height},top{0,0,width,topHeight},bottom{0,height-28,width,height};auto fill=CreateSolidBrush(chrome.c.canvas);FillRect(dc,&all,fill);DeleteObject(fill);fill=CreateSolidBrush(chrome.c.background);FillRect(dc,&top,fill);FillRect(dc,&bottom,fill);DeleteObject(fill);if(!window)for(int id=201;id<=206;++id)paintControl(dc,id,controlRect(id,width));SelectObject(dc,systemFont());SetBkMode(dc,TRANSPARENT);SetTextColor(dc,chrome.c.secondary);bottom.left=12;DrawTextW(dc,metrics.c_str(),-1,&bottom,DT_LEFT|DT_VCENTER|DT_SINGLELINE|DT_NOPREFIX|DT_END_ELLIPSIS);auto pen=CreatePen(PS_SOLID,1,chrome.c.border);auto old=SelectObject(dc,pen);MoveToEx(dc,0,topHeight,nullptr);LineTo(dc,width,topHeight);MoveToEx(dc,0,height-29,nullptr);LineTo(dc,width,height-29);SelectObject(dc,old);DeleteObject(pen);}
+ void refreshControls(){for(int id=201;window&&id<=206;++id){auto h=toolbarControl(id);SetWindowTextW(h,controlLabel(id).c_str());if(id==202||id==203)SendMessageW(GetDlgItem(window,id),BM_SETCHECK,controlChecked(id)?BST_CHECKED:BST_UNCHECKED,0);InvalidateRect(h,nullptr,FALSE);}}
  void saveChrome(const fs::path&path){
-  HDC dc=CreateCompatibleDC(nullptr);BITMAPINFO info{};info.bmiHeader.biSize=sizeof(BITMAPINFOHEADER);info.bmiHeader.biWidth=800;info.bmiHeader.biHeight=-556;info.bmiHeader.biPlanes=1;info.bmiHeader.biBitCount=32;void*bits=nullptr;HBITMAP bitmap=CreateDIBSection(dc,&info,DIB_RGB_COLORS,&bits,nullptr,0);auto old=SelectObject(dc,bitmap);paintChrome(dc);
-  for(int id=201;id<=206;++id){SIZE size{};auto label=controlLabel(id);GetTextExtentPoint32W(dc,label.c_str(),int(label.size()),&size);auto r=controlRect(id);const int reserve=(id==202||id==203)?38:(id==201||id==204)?40:20;if(size.cx>r.right-r.left-reserve)throw std::runtime_error("Toolbar label does not fit");}
-  auto*out=static_cast<uint32_t*>(bits);for(int y=0;y<480;++y)memcpy(out+(y+48)*800,pixels.data()+y*800,800*4);GdiFlush();BITMAPFILEHEADER file{};file.bfType=0x4d42;file.bfOffBits=sizeof(file)+sizeof(BITMAPINFOHEADER);file.bfSize=file.bfOffBits+800*556*4;std::ofstream f(path,std::ios::binary);f.write(reinterpret_cast<char*>(&file),sizeof(file));f.write(reinterpret_cast<char*>(&info.bmiHeader),sizeof(BITMAPINFOHEADER));f.write(static_cast<char*>(bits),800*556*4);SelectObject(dc,old);DeleteObject(bitmap);DeleteDC(dc);
+  const int width=800,top=toolbarHeight(width)+1,height=top+480+29;
+  HDC dc=CreateCompatibleDC(nullptr);BITMAPINFO info{};info.bmiHeader.biSize=sizeof(BITMAPINFOHEADER);info.bmiHeader.biWidth=width;info.bmiHeader.biHeight=-height;info.bmiHeader.biPlanes=1;info.bmiHeader.biBitCount=32;void*bits=nullptr;HBITMAP bitmap=CreateDIBSection(dc,&info,DIB_RGB_COLORS,&bits,nullptr,0);auto old=SelectObject(dc,bitmap);paintChrome(dc,width,height);
+  for(int id=201;id<=206;++id){SIZE size{};auto label=controlLabel(id);GetTextExtentPoint32W(dc,label.c_str(),int(label.size()),&size);auto r=controlRect(id,width);const int reserve=(id==202||id==203||id==201||id==204)?28:8;if(size.cx>r.right-r.left-reserve)throw std::runtime_error("Toolbar label does not fit");}
+  auto*out=static_cast<uint32_t*>(bits);for(int y=0;y<480;++y)memcpy(out+(y+top)*width,pixels.data()+y*width,width*4);GdiFlush();BITMAPFILEHEADER file{};file.bfType=0x4d42;file.bfOffBits=sizeof(file)+sizeof(BITMAPINFOHEADER);file.bfSize=file.bfOffBits+width*height*4;std::ofstream f(path,std::ios::binary);f.write(reinterpret_cast<char*>(&file),sizeof(file));f.write(reinterpret_cast<char*>(&info.bmiHeader),sizeof(BITMAPINFOHEADER));f.write(static_cast<char*>(bits),width*height*4);SelectObject(dc,old);DeleteObject(bitmap);DeleteDC(dc);
+  Json geometry(cJSON_CreateObject(),cJSON_Delete);cJSON_AddStringToObject(geometry.get(),"uiTheme",chrome.dark?"dark":"light");cJSON_AddStringToObject(geometry.get(),"uiLanguage",chrome.chinese?"zh-CN":"en");cJSON_AddNumberToObject(geometry.get(),"viewportTop",top);cJSON_AddNumberToObject(geometry.get(),"toolbarHeightAt533",toolbarHeight(533));auto*controls=cJSON_AddArrayToObject(geometry.get(),"controls");
+  for(int id=201;id<=206;++id){auto*control=cJSON_CreateObject();const auto bounds=controlRect(id,width);const auto text=utf8(controlLabel(id));cJSON_AddNumberToObject(control,"id",id);cJSON_AddStringToObject(control,"label",text.c_str());cJSON_AddNumberToObject(control,"width",bounds.right-bounds.left);cJSON_AddNumberToObject(control,"height",bounds.bottom-bounds.top);cJSON_AddItemToArray(controls,control);}
+  auto*data=cJSON_Print(geometry.get());std::ofstream(path.wstring()+L".json")<<data;cJSON_free(data);
  }
  uint32_t revision=0;int64_t second=-1;std::string name;fs::path project;
  void check(dt_result result,const char*operation){if(result!=DT_OK){failed=true;throw std::runtime_error(std::string(operation)+" failed: "+std::to_string(result));}}
@@ -155,6 +188,7 @@ struct Preview{
   if(!context.configure(name.c_str(),runtime::Trust::Development,declared,0))throw std::runtime_error("Invalid package identity");
   context.setLaunchOrigin(DT_LAUNCH_DESKTOP);check(host.registerContext(context,owner),"Register application");host.setLocale(owner,locale.c_str(),false);
   storage.root=project/L".desktile"/L"preview-data"/fs::u8path(name)/L"private";cache.root=storage.root.parent_path()/L"cache";
+  resources.storage=&storage;
   services.bindShared(project/L".desktile"/L"preview-data"/L"system");
   host.bindResources(&resources);host.bindPrivateStorage(&storage);host.bindPrivateCache(&cache);host.bindSystemServices(&services);services.notificationHost=&host;
   auto*notification=cJSON_GetObjectItemCaseSensitive(cJSON_GetObjectItemCaseSensitive(manifest.get(),"icons"),"notification");notificationIcon=str(notification,"path");notificationSystemIcon=!strcmp(str(notification,"mode"),"system");
@@ -182,7 +216,7 @@ struct Preview{
   for(size_t i=0;i<pixels.size();++i){auto p=screen.buffer[i];pixels[i]=((((p>>11)&31)*255/31)<<16)|((((p>>5)&63)*255/63)<<8)|((p&31)*255/31);}
   revision=host.surfaceRevision();changed=cachedMenuFrame;if(window){auto r=viewport();InvalidateRect(window,&r,FALSE);}
  }
- void tick(){if(failed||ticking)return;TickGuard tickGuard(ticking);const auto now=host.api()->monotonic_ms(owner);host.servicePointerRepeat(now);route();auto began=std::chrono::steady_clock::now();check(app->update(now),"Application update");if(performance)updateMs=std::chrono::duration<double,std::milli>(std::chrono::steady_clock::now()-began).count();route();
+ void tick(){if(failed||ticking)return;TickGuard tickGuard(ticking);const auto icons=resources.revision.load();if(iconAppearanceRevision!=icons){iconAppearanceRevision=icons;ui::CanvasComponentTarget::clearImageCache();changed=true;}const auto now=host.api()->monotonic_ms(owner);host.servicePointerRepeat(now);route();auto began=std::chrono::steady_clock::now();check(app->update(now),"Application update");if(performance)updateMs=std::chrono::duration<double,std::milli>(std::chrono::steady_clock::now()-began).count();route();
   if(frameProbe){const auto elapsed=std::chrono::duration<double,std::milli>(began-frameProbe->start).count();if(elapsed>=frameProbe->duration){if(window)PostMessageW(window,WM_CLOSE,0,0);return;}const bool show=int(elapsed/500)%2==0;if(!menuMotion.moving()&&show!=appMenuVisible)menu();}
   services.processData(host);
   services.network.process(host);
@@ -193,12 +227,12 @@ struct Preview{
   if(frameNow>=nextFrame){const auto interval=std::chrono::nanoseconds(1000000000/std::clamp(frameLimit,1,60));nextFrame+=interval;if(nextFrame<=frameNow)nextFrame=frameNow+interval;
    if(changed||menuMotion.moving()||host.surfaceRevision()!=revision||damage.w>0||second!=int64_t(now/1000)){second=now/1000;render();}
   }
-  if(performance&&now-metricsAt>=1000){wchar_t text[230];swprintf_s(text,L"Host: %.1f FPS    %s update: %.2f ms    Paint: %.2f ms    Scroll cache: %zu KiB%s",frameCount*1000.0/std::max<uint64_t>(1,now-metricsAt),nativeRuntime?L"Native":L"JS",updateMs,paintMs,host.scrollCacheBytes()/1024,nativeRuntime?L"":L"    JS limit: 512 KiB");metrics=text;frameCount=0;metricsAt=now;if(window){RECT r;GetClientRect(window,&r);r.top=r.bottom-int(28*dpi);InvalidateRect(window,&r,FALSE);}}
+  if(performance&&now-metricsAt>=1000){wchar_t text[230];swprintf_s(text,chrome.chinese?L"主机: %.1f FPS    %s 更新: %.2f ms    绘制: %.2f ms    滚动缓存: %zu KiB%s":L"Host: %.1f FPS    %s update: %.2f ms    Paint: %.2f ms    Scroll cache: %zu KiB%s",frameCount*1000.0/std::max<uint64_t>(1,now-metricsAt),nativeRuntime?L"Native":L"JS",updateMs,paintMs,host.scrollCacheBytes()/1024,nativeRuntime?L"":(chrome.chinese?L"    JS 上限: 512 KiB":L"    JS limit: 512 KiB"));metrics=text;frameCount=0;metricsAt=now;if(window){RECT r;GetClientRect(window,&r);r.top=r.bottom-int(28*dpi);InvalidateRect(window,&r,FALSE);}}
   if(host.takeExitRequest(owner)&&window)PostMessageW(window,WM_CLOSE,0,0);
   const bool panelOpen=keyboardWindow||settingsWindow||popupOpen;
   if(!scripted&&!panelOpen&&services.keyboard)openKeyboard();
   if(!panelOpen&&!keyboardWindow&&services.fileRequest&&(!scripted||services.fileOptions.find("files.pick")==std::string::npos))processFile();
-  if(!scripted&&!panelOpen&&!keyboardWindow){runtime::NativeSdkHost::PermissionRequestView p;if(host.nextPermissionRequest(p)){auto text=wide(std::string("Allow ")+security::definition(p.permission)->name+" in this local preview?");const bool yes=MessageBoxW(window,text.c_str(),L"DeskTile Preview",MB_YESNO|MB_ICONQUESTION)==IDYES;check(host.resolvePermissionRequest(p.request,yes),"Permission response");dt_permission_result_event result;while(host.takePermissionResult(owner,result))send(DT_EVENT_PERMISSION_RESULT,result);}}
+  if(!scripted&&!panelOpen&&!keyboardWindow){runtime::NativeSdkHost::PermissionRequestView p;if(host.nextPermissionRequest(p)){auto text=chrome.chinese?wide(std::string("允许此本地预览使用 ")+security::definition(p.permission)->name+"？"):wide(std::string("Allow ")+security::definition(p.permission)->name+" in this local preview?");const bool yes=hostMessage(this,window,chromeText(L"Permission request"),text,true)==IDOK;check(host.resolvePermissionRequest(p.request,yes),"Permission response");dt_permission_result_event result;while(host.takePermissionResult(owner,result))send(DT_EVENT_PERMISSION_RESULT,result);}}
  }
  void pointer(int kind,int x,int y){if(notificationOverlay.pointer(services.notifications.queue,kind,x,y,uint32_t(host.api()->monotonic_ms(owner)),notificationBlocked(),[&](const NotificationQueue::Item&item){dt_notification_event_v1 event{};strcpy_s(event.id,item.id);strcpy_s(event.data,item.data);send(DT_EVENT_NOTIFICATION,event);})){host.cancelPointer();changed=true;tick();return;}if(keyboardWindow||settingsWindow||popupOpen||menuMotion.moving())return;if(appMenuVisible){appMenuPointer(kind,x,y);changed=true;tick();return;}if(kind==0)host.pointerDown(x,y);if(kind==1)host.pointerMove(x,y);if(kind==2)host.pointerUp(x,y);route();changed=true;tick();}
  void releasePointer(int x,int y,const std::function<void()>&releaseCapture){pointer(2,x,y);releaseCapture();}
@@ -216,37 +250,43 @@ struct Preview{
   changed=true;
  }
  void toolbar(){
-  for(int id=201;id<=206;++id){auto r=controlRect(id);auto h=CreateWindowW(L"BUTTON",controlLabel(id).c_str(),WS_CHILD|WS_VISIBLE|WS_TABSTOP|BS_OWNERDRAW,int(r.left*dpi),int(r.top*dpi),int((r.right-r.left)*dpi),int((r.bottom-r.top)*dpi),window,(HMENU)(INT_PTR)id,GetModuleHandleW(nullptr),nullptr);auto original=SetWindowLongPtrW(h,GWLP_WNDPROC,(LONG_PTR)flatControlProc);SetPropW(h,L"DeskTileOriginalProc",(HANDLE)original);}
+  WNDCLASSW toggle{};toggle.lpfnWndProc=toolbarToggleProc;toggle.hInstance=GetModuleHandleW(nullptr);toggle.lpszClassName=L"DeskTilePreviewCheckbox";toggle.hCursor=LoadCursor(nullptr,IDC_ARROW);RegisterClassW(&toggle);
+  for(int id=201;id<=206;++id){auto r=controlRect(id);const auto label=controlLabel(id);if(id==202||id==203){
+   CreateWindowW(L"BUTTON",label.c_str(),WS_CHILD|BS_AUTOCHECKBOX,0,0,0,0,window,(HMENU)(INT_PTR)id,GetModuleHandleW(nullptr),nullptr);
+   CreateWindowW(toggle.lpszClassName,label.c_str(),WS_CHILD|WS_VISIBLE|WS_TABSTOP,int(r.left*dpi),int(r.top*dpi),int((r.right-r.left)*dpi),int((r.bottom-r.top)*dpi),window,(HMENU)(INT_PTR)(id+200),GetModuleHandleW(nullptr),this);
+  }else{auto h=CreateWindowW(L"BUTTON",label.c_str(),WS_CHILD|WS_VISIBLE|WS_TABSTOP|BS_OWNERDRAW,int(r.left*dpi),int(r.top*dpi),int((r.right-r.left)*dpi),int((r.bottom-r.top)*dpi),window,(HMENU)(INT_PTR)id,GetModuleHandleW(nullptr),nullptr);auto original=SetWindowLongPtrW(h,GWLP_WNDPROC,(LONG_PTR)flatControlProc);SetPropW(h,L"DeskTileOriginalProc",(HANDLE)original);}
+  }
+  refreshControls();
  }
  void toolbarCommand(int id){
-  if(id==201||id==204){const int rates[]{60,30,15};const std::vector<std::wstring> items=id==201?std::vector<std::wstring>{L"Light",L"Dark"}:std::vector<std::wstring>{L"60 FPS",L"30 FPS",L"15 FPS"};const int selected=id==201?int(dark):frameLimit==60?0:frameLimit==30?1:2;const int choice=flatPopup(this,window,GetDlgItem(window,id),items,selected);if(choice>=0){if(id==201)setTheme(choice==1);else frameLimit=rates[choice];layoutToolbar();}}
+  if(id==201||id==204){const int rates[]{60,30,15};const auto items=selectLabels(id);const int selected=id==201?int(dark):frameLimit==60?0:frameLimit==30?1:2;const int choice=flatPopup(this,window,GetDlgItem(window,id),items,selected);if(choice>=0){if(id==201)setTheme(choice==1);else frameLimit=rates[choice];layoutToolbar();}}
   if(id==202){bounds=!bounds;changed=true;}if(id==203){performance=!performance;metrics=L"800 x 480";metricsAt=host.api()->monotonic_ms(owner);frameCount=0;changed=true;}if(id==205)menu(true);if(id==206)openSettings();if(id>=201&&id<=204&&!scripted)savePreferences();refreshControls();tick();
  }
 
  void menu(bool anchored=false){if(keyboardWindow||settingsWindow||popupOpen||menuMotion.moving())return;host.cancelPointer();appMenuVisible=!appMenuVisible;appMenuPressed=-1;changed=true;render();}
  void save(const fs::path&base){render();std::ofstream f(base.wstring()+L".rgb565",std::ios::binary);f.write(reinterpret_cast<char*>(screen.buffer),sizeof(screen.buffer));Json dump(cJSON_CreateArray(),cJSON_Delete);auto*l=host.presentedLayout();for(size_t i=0;l&&i<l->count();++i){auto*b=l->at(i);Json row(cJSON_CreateObject(),cJSON_Delete);cJSON_AddNumberToObject(row.get(),"handle",b->handle);cJSON_AddNumberToObject(row.get(),"x",b->bounds.x);cJSON_AddNumberToObject(row.get(),"y",b->bounds.y);cJSON_AddNumberToObject(row.get(),"width",b->bounds.w);cJSON_AddNumberToObject(row.get(),"height",b->bounds.h);ui::ComponentTree::PropertyView v{};if(host.components()->property(owner,b->handle,DT_PROPERTY_TEXT,v)){auto s=std::string(reinterpret_cast<const char*>(v.value.data),v.value.size);cJSON_AddStringToObject(row.get(),"text",s.c_str());}cJSON_AddItemToArray(dump.get(),row.release());}char*json=cJSON_Print(dump.get());std::ofstream(base.wstring()+L".json")<<json;cJSON_free(json);}
- ~Preview(){if(app)app->leave();if(owner)host.unregisterContext(owner);if(chromeFont)DeleteObject(chromeFont);if(formFont)DeleteObject(formFont);native_ui::glyphFinder=nullptr;native_ui::glyphLoader=nullptr;}
+ ~Preview(){if(app)app->leave();if(owner)host.unregisterContext(owner);if(chromeFont)DeleteObject(chromeFont);if(selectChromeFont)DeleteObject(selectChromeFont);if(formFont)DeleteObject(formFont);if(actionFont)DeleteObject(actionFont);native_ui::glyphFinder=nullptr;native_ui::glyphLoader=nullptr;}
 };
 static Preview*active=nullptr;
 #include "preview_desktop.h"
 #include "preview_files.h"
-static LRESULT CALLBACK keyboardProc(HWND w,UINT msg,WPARAM a,LPARAM b){if(msg==WM_CTLCOLORSTATIC||msg==WM_CTLCOLOREDIT)return panelColor(a);if(msg==WM_DRAWITEM){drawPanelButton(active,reinterpret_cast<DRAWITEMSTRUCT*>(b));return TRUE;}if(msg==WM_COMMAND&&(LOWORD(a)==IDOK||LOWORD(a)==IDCANCEL)||msg==WM_CLOSE){bool accept=msg==WM_COMMAND&&LOWORD(a)==IDOK;auto*p=active;int n=GetWindowTextLengthW(p->edit);std::wstring text(n+1,0);GetWindowTextW(p->edit,text.data(),n+1);text.resize(n);try{auto data=utf8(text);Json options(cJSON_Parse(p->services.keyboardOptions.c_str()),cJSON_Delete);int limit=num(options.get(),"maximum_length",4096);if(accept&&data.size()>size_t(limit)){MessageBoxW(w,L"The entered text exceeds this field's byte limit.",L"Text too long",MB_OK);return 0;}p->keyboardWindow=nullptr;p->edit=nullptr;EnableWindow(p->window,TRUE);DestroyWindow(w);p->keyboardReply(data,accept);SetForegroundWindow(p->window);p->tick();}catch(const std::exception&e){MessageBoxW(p->window,wide(e.what()).c_str(),L"Preview error",MB_OK);p->failed=true;}return 0;}return DefWindowProcW(w,msg,a,b);}
+static LRESULT CALLBACK keyboardProc(HWND w,UINT msg,WPARAM a,LPARAM b){if(msg==WM_CTLCOLORSTATIC||msg==WM_CTLCOLOREDIT)return panelColor(active,msg,a);if(msg==WM_ERASEBKGND){RECT r;GetClientRect(w,&r);FillRect((HDC)a,&r,active->chrome.backgroundBrush);return 1;}if(msg==WM_DRAWITEM){drawPanelButton(active,reinterpret_cast<DRAWITEMSTRUCT*>(b));return TRUE;}if(msg==WM_COMMAND&&(LOWORD(a)==IDOK||LOWORD(a)==IDCANCEL)||msg==WM_CLOSE){bool accept=msg==WM_COMMAND&&LOWORD(a)==IDOK;auto*p=active;int n=GetWindowTextLengthW(p->edit);std::wstring text(n+1,0);GetWindowTextW(p->edit,text.data(),n+1);text.resize(n);try{auto data=utf8(text);Json options(cJSON_Parse(p->services.keyboardOptions.c_str()),cJSON_Delete);int limit=num(options.get(),"maximum_length",4096);if(accept&&data.size()>size_t(limit)){hostMessage(p,w,p->chromeText(L"Text too long"),p->chromeText(L"The entered text exceeds this field's byte limit."));return 0;}p->keyboardWindow=nullptr;p->edit=nullptr;EnableWindow(p->window,TRUE);DestroyWindow(w);p->keyboardReply(data,accept);SetForegroundWindow(p->window);p->tick();}catch(const std::exception&e){hostMessage(p,p->window,p->chromeText(L"Preview error"),wide(e.what()));p->failed=true;}return 0;}return DefWindowProcW(w,msg,a,b);}
 void Preview::openKeyboard(){
  Json options(cJSON_Parse(services.keyboardOptions.c_str()),cJSON_Delete);WNDCLASSW c{};c.lpfnWndProc=keyboardProc;c.hInstance=GetModuleHandleW(nullptr);c.lpszClassName=L"DeskTilePreviewInput";c.hbrBackground=(HBRUSH)(COLOR_WINDOW+1);c.hCursor=LoadCursor(nullptr,IDC_ARROW);RegisterClassW(&c);
- const bool multiline=!strcmp(str(options.get(),"input_type"),"multiline");const int height=multiline?340:156;
+ const auto title=*str(options.get(),"title")?wide(str(options.get(),"title")):chromeText(L"Text input");const bool multiline=!strcmp(str(options.get(),"input_type"),"multiline");const int height=multiline?340:156;
  RECT owner;GetWindowRect(window,&owner);RECT r{0,0,int(640*dpi),int(height*dpi)};DWORD style=WS_CAPTION|WS_SYSMENU;AdjustWindowRectEx(&r,style,FALSE,WS_EX_DLGMODALFRAME);
- keyboardWindow=CreateWindowExW(WS_EX_DLGMODALFRAME,c.lpszClassName,wide(str(options.get(),"title","Text input")).c_str(),style|WS_VISIBLE,owner.left+int(50*dpi),owner.top+int(60*dpi),r.right-r.left,r.bottom-r.top,window,nullptr,c.hInstance,nullptr);
- edit=panelControl(this,keyboardWindow,L"EDIT",wide(str(options.get(),"initial")).c_str(),WS_TABSTOP|ES_AUTOVSCROLL|(multiline?ES_MULTILINE|ES_WANTRETURN|WS_VSCROLL:ES_AUTOHSCROLL),10,24,24,592,multiline?232:40);
+ keyboardWindow=CreateWindowExW(WS_EX_DLGMODALFRAME,c.lpszClassName,title.c_str(),style|WS_VISIBLE,owner.left+int(50*dpi),owner.top+int(60*dpi),r.right-r.left,r.bottom-r.top,window,nullptr,c.hInstance,nullptr);
+ edit=panelControl(this,keyboardWindow,L"EDIT",wide(str(options.get(),"initial")).c_str(),WS_TABSTOP|ES_AUTOVSCROLL|(multiline?ES_MULTILINE|ES_WANTRETURN|WS_VSCROLL:ES_AUTOHSCROLL),10,24,24,592,multiline?232:26);
  RECT text{int(10*dpi),int(8*dpi),int(568*dpi),int(220*dpi)};if(multiline)SendMessageW(edit,EM_SETRECT,0,(LPARAM)&text);else SendMessageW(edit,EM_SETMARGINS,EC_LEFTMARGIN|EC_RIGHTMARGIN,MAKELPARAM(int(10*dpi),int(10*dpi)));
  SendMessageW(edit,EM_SETLIMITTEXT,num(options.get(),"maximum_length",4096),0);
- panelControl(this,keyboardWindow,L"BUTTON",L"Cancel",WS_TABSTOP,IDCANCEL,392,height-60,104,36);panelControl(this,keyboardWindow,L"BUTTON",L"OK",WS_TABSTOP|BS_DEFPUSHBUTTON,IDOK,512,height-60,104,36);
- EnableWindow(window,FALSE);SetFocus(edit);
+ panelControl(this,keyboardWindow,L"BUTTON",chromeText(L"Cancel").c_str(),WS_TABSTOP,IDCANCEL,392,height-52,104,26);panelControl(this,keyboardWindow,L"BUTTON",chromeText(L"OK").c_str(),WS_TABSTOP|BS_DEFPUSHBUTTON,IDOK,512,height-52,104,26);
+ chrome.titleBar(keyboardWindow);EnableWindow(window,FALSE);SetFocus(edit);
 }
 static LRESULT CALLBACK windowProc(HWND w,UINT msg,WPARAM a,LPARAM b){
  auto*p=active;
  try{if(popupMessage(p,msg,b))return TRUE;switch(msg){
  case WM_COMMAND:if(LOWORD(a)>=201&&LOWORD(a)<=206)p->toolbarCommand(LOWORD(a));return 0;
- case WM_DRAWITEM:{auto*d=reinterpret_cast<DRAWITEMSTRUCT*>(b);if(d->CtlID>=201&&d->CtlID<=206){auto saved=SaveDC(d->hDC);SetGraphicsMode(d->hDC,GM_ADVANCED);XFORM scale{FLOAT(p->dpi),0,0,FLOAT(p->dpi),0,0};SetWorldTransform(d->hDC,&scale);RECT r{0,0,LONG((d->rcItem.right-d->rcItem.left)/p->dpi),32};p->paintControl(d->hDC,d->CtlID,r,(d->itemState&ODS_SELECTED)!=0,(d->itemState&ODS_FOCUS)!=0);RestoreDC(d->hDC,saved);return TRUE;}break;}
+ case WM_DRAWITEM:{auto*d=reinterpret_cast<DRAWITEMSTRUCT*>(b);if(d->CtlID>=201&&d->CtlID<=206){p->paintControl(d->hDC,d->CtlID,d->rcItem,(d->itemState&ODS_SELECTED)!=0,(d->itemState&ODS_FOCUS)!=0,p->dpi);return TRUE;}break;}
  case WM_SIZE:p->layoutToolbar();return 0;
  case WM_GETMINMAXINFO:{auto*m=reinterpret_cast<MINMAXINFO*>(b);m->ptMinTrackSize={LONG(480*p->dpi),LONG(320*p->dpi)};return 0;}
  case WM_TIMER:if(std::chrono::steady_clock::now()>=p->nextFrame)p->tick();return 0;
@@ -263,16 +303,17 @@ static LRESULT CALLBACK windowProc(HWND w,UINT msg,WPARAM a,LPARAM b){
   RECT client;GetClientRect(w,&client);if(client.right<=0||client.bottom<=0){EndPaint(w,&paint);return 0;}auto dc=CreateCompatibleDC(target);auto bitmap=CreateCompatibleBitmap(target,client.right,client.bottom);auto original=SelectObject(dc,bitmap);
   auto saved=SaveDC(dc);SetGraphicsMode(dc,GM_ADVANCED);XFORM scale{FLOAT(p->dpi),0,0,FLOAT(p->dpi),0,0};SetWorldTransform(dc,&scale);p->paintChrome(dc,int(client.right/p->dpi),int(client.bottom/p->dpi));RestoreDC(dc,saved);
   BITMAPINFO info{};info.bmiHeader.biSize=sizeof(BITMAPINFOHEADER);info.bmiHeader.biWidth=800;info.bmiHeader.biHeight=-480;info.bmiHeader.biPlanes=1;info.bmiHeader.biBitCount=32;info.bmiHeader.biCompression=BI_RGB;
-  auto r=p->viewport();SetStretchBltMode(dc,HALFTONE);SetBrushOrgEx(dc,0,0,nullptr);StretchDIBits(dc,r.left,r.top,r.right-r.left,r.bottom-r.top,0,0,800,480,p->pixels.data(),&info,DIB_RGB_COLORS,SRCCOPY);auto border=CreateSolidBrush(RGB(150,150,150));InflateRect(&r,1,1);FrameRect(dc,&r,border);DeleteObject(border);
+  auto r=p->viewport();SetStretchBltMode(dc,HALFTONE);SetBrushOrgEx(dc,0,0,nullptr);StretchDIBits(dc,r.left,r.top,r.right-r.left,r.bottom-r.top,0,0,800,480,p->pixels.data(),&info,DIB_RGB_COLORS,SRCCOPY);auto border=CreateSolidBrush(p->chrome.c.border);InflateRect(&r,1,1);FrameRect(dc,&r,border);DeleteObject(border);
   BitBlt(target,paint.rcPaint.left,paint.rcPaint.top,paint.rcPaint.right-paint.rcPaint.left,paint.rcPaint.bottom-paint.rcPaint.top,dc,paint.rcPaint.left,paint.rcPaint.top,SRCCOPY);SelectObject(dc,original);DeleteObject(bitmap);DeleteDC(dc);EndPaint(w,&paint);
   if(p->frameProbe&&p->menuMotion.moving())p->frameProbe->frames.push_back(std::chrono::duration<double,std::milli>(std::chrono::steady_clock::now()-p->frameProbe->start).count());return 0;
  }
  case WM_CLOSE:DestroyWindow(w);return 0;
  case WM_DESTROY:KillTimer(w,1);PostQuitMessage(0);return 0;
- }}catch(const std::exception&e){p->failed=true;KillTimer(w,1);MessageBoxW(w,wide(e.what()).c_str(),L"DeskTile Preview",MB_ICONERROR|MB_OK);}
+ }}catch(const std::exception&e){p->failed=true;KillTimer(w,1);hostMessage(p,w,p->chromeText(L"Preview error"),wide(e.what()));}
  return DefWindowProcW(w,msg,a,b);
 }
 int wmain(int argc,wchar_t**argv){try{
+ struct ComScope{HRESULT result=CoInitializeEx(nullptr,COINIT_APARTMENTTHREADED);~ComScope(){if(SUCCEEDED(result))CoUninitialize();}}com;
  if(argc<3){std::cerr<<"Expected project directory and font pack [locale] [light|dark] [scenario.json]\n";return 2;}
  auto preview=std::make_unique<Preview>();active=preview.get();preview->scripted=argc>5;if(!preview->scripted||_wgetenv(L"DESKTILE_PREVIEW_CONFIG_DIR")||(argc>3&&!wcscmp(argv[3],L"auto")))preview->loadPreferences();
  const auto locale=argc>3&&wcscmp(argv[3],L"auto")?utf8(argv[3]):preview->services.locale;
@@ -281,7 +322,7 @@ int wmain(int argc,wchar_t**argv){try{
  if(argc>6&&!wcscmp(argv[5],L"--frame-probe")){preview->frameProbe=std::make_unique<Preview::FrameProbe>();preview->frameProbe->path=utf8(argv[6]);if(argc>7)preview->frameLimit=_wtoi(argv[7]);} if(argc>5&&!preview->frameProbe){auto scenario=parse(loadFile(argv[5]));if(!cJSON_IsArray(scenario.get()))throw std::runtime_error("Scenario must be an array");cJSON*s=nullptr;cJSON_ArrayForEach(s,scenario.get()){std::string action=str(s,"action");int x=num(s,"x"),y=num(s,"y");if(preview->desktopScenario(s)){}else if(action=="tap"){preview->pointer(0,x,y);std::this_thread::sleep_for(std::chrono::milliseconds(40));preview->releasePointer(x,y,[&]{preview->host.cancelPointer();});}else if(action=="down")preview->pointer(0,x,y);else if(action=="move")preview->pointer(1,x,y);else if(action=="up")preview->pointer(2,x,y);else if(action=="wheel")preview->wheel(x,y,num(s,"delta"));else if(action=="text"){if(!preview->services.keyboard)throw std::runtime_error("No pending keyboard input");preview->keyboardReply(str(s,"text"),true);}else if(action=="back")preview->check(preview->app->requestExit(),"Back");else if(action=="theme"){preview->setTheme(!strcmp(str(s,"value"),"dark"));}else if(action=="bounds"){preview->bounds=num(s,"value")!=0;preview->changed=true;}else if(action=="chrome"){preview->render();preview->saveChrome(fs::u8path(str(s,"path")));}else if(action=="tool")preview->toolbarCommand(num(s,"id"));else if(action=="save")preview->save(fs::u8path(str(s,"path")));else if(action=="menu"){preview->host.activateAppMenu(num(s,"index"),preview->owner);preview->route();}else if(action!="wait")throw std::runtime_error("Unknown scenario action");const auto until=GetTickCount64()+num(s,"ms",32);do{preview->tick();std::this_thread::sleep_for(std::chrono::milliseconds(16));}while(GetTickCount64()<until);}std::cout<<"Interactive scenario completed\n";return 0;}
  SetProcessDPIAware();HDC desktop=GetDC(nullptr);preview->dpi=GetDeviceCaps(desktop,LOGPIXELSX)/96.0;ReleaseDC(nullptr,desktop);
  WNDCLASSW c{};c.lpfnWndProc=windowProc;c.hInstance=GetModuleHandleW(nullptr);c.lpszClassName=L"DeskTileLocalPreview";c.hIcon=LoadIconW(c.hInstance,MAKEINTRESOURCEW(1));c.hCursor=LoadCursor(nullptr,IDC_ARROW);RegisterClassW(&c);
- DWORD style=WS_OVERLAPPEDWINDOW|WS_CLIPCHILDREN;preview->window=CreateWindowW(c.lpszClassName,wide("DeskTile Preview - "+preview->name).c_str(),style,CW_USEDEFAULT,CW_USEDEFAULT,1000,720,nullptr,nullptr,c.hInstance,nullptr);if(!preview->window)throw std::runtime_error("Cannot create preview window");preview->resizePreview();preview->toolbar();if(preview->frameProbe)preview->frameProbe->start=std::chrono::steady_clock::now();ShowWindow(preview->window,preview->frameProbe?SW_SHOWNOACTIVATE:SW_SHOW);SetTimer(preview->window,1,50,nullptr);
+ DWORD style=WS_OVERLAPPEDWINDOW|WS_CLIPCHILDREN;preview->window=CreateWindowW(c.lpszClassName,wide((preview->chrome.chinese?"DeskTile 预览 - ":"DeskTile Preview - ")+preview->name).c_str(),style,CW_USEDEFAULT,CW_USEDEFAULT,1000,720,nullptr,nullptr,c.hInstance,nullptr);if(!preview->window)throw std::runtime_error("Cannot create preview window");preview->chrome.titleBar(preview->window);preview->resizePreview();preview->toolbar();if(preview->frameProbe)preview->frameProbe->start=std::chrono::steady_clock::now();ShowWindow(preview->window,preview->frameProbe?SW_SHOWNOACTIVATE:SW_SHOW);SetTimer(preview->window,1,50,nullptr);
  std::cout<<"Local application running. Use Settings for fonts, zoom and simulated status; Esc to go back.\n"<<std::flush;FrameWake wake;MSG msg;bool running=true;while(running){unsigned messages=0;while(messages++<128&&PeekMessageW(&msg,nullptr,0,0,PM_REMOVE)){if(msg.message==WM_QUIT){running=false;break;}if(preview->keyboardWindow&&IsDialogMessageW(preview->keyboardWindow,&msg))continue;if(preview->settingsWindow&&IsDialogMessageW(preview->settingsWindow,&msg))continue;TranslateMessage(&msg);DispatchMessageW(&msg);}if(!running)break;if(preview->failed){DestroyWindow(preview->window);break;}if(std::chrono::steady_clock::now()>=preview->nextFrame)preview->tick();UpdateWindow(preview->window);wake.wait(preview->nextFrame);}if(preview->frameProbe){Json data(cJSON_CreateArray(),cJSON_Delete);for(auto value:preview->frameProbe->frames)cJSON_AddItemToArray(data.get(),cJSON_CreateNumber(value));char*text=cJSON_PrintUnformatted(data.get());std::ofstream(fs::u8path(preview->frameProbe->path))<<text;cJSON_free(text);}return preview->failed?1:0;
  }catch(const std::exception&e){std::cerr<<e.what()<<"\n";return 1;}}
 

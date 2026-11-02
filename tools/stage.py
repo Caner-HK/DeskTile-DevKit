@@ -20,6 +20,7 @@ def main():
     copy(ROOT/'LICENSE',DEST/'LICENSE')
     copy(ROOT/'NOTICE',DEST/'NOTICE')
     copy(ROOT/'tools/icon_asset.py',DEST/'tools/icon_asset.py')
+    copy(ROOT/'tools/tile_artwork.py',DEST/'tools/tile_artwork.py')
     copy(ROOT/'tools/image_asset.py',DEST/'tools/image_asset.py')
     for name in ['build_dtapp.py','build_native_app.py','locale_catalog.py','tile_icon_resources.py','notification_icon.py','build_dti.py']:
         copy(REPO/'tools'/name,DEST/'tools'/name)

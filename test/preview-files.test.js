@@ -4,7 +4,7 @@ const kit=path.resolve(__dirname,'..'),exe=path.join(kit,'renderer/interactive.e
 test('preview file service uses production paths, permissions, atomic replacement and directory operations',{skip:process.platform!=='win32'||!fs.existsSync(exe)},()=>{
  const parent=path.join(kit,'build/file-tests');fs.mkdirSync(parent,{recursive:true});const root=fs.mkdtempSync(path.join(parent,'app-'));
  try{
-  fs.cpSync(path.join(kit,'../samples/timer-js'),root,{recursive:true,filter:p=>!p.includes(path.sep+'.desktile')});
+  fs.cpSync(path.join(kit,'sdk-bundle/examples/timer-js'),root,{recursive:true,filter:p=>!p.includes(path.sep+'.desktile')});
   const manifest=JSON.parse(fs.readFileSync(path.join(root,'manifest.json')));manifest.id='com.example.filetest';manifest.permissions=['user-files.read','user-files.write'];fs.writeFileSync(path.join(root,'manifest.json'),JSON.stringify(manifest));
   const sha=crypto.createHash('sha256').update('original').digest('hex');
   const requests=[

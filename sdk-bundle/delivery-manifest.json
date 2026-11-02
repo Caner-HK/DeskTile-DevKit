@@ -1,7 +1,7 @@
 {
   "product": "DeskTile SDK",
   "sdk": "1.0",
-  "devkit": "1.0.0",
+  "devkit": "1.0.1",
   "files": [
     {
       "path": "examples/native-todo/assets/application.dti",
@@ -1960,8 +1960,8 @@
     },
     {
       "path": "sdk/contract/manifest.schema.json",
-      "bytes": 5971,
-      "sha256": "07f3c6bf8cbbda3076bdf7c5bb112a533492c10414464b43c4c10853cfaa1a0a"
+      "bytes": 10379,
+      "sha256": "575bc70aad6ac3f4d43099cabb0430c89b710c1ffe5567d5b730aa67133242a4"
     },
     {
       "path": "sdk/contract/permissions.json",
@@ -2190,8 +2190,8 @@
     },
     {
       "path": "sdk/include/desktile/tile_icon.hpp",
-      "bytes": 1241,
-      "sha256": "3f327fbf81de59d4864f68d2c0ac47d82aaf1f630f74b54e5385cfadebdd0f8b"
+      "bytes": 1758,
+      "sha256": "154b6a29ae9e9dc97e1021d6bccec61845013d5ea9ade4e1df7789eab7b6406d"
     },
     {
       "path": "sdk/include/desktile/tile_time_model.hpp",
@@ -2260,8 +2260,8 @@
     },
     {
       "path": "tools/build_dtapp.py",
-      "bytes": 12837,
-      "sha256": "9c753dc6c203cba546996dcdaf8bbff587b5a61c6ce8eb4366e3023e87d72888"
+      "bytes": 13931,
+      "sha256": "8d3e82ac796c74725303ac869df502209df4f4d230e76aa1e6c8b242c9c43bc9"
     },
     {
       "path": "tools/build_dti.py",
@@ -2275,8 +2275,8 @@
     },
     {
       "path": "tools/icon_asset.py",
-      "bytes": 7028,
-      "sha256": "a5befd476a9d866b68d674346caba6ec170f16e95baf4a919ba8225b6eb32150"
+      "bytes": 6751,
+      "sha256": "8d10fdffe3d11e00752862add144c5c9aae583762ce5ba9744396260a4f4b135"
     },
     {
       "path": "tools/image_asset.py",
@@ -2294,9 +2294,14 @@
       "sha256": "e062bcde0a124251fa03a71ae9c06bad8a9d6a1fba3e381028150f1be784fef6"
     },
     {
+      "path": "tools/tile_artwork.py",
+      "bytes": 2113,
+      "sha256": "3c5255504167f16e1288b6da020698d3a63df6fc6d00ba41ed39168e631102d4"
+    },
+    {
       "path": "tools/tile_icon_resources.py",
-      "bytes": 1730,
-      "sha256": "04c83f0e806d90c339a736028135016310f7d345d1a9db6e2e5c9f7c12ef75f0"
+      "bytes": 2537,
+      "sha256": "88a4e4e0f7dc5f5dd69daa6a3c1c7b4068d757d623d61a787dc28c700dce610f"
     }
   ]
 }

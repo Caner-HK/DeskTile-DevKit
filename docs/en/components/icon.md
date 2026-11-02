@@ -44,6 +44,6 @@ These 800 × 480 images use the native component renderer. See the [contract](..
 
 ## Package-owned icons
 
-[Download the custom-icon example](/component-examples/custom-icon.zip). Image loads the packaged DTI assets at the same square bounds. System-colored DTI uses the current accent; custom-colored DTI retains its pixels. Convert source images with the [asset tools](../tools/assets.md).
+[Download the custom-icon example](/component-examples/custom-icon.zip). Image loads the packaged DTI assets at the same square bounds. System-colored DTI uses the current accent; custom-colored DTI retains its pixels. Import, preview and save external graphics with the [Import icon tab](../tools/assets.md#import-icon).
 
 ![Packaged icons](/previews/icon/custom.png)

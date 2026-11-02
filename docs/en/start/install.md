@@ -13,16 +13,16 @@ The latest version is available from [GitHub Releases](https://github.com/Caner-
 
 | Download | Purpose |
 | --- | --- |
-| [VS Code extension (VSIX)](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/desktile-devkit-1.0.0-win32-x64.vsix) | Development in VS Code, including the SDK and preview runtime |
-| [Command-line tools (TGZ)](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/desktile-devkit-1.0.0.tgz) | Install the standalone CLI with npm |
-| [Complete Windows toolkit (ZIP)](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/DeskTile-DevKit-1.0.0-windows-x64.zip) | Tools, SDK, preview, examples and offline documentation |
-| [Checksum manifest](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.0/artifacts.json) | Release file sizes and SHA-256 checksums |
+| [VS Code extension (VSIX)](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.1/desktile-devkit-1.0.1-win32-x64.vsix) | Development in VS Code, including the SDK and preview runtime |
+| [Command-line tools (TGZ)](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.1/desktile-devkit-1.0.1.tgz) | Install the standalone CLI with npm |
+| [Complete Windows toolkit (ZIP)](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.1/DeskTile-DevKit-1.0.1-windows-x64.zip) | Tools, SDK, preview, examples and offline documentation |
+| [Checksum manifest](https://github.com/Caner-HK/DeskTile-DevKit/releases/download/v1.0.1/artifacts.json) | Release file sizes and SHA-256 checksums |
 
 Choose the VSIX for development in VS Code, or the complete ZIP for standalone tools and offline documentation. GitHub's Source code downloads contain repository sources; preview runtime files are included in the release assets above. Browse the [source repository](https://github.com/Caner-HK/DeskTile-DevKit) or [report an issue](https://github.com/Caner-HK/DeskTile-DevKit/issues).
 
 ## VS Code extension
 
-Choose **Install from VSIX** in VS Code and select `desktile-devkit-1.0.0-win32-x64.vsix`. Open an application folder to display DeskTile DevKit in Explorer. Run **Check Development Environment** before building. The tools panel displays results and provides Python, compiler and dependency setup actions. It also includes package inspection and device installation; see [Development tools](../tools/).
+Choose **Install from VSIX** in VS Code and select `desktile-devkit-1.0.1-win32-x64.vsix`. Open an application folder to display DeskTile DevKit in Explorer. Run **Check Development Environment** before building. The tools panel displays results and provides Python, compiler and dependency setup actions. It also includes package inspection and device installation; see [Development tools](../tools/).
 
 The extension follows the VS Code display language. **Interface language** selects automatic, Simplified Chinese or English for panels and prompts. Reload the window after changing it. Command-palette titles follow VS Code itself.
 
@@ -45,7 +45,7 @@ npm install --global .
 desktile doctor
 ```
 
-You can also run `node bin/desktile.js doctor`. Install a standalone CLI archive with `npm install --global desktile-devkit-1.0.0.tgz`. Updates install a new VSIX or npm package while project sources and device data remain in their own locations.
+You can also run `node bin/desktile.js doctor`. Install a standalone CLI archive with `npm install --global desktile-devkit-1.0.1.tgz`. Updates install a new VSIX or npm package while project sources and device data remain in their own locations.
 
 ## Offline documentation
 

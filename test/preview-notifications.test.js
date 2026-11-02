@@ -7,7 +7,7 @@ function execute(root,steps){const file=path.join(root,'scenario.json');fs.write
 test('QuickJS notifications use queue, permission, update, cancellation and click callbacks',{skip:!available},()=>{
  const parent=path.join(kit,'build/notification-tests');fs.mkdirSync(parent,{recursive:true});const root=fs.mkdtempSync(path.join(parent,'app-'));
  try{
-  fs.cpSync(path.join(kit,'../samples/timer-js'),root,{recursive:true,filter:p=>!p.includes(path.sep+'.desktile')});
+  fs.cpSync(path.join(kit,'sdk-bundle/examples/timer-js'),root,{recursive:true,filter:p=>!p.includes(path.sep+'.desktile')});
   const manifest=JSON.parse(fs.readFileSync(path.join(root,'manifest.json')));manifest.id='com.example.notificationtest';manifest.name={'en-US':'Calendar'};manifest.permissions=['notifications'];fs.writeFileSync(path.join(root,'manifest.json'),JSON.stringify(manifest));
   fs.writeFileSync(path.join(root,'src/main.js'),`
 let records=[],completions=0;const h=DeskTile.byId;

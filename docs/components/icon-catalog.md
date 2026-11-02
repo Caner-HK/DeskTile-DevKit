@@ -15,6 +15,10 @@
 <dt-image resource="assets/Notifications.dti" width="40" height="40"/>
 ```
 
+## 外部图标
+
+在应用页面中使用自己的 SVG、PNG 等图形，可通过 VS Code“导入资源”中的[导入图标 tab](../tools/assets.md#导入图标)导入、预览并保存为 DTI，再用 Image 组件加载。应用身份与桌面磁贴由另一个“应用图标与磁贴”工具管理。
+
 ## 全部图标
 
 | 预览 | 名称 | 设备编号 | 资源 |

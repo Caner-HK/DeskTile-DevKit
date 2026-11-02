@@ -8,13 +8,15 @@ test('image conversion preserves dimensions, decodes every DTI format and packag
  try{
   const app=path.join(root,'app');await core.create(app,{id:'com.example.images',name:'Images',author:'Test'});
   const source=path.join(root,'original.dti');
-  for(const [kind,payload] of [[0,words(0xf800,0xf800,0x001f)],[1,words(0x8002,0xf800,1,0x001f)],[2,Buffer.concat([Buffer.from([0xe0]),words(0xf800,0xf800,0x001f)])]]){
+  for(const [kind,payload] of [[0,words(0xf800,0xf800,0x001f)],[1,words(2,0xf800,1,0x001f)],[2,Buffer.concat([Buffer.from([0xe0]),words(0xf800,0xf800,0x001f)])]]){
    fs.writeFileSync(source,Buffer.concat([header(kind),payload]));
    const result=await assets.convertImage(app,source,{output:`assets/format${kind}.dti`});
    assert.equal(result.width,3);assert.equal(result.height,1);
    assert.deepEqual(fs.readFileSync(result.output),Buffer.concat([header(2),Buffer.from([0xe0]),words(0xf800,0xf800,0x001f)]));
    assert.ok(fs.statSync(result.light).size>0);
   }
+  fs.writeFileSync(source,Buffer.concat([header(1,344,344),words(65535,0x1234,344*344-65535,0x1234)]));
+  const long=await assets.convertImage(app,source,{output:'assets/long-run.dti'});assert.deepEqual([long.width,long.height],[344,344]);
   fs.writeFileSync(source,Buffer.concat([header(3),Buffer.from([0,127,255])]));
   const alpha=await assets.convertImage(app,source,{output:'assets/mask.dti',mode:'system'});
   assert.deepEqual(fs.readFileSync(alpha.output),fs.readFileSync(source));
@@ -25,7 +27,7 @@ test('image conversion preserves dimensions, decodes every DTI format and packag
   await assert.rejects(assets.convertImage(app,svg,{output:'assets/small.dti'}),{code:'ASSET_EXISTS'});
   await assets.convertImage(app,svg,{output:'assets/small.dti',width:40,replace:true});
   await assert.rejects(assets.convertImage(app,svg,{output:'../escape.dti'}),{code:'ASSET_OUTPUT'});
-  for(const payload of [words(0x8004,0xf800),words(0x8000,0xf800),words(2,0xf800),words(0x8002,0xf800)]){
+  for(const payload of [words(4,0xf800),words(0,0xf800),words(2,0xf800),words(2)]){
    fs.writeFileSync(source,Buffer.concat([header(1),payload]));await assert.rejects(assets.convertImage(app,source,{output:'assets/broken.dti'}));assert.equal(fs.existsSync(path.join(app,'assets/broken.dti')),false);
   }
   const built=await core.build(app),info=core.inspect(built.package);assert.ok(info.files.includes('assets/small.dti'));assert.ok(info.files.includes('assets/mask.dti'));

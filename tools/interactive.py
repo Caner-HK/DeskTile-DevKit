@@ -11,7 +11,7 @@ prelude=prelude.replace("OUT=ROOT/'build/renderer'", "OUT=ROOT/'build/interactiv
 exec(prelude, {'__file__':str(ROOT/'tools/renderer.py')})
 (OUT/'adapter.h').write_text((OUT/'preview.cpp').read_text(encoding='utf-8').split('int wmain(')[0],encoding='utf-8')
 shutil.copyfile(ROOT/'tools/interactive.cpp',OUT/'interactive.cpp')
-for name in ('preview_desktop.h','preview_files.h','preview_native.h','preview_storage.h','preview_config.h','preview_network.h','preview_notifications.h'):
+for name in ('preview_desktop.h','preview_files.h','preview_native.h','preview_storage.h','preview_config.h','preview_chrome.h','preview_network.h','preview_notifications.h','preview_icon_resources.h'):
     shutil.copyfile(ROOT/'tools'/name,OUT/name)
 for folder in ('storage','crypto'):
     shutil.copytree(REPO/'src'/folder,OUT/'src'/folder,dirs_exist_ok=True)
@@ -71,7 +71,7 @@ args+=' src/system/FileService.cpp'
 args+=' preview_tasks.cpp'
 Image.open(ROOT/'assets/logo.png').save(OUT/'preview.ico',sizes=[(16,16),(24,24),(32,32),(48,48),(64,64),(128,128)])
 (OUT/'preview.rc').write_text('1 ICON "preview.ico"\n',encoding='utf-8')
-host=f'cl /nologo /utf-8 /std:c++17 /EHsc /O2 /MT /D_CRT_SECURE_NO_WARNINGS /I. /Isrc /I"{qjs}" /I"{cjson}" interactive.cpp {args} "{cjson}/cJSON.c" JavaScriptAppRunner.obj quickjs.obj dtoa.obj libregexp.obj libunicode.obj preview.res user32.lib gdi32.lib comdlg32.lib winhttp.lib /Fe:interactive.exe'
+host=f'cl /nologo /utf-8 /std:c++17 /EHsc /O2 /MT /D_CRT_SECURE_NO_WARNINGS /I. /Isrc /I"{qjs}" /I"{cjson}" interactive.cpp {args} "{cjson}/cJSON.c" JavaScriptAppRunner.obj quickjs.obj dtoa.obj libregexp.obj libunicode.obj preview.res user32.lib gdi32.lib comdlg32.lib winhttp.lib uiautomationcore.lib oleaut32.lib ole32.lib /Fe:interactive.exe'
 subprocess.run('cmd /d /c '+f'call "{vs}/Common7/Tools/VsDevCmd.bat" -arch=x64 -host_arch=x64 >nul && rc /nologo preview.rc && {c} && {runner} && {host}',cwd=OUT,check=True)
 shutil.copyfile(OUT/'interactive.exe',ROOT/'renderer/interactive.exe')
 shutil.copyfile(OUT/'ui-fonts.pack',ROOT/'renderer/ui-fonts.pack')

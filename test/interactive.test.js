@@ -1,9 +1,9 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),{spawnSync}=require('node:child_process');
-const kit=path.resolve(__dirname,'..'),repo=path.dirname(kit),exe=path.join(kit,'renderer/interactive.exe');
+const kit=path.resolve(__dirname,'..'),exe=path.join(kit,'renderer/interactive.exe');
 const available=process.platform==='win32'&&fs.existsSync(exe);
 const {buildNativePreview}=require('../lib/native-preview'),core=require('../lib/core');
-function sandbox(sample){const fixtures=path.join(kit,'build/interactive-fixtures');fs.mkdirSync(fixtures,{recursive:true});const root=fs.mkdtempSync(path.join(fixtures,'app-'));fs.cpSync(path.join(repo,'samples',sample),root,{recursive:true,filter:p=>!p.includes(path.sep+'.desktile')&&!p.includes(path.sep+'dist')});return root;}
+function sandbox(sample){const fixtures=path.join(kit,'build/interactive-fixtures');fs.mkdirSync(fixtures,{recursive:true});const root=fs.mkdtempSync(path.join(fixtures,'app-'));fs.cpSync(path.join(kit,'sdk-bundle/examples',sample),root,{recursive:true,filter:p=>!p.includes(path.sep+'.desktile')&&!p.includes(path.sep+'dist')});return root;}
 function run(root,steps,locale='en-US',theme='light'){const f=path.join(root,'scenario.json');fs.writeFileSync(f,JSON.stringify(steps));const r=spawnSync(exe,[root,path.join(kit,'renderer/ui-fonts.pack'),locale,theme,f],{encoding:'utf8',timeout:60000,windowsHide:true});assert.equal(r.status,0,r.stdout+'\n'+r.stderr);}
 function snapshot(root,name){return {action:'save',path:path.join(root,name)};}
 function rows(root,name){return JSON.parse(fs.readFileSync(path.join(root,name+'.json'),'utf8'));}

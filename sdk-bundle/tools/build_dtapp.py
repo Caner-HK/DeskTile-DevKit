@@ -68,9 +68,14 @@ def validate_manifest(root: Path, manifest: dict) -> None:
     if not isinstance(sdk,dict) or set(sdk)!={'minimum','target'}:fail('invalid SDK fields')
     if api_version(sdk['minimum'])>api_version(sdk['target']):fail('minimum SDK exceeds target')
     tile=manifest.get('tile')
-    if not isinstance(tile,dict) or not {'default_size','supported_sizes'}<=set(tile) or set(tile)-{'default_size','supported_sizes','names','transition_color','appearance_transition_colors'}:fail('invalid tile fields')
+    if not isinstance(tile,dict) or not {'default_size','supported_sizes'}<=set(tile) or set(tile)-{'default_size','supported_sizes','names','transition_color','appearance_transition_colors','full_image','show_title'}:fail('invalid tile fields')
+    if 'show_title' in tile:
+        titles=tile['show_title']
+        if not isinstance(titles,dict) or not titles or set(titles)-{'2x2','4x2','4x4'} or any(not isinstance(value,bool) for value in titles.values()):fail('tile.show_title requires per-size boolean values')
     def tile_color(value):
         if not isinstance(value,str) or not re.fullmatch(r'#[0-9A-Fa-f]{6}',value):fail('tile transition colors must be #RRGGBB')
+    if 'full_image' in tile and not isinstance(tile['full_image'],bool):fail('tile.full_image must be a boolean')
+    if tile.get('full_image') and not manifest.get('icons',{}).get('tile_variants'):fail('complete tile artwork requires tile_variants')
     if 'transition_color' in tile:tile_color(tile['transition_color'])
     sizes=tile['supported_sizes']
     if not isinstance(sizes,list) or not sizes or any(s not in ('1x1','2x2','4x2','4x4') for s in sizes) or len(set(sizes))!=len(sizes) or tile['default_size'] not in sizes:fail('invalid tile sizes')
@@ -119,13 +124,15 @@ def validate_manifest(root: Path, manifest: dict) -> None:
     if 'tile_variants' in icons:
         if not isinstance(icons['tile_variants'],bool):fail('icons.tile_variants must be a boolean')
         if icons['tile_variants']:
-            try:validate_variants(root,icons['tile'])
+            try:validate_variants(root,icons['tile'],tile.get('full_image',False))
             except (ValueError,OSError) as error:fail(f'invalid tile icon variants: {error}')
     if 'appearances' in icons:
         appearances=icons['appearances']
-        if not isinstance(appearances,dict) or set(appearances)!={'default','choices'}:fail('invalid icon appearances')
-        choices=appearances['choices']
-        if not isinstance(choices,list) or not 1<=len(choices)<=16 or any(not isinstance(x,str) or not re.fullmatch(r'[A-Za-z0-9_-]{1,16}',x) for x in choices):fail('invalid icon appearance IDs')
+        if not isinstance(appearances,dict) or set(appearances) not in ({'default','choices'},{'default','from_resources'}):fail('invalid icon appearances')
+        resource_choices=appearances.get('from_resources') is True
+        if 'from_resources' in appearances and not resource_choices:fail('from_resources must be true')
+        choices=sorted(p.name for p in (root/Path(icons['application']).parent).iterdir() if p.is_dir() and (p/Path(icons['application']).name).is_file()) if resource_choices else appearances['choices']
+        if not isinstance(choices,list) or not 1<=len(choices)<=(256 if resource_choices else 16) or any(not isinstance(x,str) or not re.fullmatch(r'[A-Za-z0-9_-]{1,16}',x) for x in choices):fail('invalid icon appearance IDs')
         if len(set(choices))!=len(choices) or appearances['default'] not in choices:fail('invalid default or duplicate icon appearance')
         for choice in choices:
             for field in ('application','tile'):
@@ -133,7 +140,7 @@ def validate_manifest(root: Path, manifest: dict) -> None:
                 if len(variant.encode('utf-8'))>127:fail('icon appearance path too long')
                 require_path(root,variant,'icon appearance')
                 if field=='tile' and icons.get('tile_variants'):
-                    try:validate_variants(root,variant)
+                    try:validate_variants(root,variant,tile.get('full_image',False))
                     except (ValueError,OSError) as error:fail(f'invalid appearance tile sizes: {error}')
     if 'appearance_transition_colors' in tile:
         colors=tile['appearance_transition_colors'];choices=icons.get('appearances',{}).get('choices',[])
@@ -161,6 +168,8 @@ def build(source: Path, output: Path, development: bool, signing_key: Path | Non
 
     files: list[tuple[str, bytes]] = []
     for path in source.rglob("*"):
+        if path.relative_to(source).parts[0] == 'icon-design':
+            continue
         if path.is_symlink():fail(f'symbolic link in package source: {path.name}')
         if not path.is_file() or path == output:
             continue

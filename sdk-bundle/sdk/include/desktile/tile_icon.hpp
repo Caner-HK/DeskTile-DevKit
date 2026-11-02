@@ -1,6 +1,7 @@
 #pragma once
 #include <cstddef>
 #include <cstring>
+#include <cstdio>
 
 namespace desktile::sdk::tile_icon {
 // Shell-painted tiles use square, offline-rasterized icons at these sizes.
@@ -19,4 +20,11 @@ inline bool variantPath(const char *base,int side,char *destination,size_t capac
     std::memcpy(destination,base,length-4);destination[length-4]='-';
     std::memcpy(destination+length-3,size,3);std::memcpy(destination+length,".dti",5);return true;
 }
+inline bool localizedVariantPath(const char *base,int side,const char *locale,char *destination,size_t capacity){
+    char variant[128];if(!variantPath(base,side,variant,sizeof(variant)))return false;
+    const char *suffix=locale&&!std::strcmp(locale,"zh-HK")?"-zh-HK":locale&&locale[0]=='e'&&locale[1]=='n'?"-en":"";
+    const int length=int(std::strlen(variant))-4,written=std::snprintf(destination,capacity,"%.*s%s.dti",length,variant,suffix);
+    return written>0&&size_t(written)<capacity;
+}
+
 }

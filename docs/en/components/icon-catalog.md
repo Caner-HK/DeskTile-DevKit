@@ -13,6 +13,10 @@ Copy DTI files into package assets and load them with [Image](image.md). SDK 1.0
 <dt-image resource="assets/Notifications.dti" width="40" height="40"/>
 ```
 
+## External icons
+
+Import your own SVG, PNG or other page graphics with the [Import icon tab](../tools/assets.md#import-icon), preview and save them as DTI, then load them with Image. Application identity and desktop tiles are managed by Application Icons and Tiles.
+
 ## All icons
 
 | Preview | Name | Device ID | Resource |

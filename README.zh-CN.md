@@ -50,17 +50,17 @@ DeskTile DevKit 是面向 DeskTile OS 的应用开发套件，包含 SDK 1.0、V
 
 | 文件 | 用途 |
 | --- | --- |
-| `desktile-devkit-1.0.0-win32-x64.vsix` | VS Code 扩展，包含 SDK 和 Windows 预览资源 |
-| `desktile-devkit-1.0.0.tgz` | 独立命令行工具 |
-| `DeskTile-DevKit-1.0.0-windows-x64.zip` | 完整 Windows 开发套件及离线文档 |
+| `desktile-devkit-1.0.1-win32-x64.vsix` | VS Code 扩展，包含 SDK 和 Windows 预览资源 |
+| `desktile-devkit-1.0.1.tgz` | 独立命令行工具 |
+| `DeskTile-DevKit-1.0.1-windows-x64.zip` | 完整 Windows 开发套件及离线文档 |
 | `artifacts.json` | 发行文件大小和 SHA-256 校验值 |
 
-在 VS Code 扩展视图的菜单中选择 **从 VSIX 安装**，安装下载的 `.vsix`。完成后，在命令面板搜索 `DeskTile DevKit`。
+在 VS Code 扩展视图的菜单中选择 **从 VSIX 安装**，安装下载的 `.vsix`。完成后，点击活动栏中的 DeskTile 标志打开开发工具。在**设置**中选择 SDK、检查开发环境和更新、切换语言及查看版本信息；通过**工具栏位置**可将工具切回资源管理器。也可以在命令面板搜索 `DeskTile DevKit`。
 
 命令行工具通过 npm 安装：
 
 ```powershell
-npm install --global .\desktile-devkit-1.0.0.tgz
+npm install --global .\desktile-devkit-1.0.1.tgz
 desktile doctor
 ```
 

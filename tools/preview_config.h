@@ -6,7 +6,7 @@ struct Values {
  bool dark=false,fit=false,bounds=false,performance=false,charging=false;
  double zoom=1;
  int font=0,wifi=2,battery=78,fps=60;
- std::string locale="zh-HK";
+ std::string locale="zh-HK",uiTheme="auto",uiLanguage="auto";
 };
 inline fs::path directory(){
  const wchar_t *overridePath=_wgetenv(L"DESKTILE_PREVIEW_CONFIG_DIR");
@@ -28,6 +28,9 @@ inline Values read(const fs::path&dir){
   int rate=integer(j,"fps",60,15,60);v.fps=rate==15||rate==30?rate:60;
   auto*z=cJSON_GetObjectItemCaseSensitive(j,"zoom");if(cJSON_IsNumber(z))for(double scale:{0.75,1.0,1.25,1.5,2.0})if(z->valuedouble==scale)v.zoom=scale;
   std::string language=str(j,"locale");if(language=="zh-CN"||language=="zh-HK"||language=="en-US")v.locale=language;
+  const std::string theme=str(j,"uiTheme","auto"),uiLanguage=str(j,"uiLanguage","auto");
+  if(theme=="auto"||theme=="light"||theme=="dark")v.uiTheme=theme;
+  if(uiLanguage=="auto"||uiLanguage=="zh-CN"||uiLanguage=="en")v.uiLanguage=uiLanguage;
  }catch(...){/* Invalid or unavailable preferences use defaults. */}
  return v;
 }
@@ -35,6 +38,7 @@ inline void write(const fs::path&dir,const Values&v){
  Json j(cJSON_CreateObject(),cJSON_Delete);if(!j)throw std::bad_alloc();
  cJSON_AddNumberToObject(j.get(),"version",1);cJSON_AddBoolToObject(j.get(),"dark",v.dark);cJSON_AddBoolToObject(j.get(),"fit",v.fit);cJSON_AddBoolToObject(j.get(),"bounds",v.bounds);cJSON_AddBoolToObject(j.get(),"performance",v.performance);cJSON_AddBoolToObject(j.get(),"charging",v.charging);
  cJSON_AddNumberToObject(j.get(),"zoom",v.zoom);cJSON_AddNumberToObject(j.get(),"font",v.font);cJSON_AddNumberToObject(j.get(),"wifi",v.wifi);cJSON_AddNumberToObject(j.get(),"battery",v.battery);cJSON_AddNumberToObject(j.get(),"fps",v.fps);cJSON_AddStringToObject(j.get(),"locale",v.locale.c_str());
+ cJSON_AddStringToObject(j.get(),"uiTheme",v.uiTheme.c_str());cJSON_AddStringToObject(j.get(),"uiLanguage",v.uiLanguage.c_str());
  std::unique_ptr<char,decltype(&cJSON_free)> text(cJSON_Print(j.get()),cJSON_free);if(!text)throw std::bad_alloc();
  fs::create_directories(dir);const auto target=dir/L"settings.json";
  const auto temp=dir/(L"settings."+std::to_wstring(GetCurrentProcessId())+L".tmp");

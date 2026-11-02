@@ -11,13 +11,11 @@ def load(path,svg_limit=512):
         magic,w,h,kind=struct.unpack('<4sHHB3x',data[:12]);n=w*h
         if magic!=b'DTI1' or not 0<n<=1024*1024:raise ValueError('Invalid DTI size')
         if kind==1:
-            if len(data)%2:raise ValueError('Incomplete DTI RLE word')
-            words=struct.unpack('<'+'H'*((len(data)-12)//2),data[12:]);pixels=[];offset=0
-            while offset<len(words):
-                header=words[offset];offset+=1;count=header&0x7fff;repeated=bool(header&0x8000)
-                required=1 if repeated else count
-                if not count or len(pixels)+count>n or offset+required>len(words):raise ValueError('Invalid DTI RLE run')
-                pixels.extend([words[offset]]*count if repeated else words[offset:offset+count]);offset+=required
+            if (len(data)-12)%4:raise ValueError('Incomplete DTI RLE pair')
+            pixels=[]
+            for count,color in struct.iter_unpack('<HH',data[12:]):
+                if not count or len(pixels)+count>n:raise ValueError('Invalid DTI RLE run')
+                pixels.extend([color]*count)
             if len(pixels)!=n:raise ValueError('Incomplete DTI RLE pixels')
             data=data[:8]+bytes(4)+struct.pack('<'+'H'*n,*pixels);kind=0
         expected=12+(n if kind==3 else 2*n+(n+7)//8 if kind==2 else 2*n if kind==0 else -12)

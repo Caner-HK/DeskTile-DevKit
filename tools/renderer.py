@@ -20,6 +20,9 @@ header=sample.split("write('preview.cpp',r'''",1)[1].split('static void frame(',
 cpp=header+r'''
 #include <filesystem>
 #include <iostream>
+#include <memory>
+#include <set>
+#include "cJSON.h"
 namespace fs=std::filesystem;
 static std::vector<uint8_t> loadFile(const fs::path &p){std::ifstream f(p,std::ios::binary);if(!f)throw std::runtime_error("Cannot open input resource");return {std::istreambuf_iterator<char>(f),{}};}
 struct Resources:runtime::ResourceProvider {
@@ -34,9 +37,34 @@ struct Resources:runtime::ResourceProvider {
  dt_result readRange(const runtime::AppContext&,const char*p,uint64_t offset,dt_mutable_bytes&v)override{try{fs::path f;if(!resolve(p,f))return DT_ERR_INVALID_ARGUMENT;std::ifstream in(f,std::ios::binary);if(!in)return DT_ERR_NOT_FOUND;in.seekg(0,std::ios::end);const uint64_t n=in.tellg();if(offset>n)return DT_ERR_INVALID_ARGUMENT;v.size=std::min<uint64_t>(v.capacity,n-offset);in.seekg(offset);in.read(reinterpret_cast<char*>(v.data),v.size);return in?DT_OK:DT_ERR_IO;}catch(...){return DT_ERR_IO;}}
  dt_result read(const runtime::AppContext&c,const char*p,dt_mutable_bytes&v)override{uint64_t n=0;auto r=size(c,p,n);if(r!=DT_OK)return r;if(n>v.capacity){v.size=n;return DT_ERR_BUFFER_TOO_SMALL;}return readRange(c,p,0,v);}
 };
+static int exportGlyphs(const fs::path &request,const fs::path &output){
+ auto data=loadFile(request);if(data.size()>512*1024)throw std::runtime_error("Font request is too large");data.push_back(0);
+ std::unique_ptr<cJSON,decltype(&cJSON_Delete)> input(cJSON_Parse(reinterpret_cast<char*>(data.data())),cJSON_Delete),result(cJSON_CreateObject(),cJSON_Delete);
+ if(!input||!cJSON_IsArray(input.get())||cJSON_GetArraySize(input.get())>32)throw std::runtime_error("Invalid font request");
+ cJSON *entry=nullptr;size_t total=0;
+ cJSON_ArrayForEach(entry,input.get()){
+  auto *familyValue=cJSON_GetObjectItemCaseSensitive(entry,"family"),*sizeValue=cJSON_GetObjectItemCaseSensitive(entry,"size"),*textValue=cJSON_GetObjectItemCaseSensitive(entry,"chars"),*keyValue=cJSON_GetObjectItemCaseSensitive(entry,"key");
+  if(!cJSON_IsNumber(familyValue)||!cJSON_IsNumber(sizeValue)||!cJSON_IsString(textValue)||!cJSON_IsString(keyValue)||strlen(keyValue->valuestring)>64)throw std::runtime_error("Invalid font fields");
+  const int family=familyValue->valueint,size=sizeValue->valueint;
+  if((family!=0&&family!=2&&family!=3&&family!=4)||(size!=16&&size!=20&&size!=22&&size!=32&&size!=48))throw std::runtime_error("Unsupported native font");
+  native_ui::WesternFontScope scope(static_cast<sdk::WesternFont>(family));auto *glyphs=cJSON_CreateArray();cJSON_AddItemToObject(result.get(),keyValue->valuestring,glyphs);
+  std::set<uint32_t> seen;const char *cursor=textValue->valuestring;
+  while(*cursor){
+   const uint32_t cp=Canvas::nextCodepoint(cursor);if(!seen.insert(cp).second)continue;if(seen.size()>4096||++total>16384)throw std::runtime_error("Too many requested glyphs");
+   auto *item=cJSON_CreateObject();cJSON_AddItemToArray(glyphs,item);cJSON_AddNumberToObject(item,"cp",cp);cJSON_AddNumberToObject(item,"advance",native_ui::advance(cp,size,false));
+   const auto &font=native_ui::fontFor(cp,size,false);const auto *glyph=native_ui::findIn(font,cp);
+   if(!glyph){cJSON_AddBoolToObject(item,"missing",true);continue;}
+   const auto value=*glyph;cJSON_AddNumberToObject(item,"left",value.left);cJSON_AddNumberToObject(item,"top",value.top);cJSON_AddNumberToObject(item,"width",value.width);cJSON_AddNumberToObject(item,"height",value.height);
+   const size_t bytes=(size_t(value.width)*value.height+1)/2;std::string pixels(bytes*2,'0');const auto *source=bytes?native_ui::glyphPixels(font,value):nullptr;if(bytes&&!source)throw std::runtime_error("Native glyph pixels are unavailable");constexpr char hex[]="0123456789abcdef";
+   for(size_t at=0;at<bytes;++at){pixels[2*at]=hex[source[at]>>4];pixels[2*at+1]=hex[source[at]&15];}cJSON_AddStringToObject(item,"pixels",pixels.c_str());
+  }
+ }
+ char *json=cJSON_PrintUnformatted(result.get());if(!json)throw std::runtime_error("Cannot encode native glyphs");std::ofstream file(output,std::ios::binary);file<<json;cJSON_free(json);if(!file)throw std::runtime_error("Cannot write native glyphs");return 0;
+}
 int wmain(int argc,wchar_t**argv){try{
  if(argc!=5){std::cerr<<"Expected markup, application directory, font pack, output directory\n";return 2;}
  fontPack=loadFile(argv[3]);native_ui::glyphFinder=findGlyph;native_ui::glyphLoader=loadGlyph;
+ if(!wcscmp(argv[1],L"--glyphs"))return exportGlyphs(argv[2],argv[4]);
  runtime::NativeSdkHost host;host.setSurfaceViewport({0,32,800,448});host.setTextMeasure([](const char *s,int size){return ui::sizedTextWidth(s,size,false);});
  Resources resources;resources.root=fs::canonical(argv[2]);host.bindResources(&resources);
  runtime::AppContext context;if(!context.configure("com.example.preview",runtime::Trust::Development,0,0))return 3;

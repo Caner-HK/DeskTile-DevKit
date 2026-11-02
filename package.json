@@ -2,9 +2,9 @@
   "name": "desktile-devkit",
   "displayName": "DeskTile DevKit",
   "description": "%description%",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "desktileSdk": {
-    "toolRevision": 1,
+    "toolRevision": 2,
     "default": "1.0",
     "supported": ["1.0"]
   },
@@ -55,10 +55,18 @@
     "virtualWorkspaces": false
   },
   "scripts": {
-    "test": "node --test --test-concurrency=1 test/core.test.js test/device.test.js test/preview-config.test.js test/navigation.test.mjs test/interactive.test.js test/preview-fonts.test.js test/project-location.test.js test/assets.test.js test/localization.test.js test/preview-network.test.js test/preview-notifications.test.js test/preview-files.test.js test/file-transfer.test.js test/toolchain.test.js test/workflows.test.js"
+    "test": "node --test --test-concurrency=1 test/core.test.js test/device.test.js test/preview-config.test.js test/navigation.test.mjs test/interactive.test.js test/preview-fonts.test.js test/project-location.test.js test/assets.test.js test/localization.test.js test/preview-network.test.js test/preview-notifications.test.js test/preview-files.test.js test/file-transfer.test.js test/toolchain.test.js test/workflows.test.js test/cancellation.test.js test/device-panel.test.js test/preview-chrome.test.js test/create-panel.test.js test/select-control.test.js test/docs-server.test.js test/icon-designer.test.js test/icon-appearance-preview.test.js test/system-fonts.test.js test/interface-icon-panel.test.js test/updates.test.js test/language-support.test.js test/settings-panel.test.js"
   },
   "contributes": {
     "commands": [
+      {
+        "command": "desktile.settings",
+        "title": "%command.settings%"
+      },
+      {
+        "command": "desktile.updates",
+        "title": "%command.updates%"
+      },
       {
         "command": "desktile.create",
         "title": "%command.create%"
@@ -82,6 +90,10 @@
       {
         "command": "desktile.assets",
         "title": "%command.assets%"
+      },
+      {
+        "command": "desktile.interfaceIcons",
+        "title": "%command.interfaceIcons%"
       },
       {
         "command": "desktile.run",
@@ -112,6 +124,10 @@
         "title": "%command.docs%"
       },
       {
+        "command": "desktile.docsStop",
+        "title": "%command.docsStop%"
+      },
+      {
         "command": "desktile.sdk",
         "title": "%command.sdk%"
       },
@@ -120,18 +136,43 @@
         "title": "%command.language%"
       }
     ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "desktile",
+          "title": "DeskTile DevKit",
+          "icon": "assets/logo.svg"
+        }
+      ]
+    },
     "views": {
-      "explorer": [
+      "desktile": [
         {
           "id": "desktile.project",
           "name": "DeskTile DevKit",
-          "when": "workspaceFolderCount > 0"
+          "when": "config.desktile.toolsLocation != explorer"
+        }
+      ],
+      "explorer": [
+        {
+          "id": "desktile.explorer",
+          "name": "DeskTile DevKit",
+          "icon": "assets/logo.svg",
+          "when": "config.desktile.toolsLocation == explorer"
         }
       ]
     },
     "configuration": {
       "title": "DeskTile DevKit",
       "properties": {
+        "desktile.toolsLocation": {
+          "type": "string",
+          "scope": "application",
+          "enum": ["activitybar", "explorer"],
+          "enumDescriptions": ["%toolsLocation.activitybar%", "%toolsLocation.explorer%"],
+          "default": "activitybar",
+          "description": "%toolsLocation.description%"
+        },
         "desktile.sdkPath": {
           "type": "string",
           "default": "",
